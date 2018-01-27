@@ -1,0 +1,449 @@
+2016-06-24 14:54:46,256 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBN7527
+2016-06-24 14:54:46,271 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,271 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,271 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 B562852
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 AAH5148
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBS1255
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 LDA5083
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBV1317
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBQ6186
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBV6184
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBO9801
+2016-06-24 14:54:46,272 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBX7667
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  3
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SAY7679
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 IRE0108
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBI5864
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  3
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 AAI7812
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 STX7263
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBN6700
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBO5893
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 B538486
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBO4800
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,273 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  4
+2016-06-24 14:54:46,276 [8] DEBUG Parking40_PlateReader.Program - Analizando Movimientos parking matricula:SBX7874
+2016-06-24 14:54:46,276 [8] DEBUG Parking40_PlateReader.Program - Entre las :17:04y las :17:14
+2016-06-24 14:54:46,334 [8] DEBUG Parking40_PlateReader.Program - Analizando Movimientos parking matricula:SBX7874
+2016-06-24 14:54:46,334 [8] DEBUG Parking40_PlateReader.Program - Entre las :17:04y las :17:14
+2016-06-24 14:54:46,345 [8] DEBUG Parking40_PlateReader.Program - La matricula esta en movimientos?False
+2016-06-24 14:54:46,345 [8] INFO  Parking40_PlateReader.Program - Analizando Matricula:SBX7874
+2016-06-24 14:54:46,346 [8] INFO  Parking40_PlateReader.Program - La matricula SBX7874 NO esta en movimientos
+2016-06-24 14:54:46,346 [8] INFO  Parking40_PlateReader.Program - Revisando en mesuales y en tabla adtentro
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 B569-809 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 569-809 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LDB 3195 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 DB 3195 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 b205 553 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 205 553 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 B14065
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 B14065
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 55555
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 lda 6781 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 da 6781 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBO 1986 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BO 1986 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LAC 1091 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 1091 y chapa 2 SBX7874
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,402 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBH 8469 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BH 8469 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBS 5340 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BS 5340 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 CBU 5157 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BU 5157 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 PAA9544
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 2435
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 2435
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBU1227
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbu8351
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbu9268
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 NSW 308
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sae9836
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sap9923
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 haf091
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 haf091
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sae 2954 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ae 2954 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBS 5306 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BS 5306 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sbe 3492 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 be 3492 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 aag 7639 y chapa 2 SBX7874
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,403 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ag 7639 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbl5241
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 kma3725
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 slt1679
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBG 4519 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BG 4519 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 svt 2893 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 vt 2893 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBT 2633 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BT 2633 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SAH 1008 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AH 1008 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 JYO 3716 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 YO 3716 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 DAB 0059 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AB 0059 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LCA 3474 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 CA 3474 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AAC 7158 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 7158 y chapa 2 SBX7874
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,404 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LAC 1258 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 1258 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 6091
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 6091
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 aob 8063 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ob 8063 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AAF 6522 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AF 6522 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sae 3700 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ae 3700 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBT 5860 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BT 5860 y chapa 2 SBX7874
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 AAE4899
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,405 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,406 [8] INFO  Parking40_PlateReader.Program - busca en tabla adentro
+2016-06-24 14:54:46,407 [8] INFO  Parking40_PlateReader.Program - entra adentroDao
+2016-06-24 14:54:46,432 [8] DEBUG Parking40_PlateReader.Program - SBX7874 No esta en el parking
+2016-06-24 14:54:46,432 [8] INFO  Parking40_PlateReader.Program - La matricula SBX7874 sera notificada
+2016-06-24 14:54:46,436 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 B569-809 y chapa 2 SBX7874
+2016-06-24 14:54:46,436 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 569-809 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LDB 3195 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 DB 3195 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 b205 553 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 205 553 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 B14065
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 B14065
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 55555
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 lda 6781 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 da 6781 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBO 1986 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BO 1986 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LAC 1091 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 1091 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBH 8469 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BH 8469 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBS 5340 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 4
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BS 5340 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 CBU 5157 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BU 5157 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 PAA9544
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 2435
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 2435
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 SBU1227
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbu8351
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbu9268
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 NSW 308
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sae9836
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sap9923
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 haf091
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 haf091
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sae 2954 y chapa 2 SBX7874
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,437 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ae 2954 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBS 5306 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BS 5306 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sbe 3492 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 be 3492 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 aag 7639 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ag 7639 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 sbl5241
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 kma3725
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 slt1679
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBG 4519 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BG 4519 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 svt 2893 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 vt 2893 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBT 2633 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BT 2633 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SAH 1008 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AH 1008 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 JYO 3716 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 YO 3716 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 DAB 0059 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AB 0059 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LCA 3474 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 CA 3474 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  5
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AAC 7158 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 7158 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 LAC 1258 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AC 1258 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 6091
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 3
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BX7874 y chapa 2 6091
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 2
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  2
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 aob 8063 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ob 8063 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AAF 6522 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 AF 6522 y chapa 2 SBX7874
+2016-06-24 14:54:46,438 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 sae 3700 y chapa 2 SBX7874
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 ae 3700 y chapa 2 SBX7874
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 7
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  7
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBT 5860 y chapa 2 SBX7874
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 5
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 BT 5860 y chapa 2 SBX7874
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - Comparando chapa 1 SBX7874 y chapa 2 AAE4899
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - La diferencia de caracteres es de 6
+2016-06-24 14:54:46,439 [8] DEBUG Parking40_PlateReader.Program - El diff devuelto es  6
+2016-06-24 14:54:46,727 [8] INFO  Parking40_PlateReader.Program - Actualizando procesadosSBX7874
+2016-06-24 14:54:46,768 [8] DEBUG Parking40_PlateReader.Program - Analizando Movimientos parking matricula:AAE4899
+2016-06-24 14:54:46,768 [8] DEBUG Parking40_PlateReader.Program - Entre las :17:35y las :17:45
+2016-06-24 14:54:46,774 [8] DEBUG Parking40_PlateReader.Program - La matricula esta en movimientos?False
+2016-06-24 14:54:46,774 [8] INFO  Parking40_PlateReader.Program - Analizando Matricula:AAE4899
+2016-06-24 14:54:46,774 [8] INFO  Parking40_PlateReader.Program - La matricula AAE4899 NO esta en movimientos
+2016-06-24 14:54:46,774 [8] INFO  Parking40_PlateReader.Program - Revisando en mesuales y en tabla adtentro
+2016-06-24 14:54:46,781 [8] DEBUG Parking40_PlateReader.Program - AAE4899 Es mensual

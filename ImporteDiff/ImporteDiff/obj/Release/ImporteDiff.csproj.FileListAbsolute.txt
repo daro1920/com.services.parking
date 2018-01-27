@@ -1,0 +1,15 @@
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\WindowsFormsApplication1.exe.config
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\WindowsFormsApplication1.exe
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\WindowsFormsApplication1.pdb
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Configuration.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Data.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Deployment.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Drawing.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Windows.Forms.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\bin\Release\System.Xml.dll
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\obj\Release\ImporteDiff.csproj.GenerateResource.Cache
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\obj\Release\WindowsFormsApplication1.exe
+C:\Work\FreelanceProjects\ImporteDiff\ImporteDiff\obj\Release\WindowsFormsApplication1.pdb

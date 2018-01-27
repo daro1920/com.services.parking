@@ -1,0 +1,108 @@
+3/27/2016 2:41 AM, Entrada generada, ticket 46690
+3/27/2016 2:41 AM, Entrada generada, ticket 46690
+3/27/2016 2:44 AM, Entrada generada, ticket 46690
+3/27/2016 2:44 AM, Entrada generada, ticket 46690
+3/27/2016 2:45 AM, Entrada generada, ticket 46690
+3/27/2016 12:27 PM, Entrada generada, ticket 46690
+3/27/2016 1:23 PM, Entrada generada, ticket 46690
+3/30/2016 6:55 AM, Entrada generada, ticket 46691
+3/30/2016 6:56 AM, Entrada generada, ticket 46692
+3/30/2016 7:14 AM, Entrada generada, ticket 46693
+3/31/2016 10:26 PM, Entrada generada, ticket 46694
+4/3/2016 11:39 AM, Entrada generada, ticket 46695
+4/3/2016 11:41 AM, Entrada generada, ticket 46696
+4/3/2016 11:42 AM, Entrada generada, ticket 46697
+4/3/2016 11:44 AM, Entrada generada, ticket 46698
+4/3/2016 11:51 AM, Entrada generada, ticket 46699
+4/3/2016 12:10 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada() in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 123
+4/3/2016 12:11 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada() in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 123
+4/3/2016 12:12 PM, Entrada generada, ticket 46702
+4/3/2016 12:14 PM, Entrada generada, ticket 46703
+4/3/2016 12:18 PM, Entrada generada, ticket 46704
+4/3/2016 12:26 PM, Entrada generada, ticket 46705
+4/3/2016 12:29 PM, Entrada generada, ticket 46706
+4/3/2016 12:30 PM, Entrada generada, ticket 46707
+4/3/2016 12:31 PM, Entrada generada, ticket 46708
+4/3/2016 12:32 PM, Entrada generada, ticket 46709
+4/3/2016 12:33 PM, Entrada generada, ticket 46710
+4/3/2016 12:33 PM, Entrada generada, ticket 46711
+4/3/2016 12:34 PM, Entrada generada, ticket 46712
+4/10/2016 8:08 PM, Entrada generada, ticket 46713
+4/10/2016 8:09 PM, Entrada generada, ticket 46714
+4/10/2016 8:11 PM, Entrada generada, ticket 46715
+4/10/2016 8:13 PM, Entrada generada, ticket 46716
+4/10/2016 8:21 PM, Entrada generada, ticket 46717
+4/10/2016 8:24 PM, Entrada generada, ticket 46718
+4/10/2016 8:25 PM, Entrada generada, ticket 46719
+4/10/2016 8:41:24 PM, Error al actualizar EstadoLlavero: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at NotiFees.parking.dao.EstadoLlaveroDao.getFreeEstadoLlavero(String plate, String ticket) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\parking\dao\EstadoLlaveroDao.cs:line 26
+4/10/2016 8:41 PM, Entrada generada, ticket 46720
+4/10/2016 9:12 PM, Entrada generada, ticket 46722
+4/11/2016 8:32 PM, Entrada generada, ticket 46723
+4/11/2016 8:36 PM, Entrada generada, ticket 46724
+4/11/2016 8:39 PM, Entrada generada, ticket 46725
+4/11/2016 8:39 PM, Entrada generada, ticket 46726
+4/12/2016 7:04:46 AM, Recargando datos Notificaciones
+4/12/2016 10:10:45 PM, Recargando datos Notificaciones
+4/14/2016 8:28:55 PM, Recargando datos Notificaciones
+4/14/2016 8:32:14 PM, Recargando datos Notificaciones
+4/14/2016 8:37:13 PM, Recargando datos Notificaciones
+4/14/2016 10:03:59 PM, Recargando datos Notificaciones
+4/14/2016 10:04:00 PM, Recargando datos Notificaciones
+4/14/2016 10:04:16 PM, Recargando datos Notificaciones
+4/14/2016 10:04:54 PM, Recargando datos Notificaciones
+4/14/2016 10:06:48 PM, Recargando datos Notificaciones
+4/14/2016 10:06:58 PM, Recargando datos Notificaciones
+4/14/2016 10:11:02 PM, Recargando datos Notificaciones
+4/14/2016 10:23:55 PM, Recargando datos Notificaciones
+4/14/2016 10:28:19 PM, Recargando datos Notificaciones
+4/14/2016 10:34:27 PM, Recargando datos Notificaciones
+4/14/2016 10:43:53 PM, Recargando datos Notificaciones
+4/14/2016 11:09:11 PM, Recargando datos Notificaciones
+4/14/2016 11:09:20 PM, Recargando datos Notificaciones
+4/14/2016 11:09:20 PM, Recargando datos Notificaciones
+4/14/2016 11:09:21 PM, Recargando datos Notificaciones
+4/14/2016 11:09:22 PM, Recargando datos Notificaciones
+4/14/2016 11:09:23 PM, Recargando datos Notificaciones
+4/14/2016 11:09:24 PM, Recargando datos Notificaciones
+4/14/2016 11:15:36 PM, Recargando datos Notificaciones
+4/14/2016 11:37:32 PM, Recargando datos Notificaciones
+4/16/2016 10:48:45 AM, Recargando datos Notificaciones
+4/16/2016 10:48 AM, Entrada generada, ticket 46727
+4/16/2016 10:48:59 AM, Recargando datos Notificaciones
+4/16/2016 10:49:35 AM, Recargando datos Notificaciones
+4/16/2016 11:04 AM, Entrada generada, ticket 46728
+4/16/2016 11:05:22 AM, Recargando datos Notificaciones
+4/16/2016 12:49:32 PM, Recargando datos Notificaciones
+4/21/2016 8:28 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:28 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:29 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:30 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:30 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:33 PM, Error al generar ticket de entrada System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at NotiFees.Program.Generar_Entrada(String plate, Int32 vehType, String dateIn, String hourIn) in C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\Program.cs:line 152
+4/21/2016 8:44 PM, Entrada generada, ticket 46738

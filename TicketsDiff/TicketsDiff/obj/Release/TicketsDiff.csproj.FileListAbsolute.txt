@@ -1,0 +1,15 @@
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Release\TicketsDiff.csproj.GenerateResource.Cache
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Configuration.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Data.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Deployment.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Drawing.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Windows.Forms.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\System.Xml.dll
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\ticketsDiff.exe.config
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\ticketsDiff.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Release\ticketsDiff.pdb
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Release\ticketsDiff.Properties.Resources.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Release\ticketsDiff.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Release\ticketsDiff.pdb

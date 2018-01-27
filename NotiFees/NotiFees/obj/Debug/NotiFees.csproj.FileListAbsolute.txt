@@ -1,0 +1,33 @@
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\NotiFees.exe.config
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\NotiFees.exe
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\NotiFees.pdb
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\EntityFramework.dll
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\System.Net.Http.dll
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\EntityFramework.xml
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\System.Net.Http.xml
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\bin\Debug\es\System.Net.Http.resources.dll
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.Form1.resources
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.Properties.Resources.resources
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.csproj.GenerateResource.Cache
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.exe
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.pdb
+c:\users\darogime\documents\visual studio 2015\Projects\NotiFees\NotiFees\obj\Debug\NotiFees.csprojResolveAssemblyReference.cache
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\NotiFees.exe.config
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\NotiFees.exe
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\NotiFees.pdb
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\EntityFramework.dll
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\EntityFramework.SqlServer.dll
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\EntityFramework.xml
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\bin\Debug\EntityFramework.SqlServer.xml
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.ErrorReport.resources
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.Form1.resources
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.Properties.Resources.resources
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.csproj.GenerateResource.Cache
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.exe
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.pdb
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.OptionsForm.resources
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.ImgFrame.resources
+C:\Work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.csprojResolveAssemblyReference.cache
+C:\work\FreelanceProjects\Parking\NotiFees\NotiFees\obj\Debug\NotiFees.csproj.CoreCompileInputs.cache

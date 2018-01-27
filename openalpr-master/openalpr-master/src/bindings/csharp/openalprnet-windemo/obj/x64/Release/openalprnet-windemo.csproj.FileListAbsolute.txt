@@ -1,0 +1,10 @@
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\bin\x64\Release\openalprnet-windemo.exe.config
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\bin\x64\Release\openalprnet-windemo.exe
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\bin\x64\Release\openalprnet-windemo.pdb
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\bin\x64\Release\openalpr-net.dll
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet-windemo.csprojResolveAssemblyReference.cache
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet_windemo.Form1.resources
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet_windemo.Properties.Resources.resources
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet-windemo.csproj.GenerateResource.Cache
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet-windemo.exe
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x64\Release\openalprnet-windemo.pdb

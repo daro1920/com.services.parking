@@ -1,0 +1,12 @@
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\TicketsDiff.csproj.GenerateResource.Cache
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\TicketsDiff.csprojResolveAssemblyReference.cache
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\ticketsDiff.exe.config
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\ticketsDiff.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\ticketsDiff.pdb
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\ticketsDiff.Properties.Resources.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\ticketsDiff.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\ticketsDiff.pdb
+C:\Work\FreelanceProjects\Parking\TicketsDiff\TicketsDiff\bin\Debug\ticketsDiff.exe.config
+C:\Work\FreelanceProjects\Parking\TicketsDiff\TicketsDiff\obj\Debug\ticketsDiff.exe
+C:\Work\FreelanceProjects\Parking\TicketsDiff\TicketsDiff\obj\Debug\ticketsDiff.pdb

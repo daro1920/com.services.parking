@@ -1,0 +1,8 @@
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\WindowsFormsApplication1.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\WindowsFormsApplication1.pdb
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\WindowsFormsApplication1.exe
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\bin\Debug\WindowsFormsApplication1.pdb
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Work\FreelanceProjects\TicketsDiff\TicketsDiff\obj\Debug\TicketsDiff.csproj.GenerateResource.Cache

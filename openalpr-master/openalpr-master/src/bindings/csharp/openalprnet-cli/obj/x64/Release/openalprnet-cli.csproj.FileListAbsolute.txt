@@ -1,0 +1,6 @@
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\bin\x64\Release\openalprnet-cli.exe
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\bin\x64\Release\openalprnet-cli.pdb
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\bin\x64\Release\openalpr-net.dll
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\obj\x64\Release\openalprnet-cli.csprojResolveAssemblyReference.cache
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\obj\x64\Release\openalprnet-cli.exe
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-cli\obj\x64\Release\openalprnet-cli.pdb

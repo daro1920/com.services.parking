@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking40_ExpendedorBarrera", "Parking40_ExpendedorBarrera\Parking40_ExpendedorBarrera.csproj", "{01C62D39-5B80-401F-8836-9F0D62441B6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A5162D1-3EAC-4562-8920-C7DA0216DAEC}"
+	ProjectSection(SolutionItems) = preProject
+		Parking40_ExpendedorBarrera\accept2.gif = Parking40_ExpendedorBarrera\accept2.gif
+		Parking40_ExpendedorBarrera\accept5.gif = Parking40_ExpendedorBarrera\accept5.gif
+		Parking40_ExpendedorBarrera\Entrada_X_UI.cs = Parking40_ExpendedorBarrera\Entrada_X_UI.cs
+		Parking40_ExpendedorBarrera\Entrada_X_UI.Designer.cs = Parking40_ExpendedorBarrera\Entrada_X_UI.Designer.cs
+		Parking40_ExpendedorBarrera\Entrada_X_UI.resx = Parking40_ExpendedorBarrera\Entrada_X_UI.resx
+		Parking40_ExpendedorBarrera\Form1.cs = Parking40_ExpendedorBarrera\Form1.cs
+		Parking40_ExpendedorBarrera\Form1.Designer.cs = Parking40_ExpendedorBarrera\Form1.Designer.cs
+		Parking40_ExpendedorBarrera\Form1.resx = Parking40_ExpendedorBarrera\Form1.resx
+		Parking40_ExpendedorBarrera\fre3of9x.ttf = Parking40_ExpendedorBarrera\fre3of9x.ttf
+		Parking40_ExpendedorBarrera\free3of9.ttf = Parking40_ExpendedorBarrera\free3of9.ttf
+		Parking40_ExpendedorBarrera\Monitor.cs = Parking40_ExpendedorBarrera\Monitor.cs
+		Parking40_ExpendedorBarrera\Monitor.Designer.cs = Parking40_ExpendedorBarrera\Monitor.Designer.cs
+		Parking40_ExpendedorBarrera\Monitor.resx = Parking40_ExpendedorBarrera\Monitor.resx
+		Parking40_ExpendedorBarrera\MonitorPuertoSerie.cs = Parking40_ExpendedorBarrera\MonitorPuertoSerie.cs
+		Parking40_ExpendedorBarrera\MonitorPuertoSerie.resx = Parking40_ExpendedorBarrera\MonitorPuertoSerie.resx
+		Parking40_ExpendedorBarrera\Program.cs = Parking40_ExpendedorBarrera\Program.cs
+		Parking40_ExpendedorBarrera\Ticket_Barrera.cs = Parking40_ExpendedorBarrera\Ticket_Barrera.cs
+		Parking40_ExpendedorBarrera\Ticket_Barrera.Designer.cs = Parking40_ExpendedorBarrera\Ticket_Barrera.Designer.cs
+		Parking40_ExpendedorBarrera\Ticket_Barrera.resx = Parking40_ExpendedorBarrera\Ticket_Barrera.resx
+		Parking40_ExpendedorBarrera\vehiculo.gif = Parking40_ExpendedorBarrera\vehiculo.gif
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01C62D39-5B80-401F-8836-9F0D62441B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C62D39-5B80-401F-8836-9F0D62441B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C62D39-5B80-401F-8836-9F0D62441B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C62D39-5B80-401F-8836-9F0D62441B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

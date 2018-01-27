@@ -1,0 +1,3 @@
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x86\Release\openalprnet_windemo.Form1.resources
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x86\Release\openalprnet_windemo.Properties.Resources.resources
+C:\Work\FreelanceProjects\openalpr-master\openalpr-master\src\bindings\csharp\openalprnet-windemo\obj\x86\Release\openalprnet-windemo.csproj.GenerateResource.Cache
