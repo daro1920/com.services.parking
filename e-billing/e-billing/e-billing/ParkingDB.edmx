@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ParkingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adentro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_fecha_entrada" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="str_hora_entrada" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_matricula" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_tipo_vehiculo" Type="int" />
+          <Property Name="str_lugar" Type="varchar" MaxLength="20" />
+          <Property Name="str_llave" Type="varchar" MaxLength="20" />
+          <Property Name="str_observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="id_convenio" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="prepago" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="fecha_venc_prepago" Type="varchar" MaxLength="8" />
+          <Property Name="hora_venc_prepago" Type="varchar" MaxLength="5" />
+          <Property Name="importe_prepago" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="correlativo_ticket" Type="int" />
+          <Property Name="es_nocturno" Type="bit" />
+        </EntityType>
+        <EntityType Name="EstadoLlavero">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nro_llave" Type="varchar" MaxLength="3" />
+          <Property Name="estado" Type="varchar" MaxLength="15" />
+          <Property Name="ticket" Type="int" />
+          <Property Name="matricula" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Tarifas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_vehiculo" Type="int" Nullable="false" />
+          <Property Name="str_tarifa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="minutos" Type="int" Nullable="false" />
+          <Property Name="minutos_tolerancia" Type="int" Nullable="false" />
+          <Property Name="importe" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="techo" Type="bit" Nullable="false" />
+          <Property Name="id_convenio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_codigo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_descrip" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_nombre_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="str_password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="nombre1" Type="varchar" MaxLength="20" />
+          <Property Name="nombre2" Type="varchar" MaxLength="20" />
+          <Property Name="apellido1" Type="varchar" MaxLength="20" />
+          <Property Name="apellido2" Type="varchar" MaxLength="20" />
+          <Property Name="ci" Type="varchar" MaxLength="20" />
+          <Property Name="fecha_ingreso" Type="varchar" MaxLength="8" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="celular" Type="varchar" MaxLength="20" />
+          <Property Name="remuneracion_nominal" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="permiso_principa" Type="bit" />
+          <Property Name="permiso_es" Type="bit" />
+          <Property Name="permiso_agregar_mov_caja" Type="bit" />
+          <Property Name="permiso_nota_credito" Type="bit" />
+          <Property Name="permiso_pensionistas" Type="bit" />
+          <Property Name="permiso_cc" Type="bit" />
+          <Property Name="permiso_agregar_mov_cc" Type="bit" />
+          <Property Name="permiso_cobrar_pensiones" Type="bit" />
+          <Property Name="permiso_emitir_facturacion_mensual" Type="bit" />
+          <Property Name="permiso_parametricas" Type="bit" />
+          <Property Name="permiso_usuarios" Type="bit" />
+          <Property Name="permiso_configurador" Type="bit" />
+          <Property Name="permiso_respaldo" Type="bit" />
+          <Property Name="permiso_reportes" Type="bit" />
+          <Property Name="permiso_estadisticas" Type="bit" />
+          <Property Name="permiso_obligar_login_cierre_caja" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Adentro_TipoVehiculo">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
+          <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adentro_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarifas_TipoVehiculo">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
+          <End Role="Tarifas" Type="Self.Tarifas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tarifas">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkingModelStoreContainer">
+          <EntitySet Name="Adentro" EntityType="Self.Adentro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoLlavero" EntityType="Self.EstadoLlavero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adentro_TipoVehiculo" Association="Self.FK_Adentro_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
+            <End Role="Adentro" EntitySet="Adentro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adentro_Usuarios" Association="Self.FK_Adentro_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Adentro" EntitySet="Adentro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifas_TipoVehiculo" Association="Self.FK_Tarifas_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
+            <End Role="Tarifas" EntitySet="Tarifas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ParkingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adentro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_fecha_entrada" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="str_hora_entrada" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="str_matricula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_tipo_vehiculo" Type="Int32" />
+          <Property Name="str_lugar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="str_llave" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="str_observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_convenio" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="prepago" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_venc_prepago" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="hora_venc_prepago" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="importe_prepago" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="correlativo_ticket" Type="Int32" />
+          <Property Name="es_nocturno" Type="Boolean" />
+          <NavigationProperty Name="TipoVehiculo" Relationship="Self.FK_Adentro_TipoVehiculo" FromRole="Adentro" ToRole="TipoVehiculo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Adentro_Usuarios" FromRole="Adentro" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="EstadoLlavero">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nro_llave" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ticket" Type="Int32" />
+          <Property Name="matricula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="str_descrip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Adentroes" Relationship="Self.FK_Adentro_TipoVehiculo" FromRole="TipoVehiculo" ToRole="Adentro" />
+          <NavigationProperty Name="Tarifas" Relationship="ParkingModel.FK_Tarifas_TipoVehiculo" FromRole="TipoVehiculo" ToRole="Tarifa" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_nombre_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="str_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="nombre1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombre2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ci" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_ingreso" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="remuneracion_nominal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="permiso_principa" Type="Boolean" />
+          <Property Name="permiso_es" Type="Boolean" />
+          <Property Name="permiso_agregar_mov_caja" Type="Boolean" />
+          <Property Name="permiso_nota_credito" Type="Boolean" />
+          <Property Name="permiso_pensionistas" Type="Boolean" />
+          <Property Name="permiso_cc" Type="Boolean" />
+          <Property Name="permiso_agregar_mov_cc" Type="Boolean" />
+          <Property Name="permiso_cobrar_pensiones" Type="Boolean" />
+          <Property Name="permiso_emitir_facturacion_mensual" Type="Boolean" />
+          <Property Name="permiso_parametricas" Type="Boolean" />
+          <Property Name="permiso_usuarios" Type="Boolean" />
+          <Property Name="permiso_configurador" Type="Boolean" />
+          <Property Name="permiso_respaldo" Type="Boolean" />
+          <Property Name="permiso_reportes" Type="Boolean" />
+          <Property Name="permiso_estadisticas" Type="Boolean" />
+          <Property Name="permiso_obligar_login_cierre_caja" Type="Boolean" />
+          <NavigationProperty Name="Adentroes" Relationship="Self.FK_Adentro_Usuarios" FromRole="Usuarios" ToRole="Adentro" />
+        </EntityType>
+        <Association Name="FK_Adentro_TipoVehiculo">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
+          <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adentro_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkingEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adentroes" EntityType="Self.Adentro" />
+          <EntitySet Name="EstadoLlaveroes" EntityType="Self.EstadoLlavero" />
+          <EntitySet Name="TipoVehiculoes" EntityType="Self.TipoVehiculo" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Adentro_TipoVehiculo" Association="Self.FK_Adentro_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
+            <End Role="Adentro" EntitySet="Adentroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adentro_Usuarios" Association="Self.FK_Adentro_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Adentro" EntitySet="Adentroes" />
+          </AssociationSet>
+          <EntitySet Name="Tarifas" EntityType="ParkingModel.Tarifa" />
+          <AssociationSet Name="FK_Tarifas_TipoVehiculo" Association="ParkingModel.FK_Tarifas_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
+            <End Role="Tarifa" EntitySet="Tarifas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Tarifa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_vehiculo" Type="Int32" Nullable="false" />
+          <Property Name="str_tarifa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="minutos" Type="Int32" Nullable="false" />
+          <Property Name="minutos_tolerancia" Type="Int32" Nullable="false" />
+          <Property Name="importe" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="techo" Type="Boolean" Nullable="false" />
+          <Property Name="id_convenio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipoVehiculo" Relationship="ParkingModel.FK_Tarifas_TipoVehiculo" FromRole="Tarifa" ToRole="TipoVehiculo" />
+        </EntityType>
+        <Association Name="FK_Tarifas_TipoVehiculo">
+          <End Type="ParkingModel.TipoVehiculo" Role="TipoVehiculo" Multiplicity="1" />
+          <End Type="ParkingModel.Tarifa" Role="Tarifa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tarifa">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParkingModelStoreContainer" CdmEntityContainer="ParkingEntities2">
+          <EntitySetMapping Name="Adentroes">
+            <EntityTypeMapping TypeName="ParkingModel.Adentro">
+              <MappingFragment StoreEntitySet="Adentro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="str_fecha_entrada" ColumnName="str_fecha_entrada" />
+                <ScalarProperty Name="str_hora_entrada" ColumnName="str_hora_entrada" />
+                <ScalarProperty Name="str_matricula" ColumnName="str_matricula" />
+                <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+                <ScalarProperty Name="str_lugar" ColumnName="str_lugar" />
+                <ScalarProperty Name="str_llave" ColumnName="str_llave" />
+                <ScalarProperty Name="str_observaciones" ColumnName="str_observaciones" />
+                <ScalarProperty Name="id_convenio" ColumnName="id_convenio" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="prepago" ColumnName="prepago" />
+                <ScalarProperty Name="fecha_venc_prepago" ColumnName="fecha_venc_prepago" />
+                <ScalarProperty Name="hora_venc_prepago" ColumnName="hora_venc_prepago" />
+                <ScalarProperty Name="importe_prepago" ColumnName="importe_prepago" />
+                <ScalarProperty Name="correlativo_ticket" ColumnName="correlativo_ticket" />
+                <ScalarProperty Name="es_nocturno" ColumnName="es_nocturno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoLlaveroes">
+            <EntityTypeMapping TypeName="ParkingModel.EstadoLlavero">
+              <MappingFragment StoreEntitySet="EstadoLlavero">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nro_llave" ColumnName="nro_llave" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="ticket" ColumnName="ticket" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVehiculoes">
+            <EntityTypeMapping TypeName="ParkingModel.TipoVehiculo">
+              <MappingFragment StoreEntitySet="TipoVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="str_codigo" ColumnName="str_codigo" />
+                <ScalarProperty Name="str_descrip" ColumnName="str_descrip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="ParkingModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="str_nombre_usuario" ColumnName="str_nombre_usuario" />
+                <ScalarProperty Name="str_password" ColumnName="str_password" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="nombre1" ColumnName="nombre1" />
+                <ScalarProperty Name="nombre2" ColumnName="nombre2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="remuneracion_nominal" ColumnName="remuneracion_nominal" />
+                <ScalarProperty Name="permiso_principa" ColumnName="permiso_principa" />
+                <ScalarProperty Name="permiso_es" ColumnName="permiso_es" />
+                <ScalarProperty Name="permiso_agregar_mov_caja" ColumnName="permiso_agregar_mov_caja" />
+                <ScalarProperty Name="permiso_nota_credito" ColumnName="permiso_nota_credito" />
+                <ScalarProperty Name="permiso_pensionistas" ColumnName="permiso_pensionistas" />
+                <ScalarProperty Name="permiso_cc" ColumnName="permiso_cc" />
+                <ScalarProperty Name="permiso_agregar_mov_cc" ColumnName="permiso_agregar_mov_cc" />
+                <ScalarProperty Name="permiso_cobrar_pensiones" ColumnName="permiso_cobrar_pensiones" />
+                <ScalarProperty Name="permiso_emitir_facturacion_mensual" ColumnName="permiso_emitir_facturacion_mensual" />
+                <ScalarProperty Name="permiso_parametricas" ColumnName="permiso_parametricas" />
+                <ScalarProperty Name="permiso_usuarios" ColumnName="permiso_usuarios" />
+                <ScalarProperty Name="permiso_configurador" ColumnName="permiso_configurador" />
+                <ScalarProperty Name="permiso_respaldo" ColumnName="permiso_respaldo" />
+                <ScalarProperty Name="permiso_reportes" ColumnName="permiso_reportes" />
+                <ScalarProperty Name="permiso_estadisticas" ColumnName="permiso_estadisticas" />
+                <ScalarProperty Name="permiso_obligar_login_cierre_caja" ColumnName="permiso_obligar_login_cierre_caja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarifas">
+            <EntityTypeMapping TypeName="ParkingModel.Tarifa">
+              <MappingFragment StoreEntitySet="Tarifas">
+                <ScalarProperty Name="id_convenio" ColumnName="id_convenio" />
+                <ScalarProperty Name="techo" ColumnName="techo" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="minutos_tolerancia" ColumnName="minutos_tolerancia" />
+                <ScalarProperty Name="minutos" ColumnName="minutos" />
+                <ScalarProperty Name="str_tarifa" ColumnName="str_tarifa" />
+                <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
