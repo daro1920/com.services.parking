@@ -9,7 +9,9 @@ namespace e_billing
     {
         private TarifaDAo rateDao = new TarifaDAo();
         private TipoVehiculoDAO tvDAO = new TipoVehiculoDAO();
-        
+        private EstadoLlaveroDAO elDAO = new EstadoLlaveroDAO();
+        private AdentroDAO adeDAO = new AdentroDAO();
+
         public Main()
         {
             InitializeComponent();
@@ -26,6 +28,34 @@ namespace e_billing
         {
             int rowIndex = e.RowIndex;
 
+            salida(rowIndex);
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'parkingDataSet.AdentroMod' table. You can move, or remove it, as needed.
+            this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+        }
+
+        private void inButton_Click(object sender, EventArgs e)
+        {
+            Entrence entrence = new Entrence();
+            entrence.Show();
+            /* generar entrada  program.getEntrance*/
+            //string plate, int vehType, string dateIn, string hourIn
+            //Program.generateEntrence();
+
+
+        }
+
+        private void outButton_Click(object sender, EventArgs e)
+        {
+            int rowIndex = adentroModDataGridView.CurrentCell.RowIndex;
+            salida(rowIndex);
+            
+        }
+        private void salida(int rowIndex)
+        {
             if (rowIndex >= 0)
             {
 
@@ -44,7 +74,8 @@ namespace e_billing
 
                 int minutes = Convert.ToInt32((today - dateInTime).TotalMinutes);
 
-                Tarifa rate = rateDao.getRate(vehicleId,minutes);
+                Tarifa rate = rateDao.getRate(vehicleId, minutes);
+                EstadoLlavero estLl = elDAO.getKeyState(plate,ticketId);
 
                 Ticket ticket = new Ticket();
 
@@ -54,44 +85,39 @@ namespace e_billing
                 ticket.rate.Text = rate.str_tarifa.ToString();
                 ticket.charge.Text = importe.ToString();
                 ticket.received.Text = "1000";
-                ticket.change.Text = (1000-importe).ToString();
+                ticket.change.Text = (1000 - importe).ToString();
+                ticket.key.Text = estLl.nro_llave;
 
                 ticket.toPayLabel.Text = "A Pagar: $" + importe;
                 ticket.ticketLabel.Text = "Ticket: " + ticketId;
                 ticket.toPayLabel.Visible = true;
                 ticket.ticketLabel.Visible = true;
                 ticket.Show();
-
-
-                /*OptionsForm options = new OptionsForm();
-
-                options.id = id;
-                options.plate = plate;
-                options.rowIndex = rowIndex;
-                options.grid = notificationsGrid;
-                options.resultId = resultId;
-                options.dateIn = dateIn;
-                options.hourIn = hourIn;
-
-                Notificaciones notificacion = notiDao.getNotificacionByPlate(plate);
-                if (notificacion.id_tipo_vehiculo == 3)
-                {
-                    options.imprimir.Enabled = false;
-                }
-                else
-                {
-                    options.imprimir.Enabled = true;
-                }
-
-                options.Show();*/
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'parkingDataSet.AdentroMod' table. You can move, or remove it, as needed.
-            this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+
+            int rowCount = adentroModDataGridView.RowCount;
+            int adeCount = adeDAO.getTotalRecord();
+
+
+            try
+            {
+                if (rowCount != adeCount)
+                {
+                    Program.log.Debug(DateTime.Now.ToString() + "Recargando datos Notificaciones");
+                    this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString()+ "timer1_Tick" + ex);
+            }
+
+
         }
-        
     }
 }

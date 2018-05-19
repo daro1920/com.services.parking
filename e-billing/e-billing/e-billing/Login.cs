@@ -21,7 +21,7 @@ namespace e_billing
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario usuario = userDAO.getUser(user.Text);
+            Usuario usuario = userDAO.getUserByName(user.Text);
             if (usuario != null && password.Text == usuario.str_password)
             {
                 this.Hide();

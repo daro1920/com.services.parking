@@ -32,15 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.adentroModDataGridView = new System.Windows.Forms.DataGridView();
-            this.adentroDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.inButton = new System.Windows.Forms.Button();
-            this.outButton = new System.Windows.Forms.Button();
-            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parkingDataSet = new e_billing.ParkingDataSet();
-            this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
-            this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,12 +41,22 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet = new e_billing.ParkingDataSet();
+            this.adentroDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.inButton = new System.Windows.Forms.Button();
+            this.outButton = new System.Windows.Forms.Button();
+            this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
+            this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,10 +64,11 @@
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(7, 12);
+            this.tabControl1.Location = new System.Drawing.Point(5, 10);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1256, 625);
+            this.tabControl1.Size = new System.Drawing.Size(942, 508);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
@@ -75,10 +77,11 @@
             this.tab1.AutoScroll = true;
             this.tab1.Controls.Add(this.adentroModDataGridView);
             this.tab1.Controls.Add(this.adentroDataGridView1);
-            this.tab1.Location = new System.Drawing.Point(4, 25);
+            this.tab1.Location = new System.Drawing.Point(4, 22);
+            this.tab1.Margin = new System.Windows.Forms.Padding(2);
             this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(1248, 596);
+            this.tab1.Padding = new System.Windows.Forms.Padding(2);
+            this.tab1.Size = new System.Drawing.Size(934, 482);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Adentro";
             this.tab1.UseVisualStyleBackColor = true;
@@ -98,82 +101,13 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn15});
             this.adentroModDataGridView.DataSource = this.adentroModBindingSource;
-            this.adentroModDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.adentroModDataGridView.Location = new System.Drawing.Point(4, 5);
+            this.adentroModDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.adentroModDataGridView.Name = "adentroModDataGridView";
             this.adentroModDataGridView.RowTemplate.Height = 24;
-            this.adentroModDataGridView.Size = new System.Drawing.Size(1236, 584);
+            this.adentroModDataGridView.Size = new System.Drawing.Size(927, 474);
             this.adentroModDataGridView.TabIndex = 2;
             this.adentroModDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adentroModDataGridView_CellContentClick);
-            // 
-            // adentroDataGridView1
-            // 
-            this.adentroDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adentroDataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.adentroDataGridView1.Name = "adentroDataGridView1";
-            this.adentroDataGridView1.RowTemplate.Height = 24;
-            this.adentroDataGridView1.Size = new System.Drawing.Size(1047, 584);
-            this.adentroDataGridView1.TabIndex = 2;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1248, 596);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1248, 596);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // inButton
-            // 
-            this.inButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inButton.Location = new System.Drawing.Point(7, 645);
-            this.inButton.Name = "inButton";
-            this.inButton.Size = new System.Drawing.Size(123, 52);
-            this.inButton.TabIndex = 2;
-            this.inButton.Text = "» Entrada";
-            this.inButton.UseVisualStyleBackColor = true;
-            // 
-            // outButton
-            // 
-            this.outButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outButton.Location = new System.Drawing.Point(136, 645);
-            this.outButton.Name = "outButton";
-            this.outButton.Size = new System.Drawing.Size(123, 52);
-            this.outButton.TabIndex = 3;
-            this.outButton.Text = "« Salida";
-            this.outButton.UseVisualStyleBackColor = true;
-            // 
-            // adentroModBindingSource
-            // 
-            this.adentroModBindingSource.DataMember = "AdentroMod";
-            this.adentroModBindingSource.DataSource = this.parkingDataSet;
-            // 
-            // parkingDataSet
-            // 
-            this.parkingDataSet.DataSetName = "ParkingDataSet";
-            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // adentroModTableAdapter
-            // 
-            this.adentroModTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AdentroTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = e_billing.ParkingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -238,23 +172,105 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Usuario";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
+            // adentroModBindingSource
+            // 
+            this.adentroModBindingSource.DataMember = "AdentroMod";
+            this.adentroModBindingSource.DataSource = this.parkingDataSet;
+            // 
+            // parkingDataSet
+            // 
+            this.parkingDataSet.DataSetName = "ParkingDataSet";
+            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // adentroDataGridView1
+            // 
+            this.adentroDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adentroDataGridView1.Location = new System.Drawing.Point(4, 5);
+            this.adentroDataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.adentroDataGridView1.Name = "adentroDataGridView1";
+            this.adentroDataGridView1.RowTemplate.Height = 24;
+            this.adentroDataGridView1.Size = new System.Drawing.Size(785, 474);
+            this.adentroDataGridView1.TabIndex = 2;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(934, 482);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Size = new System.Drawing.Size(934, 482);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // inButton
+            // 
+            this.inButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inButton.Location = new System.Drawing.Point(5, 524);
+            this.inButton.Margin = new System.Windows.Forms.Padding(2);
+            this.inButton.Name = "inButton";
+            this.inButton.Size = new System.Drawing.Size(92, 42);
+            this.inButton.TabIndex = 2;
+            this.inButton.Text = "» Entrada";
+            this.inButton.UseVisualStyleBackColor = true;
+            this.inButton.Click += new System.EventHandler(this.inButton_Click);
+            // 
+            // outButton
+            // 
+            this.outButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outButton.Location = new System.Drawing.Point(102, 524);
+            this.outButton.Margin = new System.Windows.Forms.Padding(2);
+            this.outButton.Name = "outButton";
+            this.outButton.Size = new System.Drawing.Size(92, 42);
+            this.outButton.TabIndex = 3;
+            this.outButton.Text = "« Salida";
+            this.outButton.UseVisualStyleBackColor = true;
+            this.outButton.Click += new System.EventHandler(this.outButton_Click);
+            // 
+            // adentroModTableAdapter
+            // 
+            this.adentroModTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AdentroTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = e_billing.ParkingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 709);
+            this.ClientSize = new System.Drawing.Size(950, 576);
             this.Controls.Add(this.outButton);
             this.Controls.Add(this.inButton);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "main";
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,5 +307,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.Timer timer1;
     }
 }

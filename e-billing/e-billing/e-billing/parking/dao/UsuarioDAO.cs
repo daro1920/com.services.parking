@@ -10,7 +10,7 @@ namespace e_billing.parking.dao
     class UsuarioDAO
     {
 
-        public Usuario getUser(string userName)
+        public Usuario getUserByName(string userName)
         {
             Usuario user = new Usuario();
             Program.log.Info("entra usuarioDAO");
@@ -18,7 +18,7 @@ namespace e_billing.parking.dao
             {
                 using (var context = new ParkingEntities2())
                 {
-                    user = (from usu in context.Usuarios where usu.str_nombre_usuario == userName   select usu).FirstOrDefault();
+                    user = (from usu in context.Usuarios where usu.str_nombre_usuario == userName select usu).FirstOrDefault();
                 }
             }
             catch (EntityException ex)
@@ -31,7 +31,6 @@ namespace e_billing.parking.dao
             }
             return user;
         }
-
     }
 }
 

@@ -13,6 +13,7 @@
         <AssociationConnector Association="ParkingModel.FK_Adentro_Usuarios" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ParkingModel.Tarifa" Width="1.5" PointX="3" PointY="7" />
         <AssociationConnector Association="ParkingModel.FK_Tarifas_TipoVehiculo" />
+        <EntityTypeShape EntityType="ParkingModel.TipoDocumentoEmision_Correlativos" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

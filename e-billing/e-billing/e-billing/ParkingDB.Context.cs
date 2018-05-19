@@ -30,5 +30,6 @@ namespace e_billing
         public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Tarifa> Tarifas { get; set; }
+        public virtual DbSet<TipoDocumentoEmision_Correlativos> TipoDocumentoEmision_Correlativos { get; set; }
     }
 }

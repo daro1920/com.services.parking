@@ -49,6 +49,15 @@
           <Property Name="techo" Type="bit" Nullable="false" />
           <Property Name="id_convenio" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="TipoDocumentoEmision_Correlativos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_codigo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_descrip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="int_correlativo_prox" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="TipoVehiculo">
           <Key>
             <PropertyRef Name="id" />
@@ -132,6 +141,7 @@
           <EntitySet Name="Adentro" EntityType="Self.Adentro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadoLlavero" EntityType="Self.EstadoLlavero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="Self.TipoDocumentoEmision_Correlativos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Adentro_TipoVehiculo" Association="Self.FK_Adentro_TipoVehiculo">
@@ -272,6 +282,7 @@
             <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
             <End Role="Tarifa" EntitySet="Tarifas" />
           </AssociationSet>
+          <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="ParkingModel.TipoDocumentoEmision_Correlativos" />
         </EntityContainer>
         <EntityType Name="Tarifa">
           <Key>
@@ -299,6 +310,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TipoDocumentoEmision_Correlativos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_codigo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="str_descrip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="int_correlativo_prox" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -393,6 +413,16 @@
                 <ScalarProperty Name="minutos" ColumnName="minutos" />
                 <ScalarProperty Name="str_tarifa" ColumnName="str_tarifa" />
                 <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDocumentoEmision_Correlativos">
+            <EntityTypeMapping TypeName="ParkingModel.TipoDocumentoEmision_Correlativos">
+              <MappingFragment StoreEntitySet="TipoDocumentoEmision_Correlativos">
+                <ScalarProperty Name="int_correlativo_prox" ColumnName="int_correlativo_prox" />
+                <ScalarProperty Name="str_descrip" ColumnName="str_descrip" />
+                <ScalarProperty Name="str_codigo" ColumnName="str_codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
