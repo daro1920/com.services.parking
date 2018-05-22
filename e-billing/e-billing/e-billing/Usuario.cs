@@ -18,6 +18,7 @@ namespace e_billing
         public Usuario()
         {
             this.Adentroes = new HashSet<Adentro>();
+            this.MovimientosCajas = new HashSet<MovimientosCaja>();
         }
     
         public int id { get; set; }
@@ -53,5 +54,7 @@ namespace e_billing
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adentro> Adentroes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovimientosCaja> MovimientosCajas { get; set; }
     }
 }

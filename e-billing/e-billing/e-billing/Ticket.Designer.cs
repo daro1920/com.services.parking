@@ -52,6 +52,8 @@
             this.toPayLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.totalCharge = new System.Windows.Forms.TextBox();
+            this.vehicleType = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -309,11 +311,33 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // totalCharge
+            // 
+            this.totalCharge.Enabled = false;
+            this.totalCharge.Location = new System.Drawing.Point(125, 35);
+            this.totalCharge.Margin = new System.Windows.Forms.Padding(2);
+            this.totalCharge.Name = "totalCharge";
+            this.totalCharge.Size = new System.Drawing.Size(184, 20);
+            this.totalCharge.TabIndex = 29;
+            this.totalCharge.Visible = false;
+            // 
+            // vehicleType
+            // 
+            this.vehicleType.Enabled = false;
+            this.vehicleType.Location = new System.Drawing.Point(125, 11);
+            this.vehicleType.Margin = new System.Windows.Forms.Padding(2);
+            this.vehicleType.Name = "vehicleType";
+            this.vehicleType.Size = new System.Drawing.Size(184, 20);
+            this.vehicleType.TabIndex = 28;
+            this.vehicleType.Visible = false;
+            // 
             // Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 392);
+            this.Controls.Add(this.totalCharge);
+            this.Controls.Add(this.vehicleType);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
@@ -373,5 +397,7 @@
         public System.Windows.Forms.TextBox rut;
         public System.Windows.Forms.Label ticketLabel;
         public System.Windows.Forms.Label toPayLabel;
+        public System.Windows.Forms.TextBox totalCharge;
+        public System.Windows.Forms.TextBox vehicleType;
     }
 }

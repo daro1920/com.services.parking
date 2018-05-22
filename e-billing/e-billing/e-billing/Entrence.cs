@@ -12,6 +12,8 @@ namespace e_billing
 {
     public partial class Entrence : Form
     {
+
+        private Main main = new Main();
         public Entrence()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace e_billing
             string plateS = plate.ToString();
             int vehTypeS = (int)vehType.SelectedValue;
             Program.generateEntrence(plateS, vehTypeS);
+            main.adentroModDataGridView.Refresh();
         }
     }
 }

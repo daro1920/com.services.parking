@@ -85,6 +85,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="MovimientoParking.cs">
+      <DependentUpon>ParkingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientosCaja.cs">
+      <DependentUpon>ParkingDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="ParkingDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,11 +118,14 @@
     </Compile>
     <Compile Include="parking\dao\AdentroDAO.cs" />
     <Compile Include="parking\dao\EstadoLlaveroDAO.cs" />
+    <Compile Include="parking\dao\MovimientosCajaDAO.cs" />
+    <Compile Include="parking\dao\MovimientosParkingDAO.cs" />
     <Compile Include="parking\dao\TarifaDAo.cs" />
     <Compile Include="parking\dao\TipoDocumentoEmision_CorrelativosDAO.cs" />
     <Compile Include="parking\dao\TipoVehiculoDAO.cs" />
     <Compile Include="parking\dao\UsuarioDAO.cs" />
     <Compile Include="parking\InvoicyClient.cs" />
+    <Compile Include="parking\model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarifa.cs">

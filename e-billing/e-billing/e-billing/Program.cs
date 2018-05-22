@@ -50,7 +50,7 @@ namespace e_billing
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
-        internal static string getFormatDate(string dateString,string hour)
+        internal static string getFormatDate(string dateString, string hour)
         {
 
             string date = dateString.Insert(4, "/").Insert(7, "/");
@@ -58,54 +58,55 @@ namespace e_billing
             return dateTime;
         }
 
-        public static void generateEntrence(string plate, int vehType, string dateIn, string hourIn)
+        public static string getFormatedDate()
+        {
+            //generate date
+
+            string str_mes = DateTime.Now.Month < 10 ? "0" + DateTime.Now.Month.ToString().Trim() : DateTime.Now.Month.ToString().Trim();
+            string str_dia = DateTime.Now.Day < 10 ? "0" + DateTime.Now.Day.ToString().Trim() : DateTime.Now.Day.ToString().Trim();
+
+            return DateTime.Now.Year.ToString() + str_mes + str_dia;
+        }
+
+        public static string getFormatedHour()
+        {
+            return DateTime.Now.TimeOfDay.ToString().Trim().Substring(0, 5);
+
+        }
+
+        public static int getCorrelativo()
+        {
+            //Obtengo y grabo nro. de ticket
+            tdec = tdecDAO.SelectByStr_codigo("TICKE");
+
+            int nro_ticket = tdec.int_correlativo_prox;
+
+            tdec.int_correlativo_prox++;
+            tdecDAO.updateByStr_codigo(tdec);
+
+            return nro_ticket;
+        }
+        public static void generateEntrence(string plate, int vehType)
         {
             try
             {
-                //Genero fecha y hora de entrada
-                string str_mes = "";
-                string str_dia = "";
-
-                if (DateTime.Now.Month < 10)
-                {
-                    str_mes = "0" + DateTime.Now.Month.ToString().Trim();
-                }
-                else
-                {
-                    str_mes = DateTime.Now.Month.ToString().Trim();
-                }
-
-                if (DateTime.Now.Day < 10)
-                {
-                    str_dia = "0" + DateTime.Now.Day.ToString().Trim();
-                }
-                else
-                {
-                    str_dia = DateTime.Now.Day.ToString().Trim();
-                }
-                //str_fecha_entrada = DateTime.Now.Year.ToString() + str_mes + str_dia;
-                //str_hora_entrada = DateTime.Now.TimeOfDay.ToString().Trim().Substring(0, 5);
-
-
 
                 int matricula = random.Next(100000000, 999999999);
 
                 //Obtengo usuario automatico de la barrera
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                
+
                 int id_usr_barrera = 0;
                 string usr_barrera = ConfigurationManager.AppSettings["USUARIO_BARRERA"].ToString().Trim().ToUpper();
                 Usuario user = usuarioDAO.getUserByName(usr_barrera);
-                
-                //Obtengo y grabo nro. de ticket
-                tdec = tdecDAO.SelectByStr_codigo("TICKE");
 
-                int nro_ticket = tdec.int_correlativo_prox;
+                string str_fecha_entrada = getFormatedDate(); ;
+                string str_hora_entrada = getFormatedHour();
 
-                tdec.int_correlativo_prox++;
-                tdecDAO.updateByStr_codigo(tdec);
+
 
                 //Registro vehiculo en adentro
+                int nro_ticket = getCorrelativo();
                 adentro.correlativo_ticket = nro_ticket;
                 adentro.es_nocturno = false;
                 adentro.fecha_venc_prepago = "";
@@ -115,20 +116,20 @@ namespace e_billing
                 adentro.id_usuario = id_usr_barrera;
                 adentro.importe_prepago = 0;
                 adentro.prepago = "NO";
-                adentro.str_fecha_entrada = dateIn;
-                adentro.str_hora_entrada = hourIn;
+                adentro.str_fecha_entrada = str_fecha_entrada;
+                adentro.str_hora_entrada = str_hora_entrada;
                 adentro.str_llave = "";
                 adentro.str_lugar = "";
                 adentro.str_matricula = plate;
-                adentro.str_observaciones = "Ingreso " + usr_barrera.ToString().Trim() + " " + dateIn + " " + dateIn;
+                adentro.str_observaciones = "Ingreso " + usr_barrera.ToString().Trim() + " " + str_hora_entrada + " " + str_fecha_entrada;
                 adentroDAO.addAdentro(ref adentro);
 
 
                 //Imprimo ticket
                 //Codigo_Barras = "*BAR" + matricula + "Z*";
                 Codigo_Barras = "*BAR" + adentro.correlativo_ticket.ToString().Trim() + "Z*";
-                xrLabel_Fecha = "Fecha: " + dateIn.Substring(6, 2) + "/" + dateIn.Substring(4, 2) + "/" + dateIn.Substring(0, 4);
-                xrLabel_Hora = "Hora: " + hourIn;
+                xrLabel_Fecha = "Fecha: " + str_fecha_entrada.Substring(6, 2) + "/" + str_fecha_entrada.Substring(4, 2) + "/" + str_fecha_entrada.Substring(0, 4);
+                xrLabel_Hora = "Hora: " + str_hora_entrada;
                 xrLabel_Ticket = "Ticket: " + adentro.correlativo_ticket.ToString().Trim();
                 xrLabel_Matricula = "Matricula: " + plate;
                 xrLabel_Entrada = "Entrada: B" + ConfigurationManager.AppSettings["NRO_BARRERA"].ToString();
@@ -142,12 +143,12 @@ namespace e_billing
                 ticket2.PrintPage += new PrintPageEventHandler(ticket_PrintPage2);
                 ticket2.Print();
                 ticket.Print();
-                log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()+ " Entrada generada, ticket " + adentro.correlativo_ticket.ToString());
-                
+                log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " Entrada generada, ticket " + adentro.correlativo_ticket.ToString());
+
             }
             catch (Exception ex)
             {
-                log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()+" Error al generar ticket de entrada " + ex);
+                log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " Error al generar ticket de entrada " + ex);
             }
         }
         private static void ticket_PrintPage(object sender, PrintPageEventArgs ev)

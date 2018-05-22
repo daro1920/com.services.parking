@@ -36,6 +36,60 @@
           <Property Name="ticket" Type="int" />
           <Property Name="matricula" Type="varchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="MovimientoParking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_fecha_entrada" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="str_fecha_salida" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="str_hora_entrada" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_hora_salida" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="id_tipo_movimiento" Type="int" Nullable="false" />
+          <Property Name="id_tipo_vehiculo" Type="int" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="dob_importe" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="id_vehiculo_registrado" Type="int" />
+          <Property Name="str_matricula" Type="varchar" MaxLength="20" />
+          <Property Name="str_observaciones" Type="varchar" MaxLength="200" />
+          <Property Name="id_convenio" Type="int" />
+          <Property Name="id_pension" Type="int" />
+          <Property Name="str_desde_fecha_pension" Type="varchar" MaxLength="8" />
+          <Property Name="str_hasta_fecha_pension" Type="varchar" MaxLength="8" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_movimiento_caja" Type="int" />
+          <Property Name="creditos_generados" Type="int" />
+          <Property Name="creditos_usados" Type="bit" />
+        </EntityType>
+        <EntityType Name="MovimientosCaja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_fecha" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="str_hora" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="importe" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cerrado" Type="bit" Nullable="false" />
+          <Property Name="id_referencia_cierre" Type="int" />
+          <Property Name="id_tipo_movimiento" Type="int" />
+          <Property Name="str_eliminado" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_tipo_documento_emision" Type="int" />
+          <Property Name="correlativo_documento_emision" Type="int" />
+          <Property Name="serie_documento_emision" Type="varchar" MaxLength="1" />
+          <Property Name="rollo" Type="int" />
+          <Property Name="rut" Type="varchar" MaxLength="30" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="str_observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="correlativo_ticket" Type="int" />
+          <Property Name="str_tipo_vehiculo" Type="varchar" MaxLength="50" />
+          <Property Name="str_convenio" Type="varchar" MaxLength="50" />
+          <Property Name="minutos" Type="int" />
+          <Property Name="importe_calculado" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="valor_comision" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="com_cobrada" Type="bit" />
+        </EntityType>
         <EntityType Name="Tarifas">
           <Key>
             <PropertyRef Name="id" />
@@ -125,6 +179,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MovimientosCaja_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="MovimientosCaja" Type="Self.MovimientosCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovimientosCaja">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tarifas_TipoVehiculo">
           <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
           <End Role="Tarifas" Type="Self.Tarifas" Multiplicity="*" />
@@ -140,6 +206,8 @@
         <EntityContainer Name="ParkingModelStoreContainer">
           <EntitySet Name="Adentro" EntityType="Self.Adentro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadoLlavero" EntityType="Self.EstadoLlavero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovimientoParking" EntityType="Self.MovimientoParking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovimientosCaja" EntityType="Self.MovimientosCaja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="Self.TipoDocumentoEmision_Correlativos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
@@ -151,6 +219,10 @@
           <AssociationSet Name="FK_Adentro_Usuarios" Association="Self.FK_Adentro_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Adentro" EntitySet="Adentro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosCaja_Usuarios" Association="Self.FK_MovimientosCaja_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="MovimientosCaja" EntitySet="MovimientosCaja" />
           </AssociationSet>
           <AssociationSet Name="FK_Tarifas_TipoVehiculo" Association="Self.FK_Tarifas_TipoVehiculo">
             <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
@@ -239,6 +311,7 @@
           <Property Name="permiso_estadisticas" Type="Boolean" />
           <Property Name="permiso_obligar_login_cierre_caja" Type="Boolean" />
           <NavigationProperty Name="Adentroes" Relationship="Self.FK_Adentro_Usuarios" FromRole="Usuarios" ToRole="Adentro" />
+          <NavigationProperty Name="MovimientosCajas" Relationship="ParkingModel.FK_MovimientosCaja_Usuarios" FromRole="Usuario" ToRole="MovimientosCaja" />
         </EntityType>
         <Association Name="FK_Adentro_TipoVehiculo">
           <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
@@ -283,6 +356,12 @@
             <End Role="Tarifa" EntitySet="Tarifas" />
           </AssociationSet>
           <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="ParkingModel.TipoDocumentoEmision_Correlativos" />
+          <EntitySet Name="MovimientoParkings" EntityType="ParkingModel.MovimientoParking" />
+          <EntitySet Name="MovimientosCajas" EntityType="ParkingModel.MovimientosCaja" />
+          <AssociationSet Name="FK_MovimientosCaja_Usuarios" Association="ParkingModel.FK_MovimientosCaja_Usuarios">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="MovimientosCaja" EntitySet="MovimientosCajas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Tarifa">
           <Key>
@@ -319,6 +398,73 @@
           <Property Name="str_descrip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="int_correlativo_prox" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="MovimientoParking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_fecha_entrada" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="str_fecha_salida" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="str_hora_entrada" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="str_hora_salida" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_movimiento" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_vehiculo" Type="Int32" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="dob_importe" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="id_vehiculo_registrado" Type="Int32" />
+          <Property Name="str_matricula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="str_observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_convenio" Type="Int32" />
+          <Property Name="id_pension" Type="Int32" />
+          <Property Name="str_desde_fecha_pension" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="str_hasta_fecha_pension" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_movimiento_caja" Type="Int32" />
+          <Property Name="creditos_generados" Type="Int32" />
+          <Property Name="creditos_usados" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MovimientosCaja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_fecha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="str_hora" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="importe" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="cerrado" Type="Boolean" Nullable="false" />
+          <Property Name="id_referencia_cierre" Type="Int32" />
+          <Property Name="id_tipo_movimiento" Type="Int32" />
+          <Property Name="str_eliminado" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_documento_emision" Type="Int32" />
+          <Property Name="correlativo_documento_emision" Type="Int32" />
+          <Property Name="serie_documento_emision" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="rollo" Type="Int32" />
+          <Property Name="rut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="correlativo_ticket" Type="Int32" />
+          <Property Name="str_tipo_vehiculo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_convenio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="minutos" Type="Int32" />
+          <Property Name="importe_calculado" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="valor_comision" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="com_cobrada" Type="Boolean" />
+          <NavigationProperty Name="Usuario" Relationship="ParkingModel.FK_MovimientosCaja_Usuarios" FromRole="MovimientosCaja" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_MovimientosCaja_Usuarios">
+          <End Type="ParkingModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ParkingModel.MovimientosCaja" Role="MovimientosCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovimientosCaja">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -423,6 +569,62 @@
                 <ScalarProperty Name="int_correlativo_prox" ColumnName="int_correlativo_prox" />
                 <ScalarProperty Name="str_descrip" ColumnName="str_descrip" />
                 <ScalarProperty Name="str_codigo" ColumnName="str_codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimientoParkings">
+            <EntityTypeMapping TypeName="ParkingModel.MovimientoParking">
+              <MappingFragment StoreEntitySet="MovimientoParking">
+                <ScalarProperty Name="creditos_usados" ColumnName="creditos_usados" />
+                <ScalarProperty Name="creditos_generados" ColumnName="creditos_generados" />
+                <ScalarProperty Name="id_movimiento_caja" ColumnName="id_movimiento_caja" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="str_hasta_fecha_pension" ColumnName="str_hasta_fecha_pension" />
+                <ScalarProperty Name="str_desde_fecha_pension" ColumnName="str_desde_fecha_pension" />
+                <ScalarProperty Name="id_pension" ColumnName="id_pension" />
+                <ScalarProperty Name="id_convenio" ColumnName="id_convenio" />
+                <ScalarProperty Name="str_observaciones" ColumnName="str_observaciones" />
+                <ScalarProperty Name="str_matricula" ColumnName="str_matricula" />
+                <ScalarProperty Name="id_vehiculo_registrado" ColumnName="id_vehiculo_registrado" />
+                <ScalarProperty Name="dob_importe" ColumnName="dob_importe" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+                <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
+                <ScalarProperty Name="str_hora_salida" ColumnName="str_hora_salida" />
+                <ScalarProperty Name="str_hora_entrada" ColumnName="str_hora_entrada" />
+                <ScalarProperty Name="str_fecha_salida" ColumnName="str_fecha_salida" />
+                <ScalarProperty Name="str_fecha_entrada" ColumnName="str_fecha_entrada" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimientosCajas">
+            <EntityTypeMapping TypeName="ParkingModel.MovimientosCaja">
+              <MappingFragment StoreEntitySet="MovimientosCaja">
+                <ScalarProperty Name="com_cobrada" ColumnName="com_cobrada" />
+                <ScalarProperty Name="valor_comision" ColumnName="valor_comision" />
+                <ScalarProperty Name="importe_calculado" ColumnName="importe_calculado" />
+                <ScalarProperty Name="minutos" ColumnName="minutos" />
+                <ScalarProperty Name="str_convenio" ColumnName="str_convenio" />
+                <ScalarProperty Name="str_tipo_vehiculo" ColumnName="str_tipo_vehiculo" />
+                <ScalarProperty Name="correlativo_ticket" ColumnName="correlativo_ticket" />
+                <ScalarProperty Name="str_observaciones" ColumnName="str_observaciones" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="rollo" ColumnName="rollo" />
+                <ScalarProperty Name="serie_documento_emision" ColumnName="serie_documento_emision" />
+                <ScalarProperty Name="correlativo_documento_emision" ColumnName="correlativo_documento_emision" />
+                <ScalarProperty Name="id_tipo_documento_emision" ColumnName="id_tipo_documento_emision" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="str_eliminado" ColumnName="str_eliminado" />
+                <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
+                <ScalarProperty Name="id_referencia_cierre" ColumnName="id_referencia_cierre" />
+                <ScalarProperty Name="cerrado" ColumnName="cerrado" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="str_hora" ColumnName="str_hora" />
+                <ScalarProperty Name="str_fecha" ColumnName="str_fecha" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

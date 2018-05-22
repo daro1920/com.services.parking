@@ -84,10 +84,10 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
               <DbSource ConnectionRef="ParkingConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id</CommandText>
+                    <CommandText>SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
+FROM            Adentro AS a INNER JOIN
+                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
+                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -104,6 +104,7 @@ FROM     Adentro AS a INNER JOIN
               <Mapping SourceColumn="hora_venc_prepago" DataSetColumn="hora_venc_prepago" />
               <Mapping SourceColumn="str_descrip" DataSetColumn="str_descrip" />
               <Mapping SourceColumn="vehicleId" DataSetColumn="vehicleId" />
+              <Mapping SourceColumn="correlativo_ticket" DataSetColumn="correlativo_ticket" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ParkingConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -172,6 +173,17 @@ FROM     Adentro AS a INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="ParkingConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy6" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy6" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillBy6">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
+FROM            Adentro AS a INNER JOIN
+                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
+                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
         </Tables>
@@ -182,7 +194,7 @@ FROM     Adentro AS a INNER JOIN
   <xs:element name="ParkingDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ParkingDataSet" msprop:Generator_UserDSName="ParkingDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Adentro" msprop:Generator_TableClassName="AdentroDataTable" msprop:Generator_TableVarName="tableAdentro" msprop:Generator_TablePropName="Adentro" msprop:Generator_RowDeletingName="AdentroRowDeleting" msprop:Generator_RowChangingName="AdentroRowChanging" msprop:Generator_RowEvHandlerName="AdentroRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroRowDeleted" msprop:Generator_UserTableName="Adentro" msprop:Generator_RowChangedName="AdentroRowChanged" msprop:Generator_RowEvArgName="AdentroRowChangeEvent" msprop:Generator_RowClassName="AdentroRow">
+        <xs:element name="Adentro" msprop:Generator_TableClassName="AdentroDataTable" msprop:Generator_TableVarName="tableAdentro" msprop:Generator_RowChangedName="AdentroRowChanged" msprop:Generator_TablePropName="Adentro" msprop:Generator_RowDeletingName="AdentroRowDeleting" msprop:Generator_RowChangingName="AdentroRowChanging" msprop:Generator_RowEvHandlerName="AdentroRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroRowDeleted" msprop:Generator_RowClassName="AdentroRow" msprop:Generator_UserTableName="Adentro" msprop:Generator_RowEvArgName="AdentroRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -233,7 +245,7 @@ FROM     Adentro AS a INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AdentroMod" msprop:Generator_TableClassName="AdentroModDataTable" msprop:Generator_TableVarName="tableAdentroMod" msprop:Generator_RowChangedName="AdentroModRowChanged" msprop:Generator_TablePropName="AdentroMod" msprop:Generator_RowDeletingName="AdentroModRowDeleting" msprop:Generator_RowChangingName="AdentroModRowChanging" msprop:Generator_RowEvHandlerName="AdentroModRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroModRowDeleted" msprop:Generator_RowClassName="AdentroModRow" msprop:Generator_UserTableName="AdentroMod" msprop:Generator_RowEvArgName="AdentroModRowChangeEvent">
+        <xs:element name="AdentroMod" msprop:Generator_TableClassName="AdentroModDataTable" msprop:Generator_TableVarName="tableAdentroMod" msprop:Generator_TablePropName="AdentroMod" msprop:Generator_RowDeletingName="AdentroModRowDeleting" msprop:Generator_RowChangingName="AdentroModRowChanging" msprop:Generator_RowEvHandlerName="AdentroModRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroModRowDeleted" msprop:Generator_UserTableName="AdentroMod" msprop:Generator_RowChangedName="AdentroModRowChanged" msprop:Generator_RowEvArgName="AdentroModRowChangeEvent" msprop:Generator_RowClassName="AdentroModRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -294,6 +306,7 @@ FROM     Adentro AS a INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="vehicleId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvehicleId" msprop:Generator_ColumnPropNameInRow="vehicleId" msprop:Generator_ColumnPropNameInTable="vehicleIdColumn" msprop:Generator_UserColumnName="vehicleId" type="xs:int" />
+              <xs:element name="correlativo_ticket" msprop:Generator_ColumnVarNameInTable="columncorrelativo_ticket" msprop:Generator_ColumnPropNameInRow="correlativo_ticket" msprop:Generator_ColumnPropNameInTable="correlativo_ticketColumn" msprop:Generator_UserColumnName="correlativo_ticket" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

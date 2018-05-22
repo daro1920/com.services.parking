@@ -119,5 +119,18 @@ namespace e_billing
 
 
         }
+
+        private void fillBy6ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

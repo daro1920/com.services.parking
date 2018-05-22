@@ -719,6 +719,8 @@ namespace e_billing {
             
             private global::System.Data.DataColumn columnvehicleId;
             
+            private global::System.Data.DataColumn columncorrelativo_ticket;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AdentroModDataTable() {
@@ -834,6 +836,14 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn correlativo_ticketColumn {
+                get {
+                    return this.columncorrelativo_ticket;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -869,7 +879,7 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow AddAdentroModRow(string str_fecha_entrada, string str_hora_entrada, string str_matricula, string str_nombre_usuario, string prepago, string fecha_venc_prepago, string hora_venc_prepago, string str_descrip) {
+            public AdentroModRow AddAdentroModRow(string str_fecha_entrada, string str_hora_entrada, string str_matricula, string str_nombre_usuario, string prepago, string fecha_venc_prepago, string hora_venc_prepago, string str_descrip, int correlativo_ticket) {
                 AdentroModRow rowAdentroModRow = ((AdentroModRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -881,7 +891,8 @@ namespace e_billing {
                         fecha_venc_prepago,
                         hora_venc_prepago,
                         str_descrip,
-                        null};
+                        null,
+                        correlativo_ticket};
                 rowAdentroModRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAdentroModRow);
                 return rowAdentroModRow;
@@ -921,6 +932,7 @@ namespace e_billing {
                 this.columnhora_venc_prepago = base.Columns["hora_venc_prepago"];
                 this.columnstr_descrip = base.Columns["str_descrip"];
                 this.columnvehicleId = base.Columns["vehicleId"];
+                this.columncorrelativo_ticket = base.Columns["correlativo_ticket"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -946,6 +958,8 @@ namespace e_billing {
                 base.Columns.Add(this.columnstr_descrip);
                 this.columnvehicleId = new global::System.Data.DataColumn("vehicleId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvehicleId);
+                this.columncorrelativo_ticket = new global::System.Data.DataColumn("correlativo_ticket", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncorrelativo_ticket);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1400,6 +1414,22 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int correlativo_ticket {
+                get {
+                    try {
+                        return ((int)(this[this.tableAdentroMod.correlativo_ticketColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'correlativo_ticket\' in table \'AdentroMod\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAdentroMod.correlativo_ticketColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isfecha_venc_prepagoNull() {
                 return this.IsNull(this.tableAdentroMod.fecha_venc_prepagoColumn);
             }
@@ -1420,6 +1450,18 @@ namespace e_billing {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Sethora_venc_prepagoNull() {
                 this[this.tableAdentroMod.hora_venc_prepagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscorrelativo_ticketNull() {
+                return this.IsNull(this.tableAdentroMod.correlativo_ticketColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcorrelativo_ticketNull() {
+                this[this.tableAdentroMod.correlativo_ticketColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2102,6 +2144,7 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
             tableMapping.ColumnMappings.Add("hora_venc_prepago", "hora_venc_prepago");
             tableMapping.ColumnMappings.Add("str_descrip", "str_descrip");
             tableMapping.ColumnMappings.Add("vehicleId", "vehicleId");
+            tableMapping.ColumnMappings.Add("correlativo_ticket", "correlativo_ticket");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2115,13 +2158,13 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
+            this._commandCollection[0].CommandText = @"SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
+FROM            Adentro AS a INNER JOIN
+                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
+                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2165,6 +2208,13 @@ FROM     Adentro AS a INNER JOIN
                   Usuarios AS u ON a.id_usuario = u.id INNER JOIN
                   TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
+FROM            Adentro AS a INNER JOIN
+                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
+                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2262,6 +2312,19 @@ FROM     Adentro AS a INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy5(ParkingDataSet.AdentroModDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy6(ParkingDataSet.AdentroModDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
