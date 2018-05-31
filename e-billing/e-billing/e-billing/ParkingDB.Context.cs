@@ -33,5 +33,6 @@ namespace e_billing
         public virtual DbSet<TipoDocumentoEmision_Correlativos> TipoDocumentoEmision_Correlativos { get; set; }
         public virtual DbSet<MovimientoParking> MovimientoParkings { get; set; }
         public virtual DbSet<MovimientosCaja> MovimientosCajas { get; set; }
+        public virtual DbSet<VehiculosRegistrado> VehiculosRegistrados { get; set; }
     }
 }

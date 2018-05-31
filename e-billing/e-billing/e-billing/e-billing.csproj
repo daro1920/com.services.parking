@@ -91,6 +91,9 @@
     <Compile Include="MovimientosCaja.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ParkingDataSet.cs">
+      <DependentUpon>ParkingDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ParkingDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,7 +127,9 @@
     <Compile Include="parking\dao\TipoDocumentoEmision_CorrelativosDAO.cs" />
     <Compile Include="parking\dao\TipoVehiculoDAO.cs" />
     <Compile Include="parking\dao\UsuarioDAO.cs" />
+    <Compile Include="parking\dao\VehiculosRegistradosDAO.cs" />
     <Compile Include="parking\InvoicyClient.cs" />
+    <Compile Include="parking\model\BillingData.cs" />
     <Compile Include="parking\model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +149,9 @@
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
+      <DependentUpon>ParkingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehiculosRegistrado.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Entrence.resx">

@@ -41,11 +41,6 @@ namespace e_billing
         {
             Entrence entrence = new Entrence();
             entrence.Show();
-            /* generar entrada  program.getEntrance*/
-            //string plate, int vehType, string dateIn, string hourIn
-            //Program.generateEntrence();
-
-
         }
 
         private void outButton_Click(object sender, EventArgs e)
@@ -77,7 +72,7 @@ namespace e_billing
                 Tarifa rate = rateDao.getRate(vehicleId, minutes);
                 EstadoLlavero estLl = elDAO.getKeyState(plate,ticketId);
 
-                Ticket ticket = new Ticket();
+                Ticket ticket = new Ticket(this);
 
                 int importe = Convert.ToInt32(rate.importe);
                 ticket.plate.Text = plate;
@@ -92,6 +87,15 @@ namespace e_billing
                 ticket.ticketLabel.Text = "Ticket: " + ticketId;
                 ticket.toPayLabel.Visible = true;
                 ticket.ticketLabel.Visible = true;
+
+                ticket.vehicleType.Text = vehicleId.ToString();
+                ticket.totalCharge.Text = importe.ToString();
+                ticket.inDate.Text = row.Cells[2].Value.ToString();
+                ticket.inHour.Text = row.Cells[3].Value.ToString();
+                ticket.impTotal.Text = importe.ToString();
+                ticket.rowIndex.Text = rowIndex.ToString();
+                ticket.idAdent.Text = row.Cells[9].Value.ToString();
+
                 ticket.Show();
             }
         }

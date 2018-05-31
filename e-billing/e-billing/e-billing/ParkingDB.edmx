@@ -155,6 +155,36 @@
           <Property Name="permiso_estadisticas" Type="bit" />
           <Property Name="permiso_obligar_login_cierre_caja" Type="bit" />
         </EntityType>
+        <EntityType Name="VehiculosRegistrados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_modelo" Type="int" Nullable="false" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="str_matricula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="str_marca_modelo" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_cliente" Type="varchar" MaxLength="100" />
+          <Property Name="rut" Type="varchar" MaxLength="30" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="ci" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="tel1" Type="varchar" MaxLength="20" />
+          <Property Name="tel2" Type="varchar" MaxLength="20" />
+          <Property Name="cel1" Type="varchar" MaxLength="20" />
+          <Property Name="cel2" Type="varchar" MaxLength="20" />
+          <Property Name="observaciones" Type="varchar" MaxLength="200" />
+          <Property Name="autorizado1_ci" Type="varchar" MaxLength="20" />
+          <Property Name="autorizado2_ci" Type="varchar" MaxLength="20" />
+          <Property Name="autorizado3_ci" Type="varchar" MaxLength="20" />
+          <Property Name="autorizado1_nombres" Type="varchar" MaxLength="50" />
+          <Property Name="autorizado2_nombres" Type="varchar" MaxLength="50" />
+          <Property Name="autorizado3_nombres" Type="varchar" MaxLength="50" />
+          <Property Name="autorizado1_apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="autorizado2_apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="autorizado3_apellidos" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_Adentro_TipoVehiculo">
           <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
           <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
@@ -212,6 +242,7 @@
           <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="Self.TipoDocumentoEmision_Correlativos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehiculosRegistrados" EntityType="Self.VehiculosRegistrados" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Adentro_TipoVehiculo" Association="Self.FK_Adentro_TipoVehiculo">
             <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
             <End Role="Adentro" EntitySet="Adentro" />
@@ -362,6 +393,7 @@
             <End Role="Usuario" EntitySet="Usuarios" />
             <End Role="MovimientosCaja" EntitySet="MovimientosCajas" />
           </AssociationSet>
+          <EntitySet Name="VehiculosRegistrados" EntityType="ParkingModel.VehiculosRegistrado" />
         </EntityContainer>
         <EntityType Name="Tarifa">
           <Key>
@@ -465,6 +497,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VehiculosRegistrado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_modelo" Type="Int32" Nullable="false" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="str_matricula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_marca_modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ci" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tel1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cel1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cel2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado1_ci" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado2_ci" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado3_ci" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado1_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado2_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado3_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado1_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado2_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="autorizado3_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -625,6 +687,37 @@
                 <ScalarProperty Name="importe" ColumnName="importe" />
                 <ScalarProperty Name="str_hora" ColumnName="str_hora" />
                 <ScalarProperty Name="str_fecha" ColumnName="str_fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehiculosRegistrados">
+            <EntityTypeMapping TypeName="ParkingModel.VehiculosRegistrado">
+              <MappingFragment StoreEntitySet="VehiculosRegistrados">
+                <ScalarProperty Name="autorizado3_apellidos" ColumnName="autorizado3_apellidos" />
+                <ScalarProperty Name="autorizado2_apellidos" ColumnName="autorizado2_apellidos" />
+                <ScalarProperty Name="autorizado1_apellidos" ColumnName="autorizado1_apellidos" />
+                <ScalarProperty Name="autorizado3_nombres" ColumnName="autorizado3_nombres" />
+                <ScalarProperty Name="autorizado2_nombres" ColumnName="autorizado2_nombres" />
+                <ScalarProperty Name="autorizado1_nombres" ColumnName="autorizado1_nombres" />
+                <ScalarProperty Name="autorizado3_ci" ColumnName="autorizado3_ci" />
+                <ScalarProperty Name="autorizado2_ci" ColumnName="autorizado2_ci" />
+                <ScalarProperty Name="autorizado1_ci" ColumnName="autorizado1_ci" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="cel2" ColumnName="cel2" />
+                <ScalarProperty Name="cel1" ColumnName="cel1" />
+                <ScalarProperty Name="tel2" ColumnName="tel2" />
+                <ScalarProperty Name="tel1" ColumnName="tel1" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+                <ScalarProperty Name="str_marca_modelo" ColumnName="str_marca_modelo" />
+                <ScalarProperty Name="str_matricula" ColumnName="str_matricula" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

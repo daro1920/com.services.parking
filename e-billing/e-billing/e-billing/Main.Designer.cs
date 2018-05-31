@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.adentroModDataGridView = new System.Windows.Forms.DataGridView();
+            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet = new e_billing.ParkingDataSet();
             this.adentroDataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -40,8 +42,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.fillBy6ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy6ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parkingDataSet = new e_billing.ParkingDataSet();
             this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
             this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,13 +53,14 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).BeginInit();
-            this.fillBy6ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).BeginInit();
+            this.fillBy6ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -102,7 +103,8 @@
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn15});
+            this.dataGridViewTextBoxColumn15,
+            this.id});
             this.adentroModDataGridView.DataSource = this.adentroModBindingSource;
             this.adentroModDataGridView.Location = new System.Drawing.Point(4, 5);
             this.adentroModDataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -111,6 +113,16 @@
             this.adentroModDataGridView.Size = new System.Drawing.Size(927, 474);
             this.adentroModDataGridView.TabIndex = 2;
             this.adentroModDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adentroModDataGridView_CellContentClick);
+            // 
+            // adentroModBindingSource
+            // 
+            this.adentroModBindingSource.DataMember = "AdentroMod";
+            this.adentroModBindingSource.DataSource = this.parkingDataSet;
+            // 
+            // parkingDataSet
+            // 
+            this.parkingDataSet.DataSetName = "ParkingDataSet";
+            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // adentroDataGridView1
             // 
@@ -190,16 +202,6 @@
             this.fillBy6ToolStripButton.Text = "FillBy6";
             this.fillBy6ToolStripButton.Click += new System.EventHandler(this.fillBy6ToolStripButton_Click);
             // 
-            // adentroModBindingSource
-            // 
-            this.adentroModBindingSource.DataMember = "AdentroMod";
-            this.adentroModBindingSource.DataSource = this.parkingDataSet;
-            // 
-            // parkingDataSet
-            // 
-            this.parkingDataSet.DataSetName = "ParkingDataSet";
-            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // adentroModTableAdapter
             // 
             this.adentroModTableAdapter.ClearBeforeFill = true;
@@ -274,6 +276,14 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Usuario";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "idAdentro";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,11 +300,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adentroDataGridView1)).EndInit();
             this.fillBy6ToolStrip.ResumeLayout(false);
             this.fillBy6ToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +345,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

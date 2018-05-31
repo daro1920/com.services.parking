@@ -74,10 +74,9 @@ namespace e_billing
 
         }
 
-        public static int getCorrelativo()
+        public static int getCorrelativo(string type)
         {
-            //Obtengo y grabo nro. de ticket
-            tdec = tdecDAO.SelectByStr_codigo("TICKE");
+            tdec = tdecDAO.SelectByStr_codigo(type);
 
             int nro_ticket = tdec.int_correlativo_prox;
 
@@ -106,7 +105,7 @@ namespace e_billing
 
 
                 //Registro vehiculo en adentro
-                int nro_ticket = getCorrelativo();
+                int nro_ticket = getCorrelativo("TICKE");
                 adentro.correlativo_ticket = nro_ticket;
                 adentro.es_nocturno = false;
                 adentro.fecha_venc_prepago = "";

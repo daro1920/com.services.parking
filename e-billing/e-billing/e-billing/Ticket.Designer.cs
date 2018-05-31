@@ -54,6 +54,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.totalCharge = new System.Windows.Forms.TextBox();
             this.vehicleType = new System.Windows.Forms.TextBox();
+            this.inHour = new System.Windows.Forms.TextBox();
+            this.inDate = new System.Windows.Forms.TextBox();
+            this.impTotal = new System.Windows.Forms.TextBox();
+            this.rowIndex = new System.Windows.Forms.TextBox();
+            this.idAdent = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +91,7 @@
             this.charge.Name = "charge";
             this.charge.Size = new System.Drawing.Size(184, 25);
             this.charge.TabIndex = 3;
+            this.charge.TextChanged += new System.EventHandler(this.charge_TextChanged);
             // 
             // rate
             // 
@@ -125,6 +131,7 @@
             this.received.Name = "received";
             this.received.Size = new System.Drawing.Size(184, 25);
             this.received.TabIndex = 4;
+            this.received.TextChanged += new System.EventHandler(this.received_TextChanged);
             // 
             // rsocial
             // 
@@ -317,7 +324,7 @@
             this.totalCharge.Location = new System.Drawing.Point(125, 35);
             this.totalCharge.Margin = new System.Windows.Forms.Padding(2);
             this.totalCharge.Name = "totalCharge";
-            this.totalCharge.Size = new System.Drawing.Size(184, 20);
+            this.totalCharge.Size = new System.Drawing.Size(32, 20);
             this.totalCharge.TabIndex = 29;
             this.totalCharge.Visible = false;
             // 
@@ -327,15 +334,70 @@
             this.vehicleType.Location = new System.Drawing.Point(125, 11);
             this.vehicleType.Margin = new System.Windows.Forms.Padding(2);
             this.vehicleType.Name = "vehicleType";
-            this.vehicleType.Size = new System.Drawing.Size(184, 20);
+            this.vehicleType.Size = new System.Drawing.Size(32, 20);
             this.vehicleType.TabIndex = 28;
             this.vehicleType.Visible = false;
+            // 
+            // inHour
+            // 
+            this.inHour.Enabled = false;
+            this.inHour.Location = new System.Drawing.Point(161, 35);
+            this.inHour.Margin = new System.Windows.Forms.Padding(2);
+            this.inHour.Name = "inHour";
+            this.inHour.Size = new System.Drawing.Size(32, 20);
+            this.inHour.TabIndex = 31;
+            this.inHour.Visible = false;
+            // 
+            // inDate
+            // 
+            this.inDate.Enabled = false;
+            this.inDate.Location = new System.Drawing.Point(161, 11);
+            this.inDate.Margin = new System.Windows.Forms.Padding(2);
+            this.inDate.Name = "inDate";
+            this.inDate.Size = new System.Drawing.Size(32, 20);
+            this.inDate.TabIndex = 30;
+            this.inDate.Visible = false;
+            // 
+            // impTotal
+            // 
+            this.impTotal.Enabled = false;
+            this.impTotal.Location = new System.Drawing.Point(197, 11);
+            this.impTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.impTotal.Name = "impTotal";
+            this.impTotal.Size = new System.Drawing.Size(32, 20);
+            this.impTotal.TabIndex = 33;
+            this.impTotal.Visible = false;
+            // 
+            // rowIndex
+            // 
+            this.rowIndex.Enabled = false;
+            this.rowIndex.Location = new System.Drawing.Point(197, 35);
+            this.rowIndex.Margin = new System.Windows.Forms.Padding(2);
+            this.rowIndex.Name = "rowIndex";
+            this.rowIndex.Size = new System.Drawing.Size(32, 20);
+            this.rowIndex.TabIndex = 34;
+            this.rowIndex.Visible = false;
+            // 
+            // idAdent
+            // 
+            this.idAdent.Enabled = false;
+            this.idAdent.Location = new System.Drawing.Point(233, 35);
+            this.idAdent.Margin = new System.Windows.Forms.Padding(2);
+            this.idAdent.Name = "idAdent";
+            this.idAdent.Size = new System.Drawing.Size(32, 20);
+            this.idAdent.TabIndex = 35;
+            this.idAdent.Visible = false;
             // 
             // Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 392);
+            this.Controls.Add(this.idAdent);
+            this.Controls.Add(this.rowIndex);
+            this.Controls.Add(this.impTotal);
+            this.Controls.Add(this.inHour);
+            this.Controls.Add(this.inDate);
             this.Controls.Add(this.totalCharge);
             this.Controls.Add(this.vehicleType);
             this.Controls.Add(this.button3);
@@ -399,5 +461,10 @@
         public System.Windows.Forms.Label toPayLabel;
         public System.Windows.Forms.TextBox totalCharge;
         public System.Windows.Forms.TextBox vehicleType;
+        public System.Windows.Forms.TextBox inHour;
+        public System.Windows.Forms.TextBox inDate;
+        public System.Windows.Forms.TextBox impTotal;
+        public System.Windows.Forms.TextBox rowIndex;
+        public System.Windows.Forms.TextBox idAdent;
     }
 }

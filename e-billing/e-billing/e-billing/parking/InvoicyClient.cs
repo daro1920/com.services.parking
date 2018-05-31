@@ -53,7 +53,7 @@ namespace e_billing.parking
 
             return soapEnvelopeDocument;
         }*/
-        public void CreateXml() {
+        public void CreateXml(string changeS, double impNoIva, double impIva,int CFEnro,MovimientosCaja movCaja, MovimientoParking movParking) {
 
             /*string CFE = "<CFE><CFEItem><IdDoc><CFETipoCFE>111</CFETipoCFE><CFESerie>A</CFESerie><CFENro>1234567</CFENro><CFEFchEmis>2018-06-05</CFEFchEmis></IdDoc><Emisor><EmiRznSoc>Cardely</EmiRznSoc><EmiDomFiscal>rivera 2323</EmiDomFiscal><EmiCiudad>Montevideo</EmiCiudad><EmiDepartamento>Montevideo</EmiDepartamento></Emisor><Receptor><RcpTipoDocRecep>2</RcpTipoDocRecep><RcpCodPaisRecep>UY</RcpCodPaisRecep><RcpDocRecep>A</RcpDocRecep><RcpRznSocRecep>A</RcpRznSocRecep><RcpDirRecep>A</RcpDirRecep><RcpCiudadRecep>A</RcpCiudadRecep><RcpDeptoRecep>A</RcpDeptoRecep></Receptor><Totales><TotTpoMoneda>UYU</TotTpoMoneda></Totales><Mandante><MndTipDoc>2</MndTipDoc><MndCodPais>UY</MndCodPais><MndNroDocumento>214378950013</MndNroDocumento><MndRazSocial>Cardely S.R.L.</MndRazSocial><MndEncriptar>S</MndEncriptar></Mandante></CFEItem></CFE>";
             string escapeCFE = CFE.Replace("<", "&lt;").Replace(">", "&gt;");
@@ -77,20 +77,20 @@ namespace e_billing.parking
 	<CFE>
 		<CFEItem> 
 			<IdDoc>
-				<CFETipoCFE>111</CFETipoCFE>
+				<CFETipoCFE>101</CFETipoCFE>
 				<CFESerie>A</CFESerie>
-				<CFENro>3</CFENro>
-				<CFEImpresora>Apodo de la impresora que debe ser usada para la impresión automática</CFEImpresora>
+				<CFENro>"+ CFEnro + @"</CFENro>
+				<CFEImpresora>citizen</CFEImpresora>
 				<CFEImp>S</CFEImp>
 				<CFEImpCantidad>2</CFEImpCantidad>
-				<CFEFchEmis>2018-06-05</CFEFchEmis>
-				<CFEMntBruto>1</CFEMntBruto>
+				<CFEFchEmis>2018-05-30</CFEFchEmis>
+				<CFEMntBruto></CFEMntBruto>
 				<CFEFmaPago>1</CFEFmaPago>
-				<CFEAdenda></CFEAdenda>
+				<CFEAdenda>Prueba</CFEAdenda>
 				<CFEAdendaImagen></CFEAdendaImagen>
-				<CFEEfectivo>350</CFEEfectivo>
-				<CFEPesoTotal></CFEPesoTotal>
-				<CFECambio></CFECambio>
+				<CFEEfectivo>" + impNoIva + @"</CFEEfectivo>
+				<CFEPesoTotal>"+ impNoIva + @"</CFEPesoTotal>
+				<CFECambio>"+ changeS + @"</CFECambio>
 				<CFEAcimaUI>N</CFEAcimaUI>
 				<CFENumReferencia>00001</CFENumReferencia>
 				<CFEImpFormato>1</CFEImpFormato>
@@ -120,25 +120,25 @@ namespace e_billing.parking
 				<EmiInfAdicional></EmiInfAdicional>
 			</Emisor>
 			<Receptor>
-				<RcpTipoDocRecep>3</RcpTipoDocRecep>
+				<RcpTipoDocRecep></RcpTipoDocRecep>
 				<RcpTipoDocDscRecep></RcpTipoDocDscRecep>
-				<RcpCodPaisRecep>UY</RcpCodPaisRecep>
-				<RcpDocRecep>36335936</RcpDocRecep>
+				<RcpCodPaisRecep></RcpCodPaisRecep>
+				<RcpDocRecep></RcpDocRecep>
 				<RcpRznSocRecep></RcpRznSocRecep>
 				<RcpDirRecep></RcpDirRecep>
-				<RcpCiudadRecep>Montevideo</RcpCiudadRecep>
-				<RcpDeptoRecep>Montevideo</RcpDeptoRecep>
+				<RcpCiudadRecep></RcpCiudadRecep>
+				<RcpDeptoRecep></RcpDeptoRecep>
 				<RcpCP></RcpCP>
 				<RcpCorreoRecep></RcpCorreoRecep>
 				<RcpInfAdiRecep></RcpInfAdiRecep>
-				<RcpDirPaisRecep>UY</RcpDirPaisRecep>
+				<RcpDirPaisRecep></RcpDirPaisRecep>
 				<RcpDstEntregaRecep></RcpDstEntregaRecep>
 				<RcpEmlArchivos></RcpEmlArchivos>
 			</Receptor>
 			<Mandante>
 				<MndTipDoc></MndTipDoc>
 				<MndTipDocDsc></MndTipDocDsc>
-				<MndCodPais>UY</MndCodPais>
+				<MndCodPais></MndCodPais>
 				<MndNroDocumento></MndNroDocumento>
 				<MndRazSocial></MndRazSocial>
 				<MndEncriptar></MndEncriptar>
@@ -158,14 +158,14 @@ namespace e_billing.parking
 				<TotMntImpuestoPerc></TotMntImpuestoPerc>
 				<TotMntIVaenSusp></TotMntIVaenSusp>
 				<TotMntNetoIvaTasaMin></TotMntNetoIvaTasaMin>
-				<TotMntNetoIVATasaBasica>122,95</TotMntNetoIVATasaBasica>
+				<TotMntNetoIVATasaBasica>"+impNoIva+@"</TotMntNetoIVATasaBasica>
 				<TotMntNetoIVAOtra></TotMntNetoIVAOtra>
 				<TotIVATasaMin></TotIVATasaMin>
 				<TotIVATasaBasica>22</TotIVATasaBasica>
 				<TotMntIVATasaMin></TotMntIVATasaMin>
-				<TotMntIVATasaBasica>27,05</TotMntIVATasaBasica>
+				<TotMntIVATasaBasica>"+ impIva + @"</TotMntIVATasaBasica>
 				<TotMntIVAOtra></TotMntIVAOtra>
-				<TotMntTotal>150</TotMntTotal>
+				<TotMntTotal>"+movCaja.importe+ @"</TotMntTotal>
 				<TotMntTotRetenido></TotMntTotRetenido>
 				<TotMntCreditoFiscal></TotMntCreditoFiscal>
 				<RetencPercepTot>
@@ -176,7 +176,7 @@ namespace e_billing.parking
 					</RetencPercepTotItem>
 				</RetencPercepTot>
 				<TotMontoNF></TotMontoNF>
-				<TotMntPagar>150</TotMntPagar>
+				<TotMntPagar>" + movCaja.importe + @"</TotMntPagar>
 			</Totales>
 			<CodBarras>
 				<CodBarRedPagos>
@@ -212,21 +212,21 @@ namespace e_billing.parking
 					<IteDscItem>horas estascionamiento</IteDscItem>
 					<IteCantidad>1</IteCantidad>
 					<IteUniMed></IteUniMed>
-					<ItePrecioUnitario>150</ItePrecioUnitario>
+					<ItePrecioUnitario>"+impNoIva+@"</ItePrecioUnitario>
 					<IteDescuentoPct></IteDescuentoPct>
 					<IteDescuentoMonto></IteDescuentoMonto>
 					<SubDescuento>
 						<SubDescuentoItem>
-							<SubDescDescTipo></SubDescDescTipo>
-							<SubDescDescVal></SubDescDescVal>
+							<SubDescDescTipo>1</SubDescDescTipo>
+							<SubDescDescVal>0</SubDescDescVal>
 						</SubDescuentoItem>
 					</SubDescuento>
 					<IteRecargoPct></IteRecargoPct>
 					<IteRecargoMnt></IteRecargoMnt>
 					<SubRecargo>
 						<SubRecargoItem>
-							<SubRecaRecargoTipo></SubRecaRecargoTipo>
-							<SubRecaRecargoVal></SubRecaRecargoVal>
+							<SubRecaRecargoTipo>1</SubRecaRecargoTipo>
+							<SubRecaRecargoVal>0</SubRecaRecargoVal>
 						</SubRecargoItem>
 					</SubRecargo>
 					<RetencPercep>
@@ -239,7 +239,7 @@ namespace e_billing.parking
 							<IteRetPerc></IteRetPerc>
 						</RetencPercepItem>
 					</RetencPercep>
-					<IteMontoItem>150</IteMontoItem>
+					<IteMontoItem>"+impNoIva+ @"</IteMontoItem>
 				</Item>
 			</Detalle>
 			<SubTotInfo>
@@ -247,7 +247,7 @@ namespace e_billing.parking
 					<SubTotNroSTI>1</SubTotNroSTI>
 					<SubTotGlosaSTI>Subtotal</SubTotGlosaSTI>
 					<SubTotOrdenSTI></SubTotOrdenSTI>
-					<SubTotValSubtotSTI>150</SubTotValSubtotSTI>
+					<SubTotValSubtotSTI>" + impNoIva + @"</SubTotValSubtotSTI>
 				</STIItem>
 			</SubTotInfo>
 			<MediosPago>
@@ -261,7 +261,7 @@ namespace e_billing.parking
 			</MediosPago>
 			<Referencia>
 				<ReferenciaItem>
-					<RefNroLinRef></RefNroLinRef>
+					<RefNroLinRef>1</RefNroLinRef>
 					<RefIndGlobal></RefIndGlobal>
 					<RefTpoDocRef></RefTpoDocRef>
 					<RefSerie></RefSerie>

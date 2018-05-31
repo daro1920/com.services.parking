@@ -23,6 +23,22 @@ namespace e_billing.parking.dao
             }
         }
 
+        public void deleteAdentro(ref Adentro adentro)
+        {
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    context.Adentroes.Remove(adentro);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + " AdentroDao remove" + ex);
+            }
+        }
+
         public List<string> getAll()
         {
 
@@ -40,6 +56,25 @@ namespace e_billing.parking.dao
                 Program.log.Error(DateTime.Now.ToString()+" AdentroDao getAll " + ex);
             }
             return list;
+        }
+
+        public Adentro getAdentro(int id )
+        {
+
+            Adentro adentro =new Adentro();
+
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    adentro = (from ade in context.Adentroes where ade.id == id select ade).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + " AdentroDao getAdentro " + ex);
+            }
+            return adentro;
         }
 
         public int getTotalRecord()

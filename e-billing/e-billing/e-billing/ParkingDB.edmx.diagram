@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="ParkingModel.MovimientoParking" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="ParkingModel.MovimientosCaja" Width="1.5" PointX="3" PointY="11.75" />
         <AssociationConnector Association="ParkingModel.FK_MovimientosCaja_Usuarios" />
+        <EntityTypeShape EntityType="ParkingModel.VehiculosRegistrado" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

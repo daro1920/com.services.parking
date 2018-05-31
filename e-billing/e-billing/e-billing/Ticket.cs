@@ -22,10 +22,15 @@ namespace e_billing
 
         private MovimientosCajaDAO movCajaDAO = new MovimientosCajaDAO();
         private MovimientosParkingDAO movParkingDAO = new MovimientosParkingDAO();
-        private User userModel = User.Instance;
+        private VehiculosRegistradosDAO vehRegDao = new VehiculosRegistradosDAO();
+        private AdentroDAO adenDao = new AdentroDAO();
 
-        public Ticket()
+        private User userModel = User.Instance;
+        private Main main;
+
+        public Ticket(Main main)
         {
+            this.main = main;
             InitializeComponent();
         }
 
@@ -48,11 +53,27 @@ namespace e_billing
             string rsocialS = rsocial.Text;
             string vehicleTS = vehicleType.Text;
             string totalCS = totalCharge.Text;
+            string inDateS = inDate.Text;
+            string inHourS = inHour.Text;
+            string impTotalS = impTotal.Text;
+            double impNoIva = Math.Round((chargeS / 1.22));
+            double impIva = (impNoIva * 0.22);
+            int CFEnro = Program.getCorrelativo("CFE");
+            int rowInd = Int32.Parse(rowIndex.Text);
+            int idAd = Int32.Parse(idAdent.Text);
+            
 
             generateMovCaja(chargeS, rutS, rsocialS, minutesS, vehicleTS, totalCS, userModel);
-            generateMovParking();
+            generateMovParking(inDateS,inHourS, vehicleTS, plateS, impTotalS,userModel);
 
-            client.CreateXml();
+            client.CreateXml(changeS, impNoIva, impIva, CFEnro,movCaja, movParking);
+
+            Adentro ade = adenDao.getAdentro(idAd);
+            adenDao.deleteAdentro(ref ade);
+            main.adentroModDataGridView.Rows.RemoveAt(rowInd);
+            main.adentroModDataGridView.Refresh();
+
+
             this.Close();
         }
 
@@ -69,15 +90,15 @@ namespace e_billing
             movCaja.str_eliminado = "NO";
             movCaja.id_usuario = userModel.ID;
             movCaja.id_tipo_documento_emision = 1;
-            movCaja.correlativo_documento_emision = Program.getCorrelativo();
+            movCaja.correlativo_documento_emision = Program.getCorrelativo("CONTA");//cntado
             movCaja.serie_documento_emision = "A";
-            movCaja.rollo = 74049;// esta bien esto ???
+            movCaja.rollo = 1;
             movCaja.rut = rutS;
             movCaja.razon_social = rsocialS;
             movCaja.str_observaciones = "";
-            movCaja.correlativo_ticket = movCaja.correlativo_documento_emision;//no se si es lo mismo 
+            movCaja.correlativo_ticket = Program.getCorrelativo("TICKE");
             movCaja.str_tipo_vehiculo = vehicleTS;
-            movCaja.str_convenio = "Sin convenio";//esta bien ?
+            movCaja.str_convenio = "";
             movCaja.minutos = Int32.Parse(minutesS);
             movCaja.importe_calculado = Int32.Parse(totalCS);
             movCaja.valor_comision = 0;
@@ -86,32 +107,52 @@ namespace e_billing
             movCajaDAO.addMovCaja(ref movCaja);
 
         }
-        private void generateMovParking()
+        private void generateMovParking(string inDateS,string inHourS, string vehicleTS,
+            string plateS, string impTotalS, User userModel)
         {
 
-            movParking.str_fecha_entrada = "";//TODO
-            movParking.str_fecha_salida = "";//TODO
-            movParking.str_hora_entrada = "";//TODO
-            movParking.str_hora_salida = "";//TODO
+            VehiculosRegistrado vehReg = vehRegDao.getRegVehicle(plateS);
+            movParking.str_fecha_entrada = inDateS;
+            movParking.str_fecha_salida = Program.getFormatedDate(); ;
+            movParking.str_hora_entrada = inHourS;
+            movParking.str_hora_salida = Program.getFormatedHour();
             movParking.id_tipo_movimiento = 0;
-            movParking.id_tipo_vehiculo = 1;//TODO
-            movParking.id_cliente = 1;//TODO
-            movParking.dob_importe = 1;//TODO IMPORTE TOTAL
-            movParking.id_vehiculo_registrado = 1;//TODO
-            movParking.str_matricula = "";//TODO
-            movParking.str_observaciones = "";//TODO
-            movParking.id_convenio = 1;//TODO
+            movParking.id_tipo_vehiculo = Int32.Parse(vehicleTS);
+            movParking.id_cliente = vehReg != null ? vehReg.id_cliente : 0;
+            movParking.dob_importe = Int32.Parse(impTotalS);
+            movParking.id_vehiculo_registrado = vehReg != null ? vehReg.id : 0;
+            movParking.str_matricula = plateS;
+
+            movParking.str_observaciones = "";
+            movParking.id_convenio = 1;
             movParking.id_pension = 0;
             movParking.str_desde_fecha_pension = "";
             movParking.str_hasta_fecha_pension = "";
             movParking.id_servicio = 0;
-            movParking.id_usuario = 1;//TODO USUARIO LOGIN
-            movParking.id_movimiento_caja = 1;//TODO ID MOVCAJA
+            movParking.id_usuario = userModel.ID;
+            movParking.id_movimiento_caja = movCaja.id;
             movParking.creditos_generados = 0;
             movParking.creditos_usados = false;
 
             movParkingDAO.addMovParking(ref movParking);
 
+        }
+
+        private void received_TextChanged(object sender, EventArgs e)
+        {
+           /* int importe = "".Equals(charge.Text) ?  Int32.Parse(charge.Text) : 0;
+            int revcived = "".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
+            change.Text = (revcived - importe).ToString();*/
+            
+        }
+
+        private void charge_TextChanged(object sender, EventArgs e)
+        {
+            /*int importe = "".Equals(charge.Text) ? Int32.Parse(charge.Text) : 0;
+            int revcived = "".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
+            change.Text = (revcived - importe).ToString();
+
+            toPayLabel.Text = "A Pagar: $" + importe;*/
         }
     }
 }
