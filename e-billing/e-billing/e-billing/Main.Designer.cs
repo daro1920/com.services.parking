@@ -32,18 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.adentroModDataGridView = new System.Windows.Forms.DataGridView();
-            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parkingDataSet = new e_billing.ParkingDataSet();
-            this.adentroDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.inButton = new System.Windows.Forms.Button();
-            this.outButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.fillBy6ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillBy6ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
-            this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +42,17 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet = new e_billing.ParkingDataSet();
+            this.adentroDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inButton = new System.Windows.Forms.Button();
+            this.outButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.fillBy6ToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillBy6ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
+            this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
@@ -66,9 +65,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(5, 10);
+            this.tabControl1.Location = new System.Drawing.Point(5, 1);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -113,105 +110,6 @@
             this.adentroModDataGridView.Size = new System.Drawing.Size(927, 474);
             this.adentroModDataGridView.TabIndex = 2;
             this.adentroModDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adentroModDataGridView_CellContentClick);
-            // 
-            // adentroModBindingSource
-            // 
-            this.adentroModBindingSource.DataMember = "AdentroMod";
-            this.adentroModBindingSource.DataSource = this.parkingDataSet;
-            // 
-            // parkingDataSet
-            // 
-            this.parkingDataSet.DataSetName = "ParkingDataSet";
-            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // adentroDataGridView1
-            // 
-            this.adentroDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adentroDataGridView1.Location = new System.Drawing.Point(4, 5);
-            this.adentroDataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.adentroDataGridView1.Name = "adentroDataGridView1";
-            this.adentroDataGridView1.RowTemplate.Height = 24;
-            this.adentroDataGridView1.Size = new System.Drawing.Size(785, 474);
-            this.adentroDataGridView1.TabIndex = 2;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(934, 482);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(934, 482);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // inButton
-            // 
-            this.inButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inButton.Location = new System.Drawing.Point(5, 524);
-            this.inButton.Margin = new System.Windows.Forms.Padding(2);
-            this.inButton.Name = "inButton";
-            this.inButton.Size = new System.Drawing.Size(92, 42);
-            this.inButton.TabIndex = 2;
-            this.inButton.Text = "» Entrada";
-            this.inButton.UseVisualStyleBackColor = true;
-            this.inButton.Click += new System.EventHandler(this.inButton_Click);
-            // 
-            // outButton
-            // 
-            this.outButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outButton.Location = new System.Drawing.Point(102, 524);
-            this.outButton.Margin = new System.Windows.Forms.Padding(2);
-            this.outButton.Name = "outButton";
-            this.outButton.Size = new System.Drawing.Size(92, 42);
-            this.outButton.TabIndex = 3;
-            this.outButton.Text = "« Salida";
-            this.outButton.UseVisualStyleBackColor = true;
-            this.outButton.Click += new System.EventHandler(this.outButton_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // fillBy6ToolStrip
-            // 
-            this.fillBy6ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillBy6ToolStripButton});
-            this.fillBy6ToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillBy6ToolStrip.Name = "fillBy6ToolStrip";
-            this.fillBy6ToolStrip.Size = new System.Drawing.Size(950, 25);
-            this.fillBy6ToolStrip.TabIndex = 4;
-            this.fillBy6ToolStrip.Text = "fillBy6ToolStrip";
-            // 
-            // fillBy6ToolStripButton
-            // 
-            this.fillBy6ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillBy6ToolStripButton.Name = "fillBy6ToolStripButton";
-            this.fillBy6ToolStripButton.Size = new System.Drawing.Size(45, 22);
-            this.fillBy6ToolStripButton.Text = "FillBy6";
-            this.fillBy6ToolStripButton.Click += new System.EventHandler(this.fillBy6ToolStripButton_Click);
-            // 
-            // adentroModTableAdapter
-            // 
-            this.adentroModTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AdentroTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = e_billing.ParkingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -284,17 +182,111 @@
             this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
+            // adentroModBindingSource
+            // 
+            this.adentroModBindingSource.DataMember = "AdentroMod";
+            this.adentroModBindingSource.DataSource = this.parkingDataSet;
+            // 
+            // parkingDataSet
+            // 
+            this.parkingDataSet.DataSetName = "ParkingDataSet";
+            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // adentroDataGridView1
+            // 
+            this.adentroDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adentroDataGridView1.Location = new System.Drawing.Point(4, 5);
+            this.adentroDataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.adentroDataGridView1.Name = "adentroDataGridView1";
+            this.adentroDataGridView1.RowTemplate.Height = 24;
+            this.adentroDataGridView1.Size = new System.Drawing.Size(785, 474);
+            this.adentroDataGridView1.TabIndex = 2;
+            // 
+            // inButton
+            // 
+            this.inButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inButton.Location = new System.Drawing.Point(5, 524);
+            this.inButton.Margin = new System.Windows.Forms.Padding(2);
+            this.inButton.Name = "inButton";
+            this.inButton.Size = new System.Drawing.Size(92, 42);
+            this.inButton.TabIndex = 2;
+            this.inButton.Text = "» Entrada";
+            this.inButton.UseVisualStyleBackColor = true;
+            this.inButton.Click += new System.EventHandler(this.inButton_Click);
+            // 
+            // outButton
+            // 
+            this.outButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outButton.Location = new System.Drawing.Point(102, 524);
+            this.outButton.Margin = new System.Windows.Forms.Padding(2);
+            this.outButton.Name = "outButton";
+            this.outButton.Size = new System.Drawing.Size(92, 42);
+            this.outButton.TabIndex = 3;
+            this.outButton.Text = "« Salida";
+            this.outButton.UseVisualStyleBackColor = true;
+            this.outButton.Click += new System.EventHandler(this.outButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 120000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // fillBy6ToolStrip
+            // 
+            this.fillBy6ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillBy6ToolStripButton});
+            this.fillBy6ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillBy6ToolStrip.Name = "fillBy6ToolStrip";
+            this.fillBy6ToolStrip.Size = new System.Drawing.Size(950, 25);
+            this.fillBy6ToolStrip.TabIndex = 4;
+            this.fillBy6ToolStrip.Text = "fillBy6ToolStrip";
+            this.fillBy6ToolStrip.Visible = false;
+            // 
+            // fillBy6ToolStripButton
+            // 
+            this.fillBy6ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBy6ToolStripButton.Name = "fillBy6ToolStripButton";
+            this.fillBy6ToolStripButton.Size = new System.Drawing.Size(45, 22);
+            this.fillBy6ToolStripButton.Text = "FillBy6";
+            this.fillBy6ToolStripButton.Click += new System.EventHandler(this.fillBy6ToolStripButton_Click);
+            // 
+            // adentroModTableAdapter
+            // 
+            this.adentroModTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AdentroTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = e_billing.ParkingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(198, 524);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 42);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ticket";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 576);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.fillBy6ToolStrip);
             this.Controls.Add(this.outButton);
             this.Controls.Add(this.inButton);
-            this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "main";
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
@@ -313,8 +305,6 @@
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tab1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -325,16 +315,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridView adentroDataGridView1;
-        private ParkingDataSet parkingDataSet;
         private System.Windows.Forms.BindingSource adentroModBindingSource;
-        private ParkingDataSetTableAdapters.AdentroModTableAdapter adentroModTableAdapter;
-        private ParkingDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.Button inButton;
         private System.Windows.Forms.Button outButton;
         public System.Windows.Forms.DataGridView adentroModDataGridView;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStrip fillBy6ToolStrip;
         private System.Windows.Forms.ToolStripButton fillBy6ToolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -346,5 +332,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        public ParkingDataSetTableAdapters.AdentroModTableAdapter adentroModTableAdapter;
+        public ParkingDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        public ParkingDataSet parkingDataSet;
+        public System.Windows.Forms.ToolStrip fillBy6ToolStrip;
+        private System.Windows.Forms.Button button1;
     }
 }

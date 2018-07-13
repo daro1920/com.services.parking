@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_billing.ParkingDataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,15 @@ namespace e_billing
     public partial class Entrence : Form
     {
 
-        private Main main = new Main();
+        private Main mainForm;
         public Entrence()
         {
+            InitializeComponent();
+        }
+
+        public Entrence(Main main)
+        {
+            this.mainForm = main;
             InitializeComponent();
         }
 
@@ -28,10 +35,16 @@ namespace e_billing
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string plateS = plate.ToString();
-            int vehTypeS = (int)vehType.SelectedValue;
+            string plateS = plate.Text;;
+            int vehTypeS = ((e_billing.ParkingDataSet1.TipoVehiculoRow)((DataRowView)vehType.SelectedValue).Row).id;
             Program.generateEntrence(plateS, vehTypeS);
-            main.adentroModDataGridView.Refresh();
+            mainForm.refreshGrid();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

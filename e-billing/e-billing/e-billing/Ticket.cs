@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace e_billing
         private MovimientosParkingDAO movParkingDAO = new MovimientosParkingDAO();
         private VehiculosRegistradosDAO vehRegDao = new VehiculosRegistradosDAO();
         private AdentroDAO adenDao = new AdentroDAO();
+        private EstadoLlaveroDAO keyDao = new EstadoLlaveroDAO();
 
-        private User userModel = User.Instance;
         private Main main;
 
         public Ticket(Main main)
@@ -58,27 +59,43 @@ namespace e_billing
             string impTotalS = impTotal.Text;
             double impNoIva = Math.Round((chargeS / 1.22));
             double impIva = (impNoIva * 0.22);
-            int CFEnro = Program.getCorrelativo("CFE");
+            int ticketIdS = Int32.Parse(ticketId.Text);
+            
             int rowInd = Int32.Parse(rowIndex.Text);
             int idAd = Int32.Parse(idAdent.Text);
+           
             
 
-            generateMovCaja(chargeS, rutS, rsocialS, minutesS, vehicleTS, totalCS, userModel);
-            generateMovParking(inDateS,inHourS, vehicleTS, plateS, impTotalS,userModel);
+            generateMovCaja(chargeS, rutS, rsocialS, minutesS, vehicleTS, totalCS);
+            generateMovParking(inDateS,inHourS, vehicleTS, plateS, impTotalS);
 
-            client.CreateXml(changeS, impNoIva, impIva, CFEnro,movCaja, movParking);
+            int hours = Int32.Parse(minutesS)/60;
+            string empCod = ConfigurationManager.AppSettings["EMP_CODE"].ToString();
+            string empPK = ConfigurationManager.AppSettings["EMP_PK"].ToString();
+            string empCA = ConfigurationManager.AppSettings["EMP_CA"].ToString();
+            if ("".Equals(rutS))
+            {
+                int CFEnro = Program.getCorrelativo("CFE");
+                client.CreateXml(changeS, impNoIva, impIva, CFEnro, hours,empCod,empCA,empPK, movCaja, movParking);
+            } else
+            {
+                int CFEnro = Program.getCorrelativo("CTE");
+                client.CreateXmlRUT(changeS, impNoIva, impIva, CFEnro,rutS, rsocialS, hours, empCod, empCA, empPK, movCaja, movParking);
+            }
+            
+            
+            adenDao.deleteAdentro(idAd);
+            keyDao.setFreeEstadoLlavero(plateS, ticketIdS);
 
-            Adentro ade = adenDao.getAdentro(idAd);
-            adenDao.deleteAdentro(ref ade);
             main.adentroModDataGridView.Rows.RemoveAt(rowInd);
-            main.adentroModDataGridView.Refresh();
+            main.refreshGrid();
 
 
             this.Close();
         }
 
         private void generateMovCaja(int chargeS, String rutS, string rsocialS,
-           string minutesS, string vehicleTS, string totalCS, User userModel)
+           string minutesS, string vehicleTS, string totalCS)
         {
 
             movCaja.str_fecha = Program.getFormatedDate();
@@ -88,9 +105,9 @@ namespace e_billing
             movCaja.id_referencia_cierre = 0;
             movCaja.id_tipo_movimiento = 1;
             movCaja.str_eliminado = "NO";
-            movCaja.id_usuario = userModel.ID;
+            movCaja.id_usuario = Login.logUser.ID;
             movCaja.id_tipo_documento_emision = 1;
-            movCaja.correlativo_documento_emision = Program.getCorrelativo("CONTA");//cntado
+            movCaja.correlativo_documento_emision = Program.getCorrelativo("CONTA");
             movCaja.serie_documento_emision = "A";
             movCaja.rollo = 1;
             movCaja.rut = rutS;
@@ -108,7 +125,7 @@ namespace e_billing
 
         }
         private void generateMovParking(string inDateS,string inHourS, string vehicleTS,
-            string plateS, string impTotalS, User userModel)
+            string plateS, string impTotalS)
         {
 
             VehiculosRegistrado vehReg = vehRegDao.getRegVehicle(plateS);
@@ -129,7 +146,7 @@ namespace e_billing
             movParking.str_desde_fecha_pension = "";
             movParking.str_hasta_fecha_pension = "";
             movParking.id_servicio = 0;
-            movParking.id_usuario = userModel.ID;
+            movParking.id_usuario = Login.logUser.ID;
             movParking.id_movimiento_caja = movCaja.id;
             movParking.creditos_generados = 0;
             movParking.creditos_usados = false;
@@ -140,19 +157,19 @@ namespace e_billing
 
         private void received_TextChanged(object sender, EventArgs e)
         {
-           /* int importe = "".Equals(charge.Text) ?  Int32.Parse(charge.Text) : 0;
-            int revcived = "".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
-            change.Text = (revcived - importe).ToString();*/
+            int importe = !"".Equals(charge.Text) ?  Int32.Parse(charge.Text) : 0;
+            int revcived = !"".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
+            change.Text = (revcived - importe).ToString();
             
         }
 
         private void charge_TextChanged(object sender, EventArgs e)
         {
-            /*int importe = "".Equals(charge.Text) ? Int32.Parse(charge.Text) : 0;
-            int revcived = "".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
+            int importe = !"".Equals(charge.Text) ? Int32.Parse(charge.Text) : 0;
+            int revcived = !"".Equals(received.Text) ? Int32.Parse(received.Text) : 0;
             change.Text = (revcived - importe).ToString();
 
-            toPayLabel.Text = "A Pagar: $" + importe;*/
+            toPayLabel.Text = "A Pagar: $" + importe;
         }
     }
 }

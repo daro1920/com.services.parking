@@ -34,7 +34,7 @@ namespace e_billing.parking.dao
         }
         private string free = "LIBRE";
         private string full = "OCUPADO";
-        public EstadoLlavero getFreeEstadoLlavero(string plate, int ticket)
+        public void assignFreeEstadoLlavero(string plate, int ticket)
         {
             EstadoLlavero freeKey = new EstadoLlavero();
             using (var context = new ParkingEntities2())
@@ -56,7 +56,30 @@ namespace e_billing.parking.dao
                 }
 
             }
-            return freeKey;
+        }
+        public void setFreeEstadoLlavero(string plate, int ticket)
+        {
+            EstadoLlavero freeKey = new EstadoLlavero();
+            using (var context = new ParkingEntities2())
+            {
+
+                freeKey = (from key in context.EstadoLlaveroes where key.estado == full && key.ticket == ticket && key.matricula ==  plate  select key).FirstOrDefault();
+
+                // Submit the changes to the database.
+                if (freeKey!=null) {
+                    try
+                    {
+                        freeKey.estado = free;
+                        freeKey.matricula = "";
+                        freeKey.ticket = 0;
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        Program.log.Error(DateTime.Now.ToString() + " Error al actualizar EstadoLlavero: " + ex);
+                    }
+                }
+            }
         }
     }
 }

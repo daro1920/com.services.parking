@@ -59,32 +59,40 @@
             this.impTotal = new System.Windows.Forms.TextBox();
             this.rowIndex = new System.Windows.Forms.TextBox();
             this.idAdent = new System.Windows.Forms.TextBox();
+            this.ticketId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // plate
             // 
-            this.plate.Enabled = false;
+            this.plate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.plate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.plate.ForeColor = System.Drawing.SystemColors.WindowText;
             this.plate.Location = new System.Drawing.Point(125, 83);
             this.plate.Margin = new System.Windows.Forms.Padding(2);
             this.plate.Multiline = true;
             this.plate.Name = "plate";
+            this.plate.ReadOnly = true;
             this.plate.Size = new System.Drawing.Size(184, 25);
             this.plate.TabIndex = 0;
             // 
             // minutes
             // 
-            this.minutes.Enabled = false;
+            this.minutes.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.minutes.ForeColor = System.Drawing.SystemColors.WindowText;
             this.minutes.Location = new System.Drawing.Point(125, 111);
             this.minutes.Margin = new System.Windows.Forms.Padding(2);
             this.minutes.Multiline = true;
             this.minutes.Name = "minutes";
+            this.minutes.ReadOnly = true;
             this.minutes.Size = new System.Drawing.Size(184, 25);
             this.minutes.TabIndex = 1;
             // 
             // charge
             // 
+            this.charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.charge.Location = new System.Drawing.Point(125, 171);
             this.charge.Margin = new System.Windows.Forms.Padding(2);
             this.charge.Multiline = true;
@@ -95,36 +103,47 @@
             // 
             // rate
             // 
-            this.rate.Enabled = false;
+            this.rate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.rate.ForeColor = System.Drawing.Color.Black;
             this.rate.Location = new System.Drawing.Point(125, 141);
             this.rate.Margin = new System.Windows.Forms.Padding(2);
             this.rate.Multiline = true;
             this.rate.Name = "rate";
+            this.rate.ReadOnly = true;
             this.rate.Size = new System.Drawing.Size(184, 25);
             this.rate.TabIndex = 2;
             // 
             // key
             // 
-            this.key.Enabled = false;
+            this.key.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.key.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.key.ForeColor = System.Drawing.SystemColors.WindowText;
             this.key.Location = new System.Drawing.Point(125, 258);
             this.key.Margin = new System.Windows.Forms.Padding(2);
             this.key.Multiline = true;
             this.key.Name = "key";
+            this.key.ReadOnly = true;
             this.key.Size = new System.Drawing.Size(184, 25);
             this.key.TabIndex = 6;
             // 
             // change
             // 
-            this.change.Enabled = false;
+            this.change.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.change.ForeColor = System.Drawing.SystemColors.WindowText;
             this.change.Location = new System.Drawing.Point(125, 228);
             this.change.Margin = new System.Windows.Forms.Padding(2);
             this.change.Multiline = true;
             this.change.Name = "change";
+            this.change.ReadOnly = true;
             this.change.Size = new System.Drawing.Size(184, 25);
             this.change.TabIndex = 5;
             // 
             // received
             // 
+            this.received.BackColor = System.Drawing.Color.White;
+            this.received.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.received.Location = new System.Drawing.Point(125, 199);
             this.received.Margin = new System.Windows.Forms.Padding(2);
             this.received.Multiline = true;
@@ -135,6 +154,7 @@
             // 
             // rsocial
             // 
+            this.rsocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.rsocial.Location = new System.Drawing.Point(123, 345);
             this.rsocial.Margin = new System.Windows.Forms.Padding(2);
             this.rsocial.Multiline = true;
@@ -144,6 +164,7 @@
             // 
             // rut
             // 
+            this.rut.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.rut.Location = new System.Drawing.Point(123, 316);
             this.rut.Margin = new System.Windows.Forms.Padding(2);
             this.rut.Multiline = true;
@@ -388,11 +409,22 @@
             this.idAdent.TabIndex = 35;
             this.idAdent.Visible = false;
             // 
+            // ticketId
+            // 
+            this.ticketId.Enabled = false;
+            this.ticketId.Location = new System.Drawing.Point(233, 11);
+            this.ticketId.Margin = new System.Windows.Forms.Padding(2);
+            this.ticketId.Name = "ticketId";
+            this.ticketId.Size = new System.Drawing.Size(32, 20);
+            this.ticketId.TabIndex = 36;
+            this.ticketId.Visible = false;
+            // 
             // Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 392);
+            this.Controls.Add(this.ticketId);
             this.Controls.Add(this.idAdent);
             this.Controls.Add(this.rowIndex);
             this.Controls.Add(this.impTotal);
@@ -424,6 +456,7 @@
             this.Controls.Add(this.plate);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Ticket";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ticket";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -466,5 +499,6 @@
         public System.Windows.Forms.TextBox impTotal;
         public System.Windows.Forms.TextBox rowIndex;
         public System.Windows.Forms.TextBox idAdent;
+        public System.Windows.Forms.TextBox ticketId;
     }
 }

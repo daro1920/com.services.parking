@@ -1,4 +1,5 @@
 ﻿using e_billing.parking.dao;
+using e_billing.parking.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace e_billing
     public partial class Login : Form
     {
         private UsuarioDAO userDAO = new UsuarioDAO();
+        public static User logUser;
         public Login()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace e_billing
             Usuario usuario = userDAO.getUserByName(user.Text);
             if (usuario != null && password.Text == usuario.str_password)
             {
+                logUser = new User(usuario.id);
                 this.Hide();
                 Main main = new Main();
                 main.ShowDialog();

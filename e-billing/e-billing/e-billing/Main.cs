@@ -39,7 +39,7 @@ namespace e_billing
 
         private void inButton_Click(object sender, EventArgs e)
         {
-            Entrence entrence = new Entrence();
+            Entrence entrence = new Entrence(this);
             entrence.Show();
         }
 
@@ -49,7 +49,7 @@ namespace e_billing
             salida(rowIndex);
             
         }
-        private void salida(int rowIndex)
+        public void salida(int rowIndex)
         {
             if (rowIndex >= 0)
             {
@@ -79,9 +79,10 @@ namespace e_billing
                 ticket.minutes.Text = minutes.ToString();
                 ticket.rate.Text = rate.str_tarifa.ToString();
                 ticket.charge.Text = importe.ToString();
-                ticket.received.Text = "1000";
-                ticket.change.Text = (1000 - importe).ToString();
-                ticket.key.Text = estLl.nro_llave;
+                ticket.received.Text = "";
+                ticket.change.Text = "0";
+                
+                ticket.key.Text = estLl!=null ? estLl.nro_llave : "";
 
                 ticket.toPayLabel.Text = "A Pagar: $" + importe;
                 ticket.ticketLabel.Text = "Ticket: " + ticketId;
@@ -95,6 +96,7 @@ namespace e_billing
                 ticket.impTotal.Text = importe.ToString();
                 ticket.rowIndex.Text = rowIndex.ToString();
                 ticket.idAdent.Text = row.Cells[9].Value.ToString();
+                ticket.ticketId.Text = ticketId.ToString();
 
                 ticket.Show();
             }
@@ -106,22 +108,28 @@ namespace e_billing
             int rowCount = adentroModDataGridView.RowCount;
             int adeCount = adeDAO.getTotalRecord();
 
-
             try
             {
                 if (rowCount != adeCount)
                 {
-                    Program.log.Debug(DateTime.Now.ToString() + "Recargando datos Notificaciones");
-                    this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+                    Program.log.Debug(DateTime.Now.ToString() + "Recargando datos Adentro");
+                    refreshGrid();
                 }
 
             }
             catch (Exception ex)
             {
-                Program.log.Error(DateTime.Now.ToString()+ "timer1_Tick" + ex);
+                Program.log.Error(DateTime.Now.ToString() + "timer1_Tick" + ex);
             }
 
+            
 
+
+        }
+        public void refreshGrid()
+        {
+            this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+             
         }
 
         private void fillBy6ToolStripButton_Click(object sender, EventArgs e)
@@ -135,6 +143,12 @@ namespace e_billing
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TicketFinder  ticketf = new TicketFinder(adentroModDataGridView,this);
+            ticketf.Show();
         }
     }
 }

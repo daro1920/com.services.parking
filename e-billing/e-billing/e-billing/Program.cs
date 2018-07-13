@@ -94,8 +94,7 @@ namespace e_billing
 
                 //Obtengo usuario automatico de la barrera
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-
-                int id_usr_barrera = 0;
+                
                 string usr_barrera = ConfigurationManager.AppSettings["USUARIO_BARRERA"].ToString().Trim().ToUpper();
                 Usuario user = usuarioDAO.getUserByName(usr_barrera);
 
@@ -112,7 +111,7 @@ namespace e_billing
                 adentro.hora_venc_prepago = "";
                 adentro.id_convenio = 1;
                 adentro.id_tipo_vehiculo = vehType;
-                adentro.id_usuario = id_usr_barrera;
+                adentro.id_usuario = Login.logUser.ID;
                 adentro.importe_prepago = 0;
                 adentro.prepago = "NO";
                 adentro.str_fecha_entrada = str_fecha_entrada;
@@ -123,25 +122,7 @@ namespace e_billing
                 adentro.str_observaciones = "Ingreso " + usr_barrera.ToString().Trim() + " " + str_hora_entrada + " " + str_fecha_entrada;
                 adentroDAO.addAdentro(ref adentro);
 
-
-                //Imprimo ticket
-                //Codigo_Barras = "*BAR" + matricula + "Z*";
-                Codigo_Barras = "*BAR" + adentro.correlativo_ticket.ToString().Trim() + "Z*";
-                xrLabel_Fecha = "Fecha: " + str_fecha_entrada.Substring(6, 2) + "/" + str_fecha_entrada.Substring(4, 2) + "/" + str_fecha_entrada.Substring(0, 4);
-                xrLabel_Hora = "Hora: " + str_hora_entrada;
-                xrLabel_Ticket = "Ticket: " + adentro.correlativo_ticket.ToString().Trim();
-                xrLabel_Matricula = "Matricula: " + plate;
-                xrLabel_Entrada = "Entrada: B" + ConfigurationManager.AppSettings["NRO_BARRERA"].ToString();
-                xrLabel_Llave = "Llave: " + keyDao.getFreeEstadoLlavero(plate, nro_ticket).nro_llave;
-                veh_type = vehType == 3 ? "Auto grande" : "Vehiculo";
-                xrLabel_Veh = "Tipo veh: " + veh_type;
-
-
-                printFont = new Font("Arial", 13);
-                ticket.PrintPage += new PrintPageEventHandler(ticket_PrintPage);
-                ticket2.PrintPage += new PrintPageEventHandler(ticket_PrintPage2);
-                ticket2.Print();
-                ticket.Print();
+                keyDao.assignFreeEstadoLlavero(plate, nro_ticket);
                 log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " Entrada generada, ticket " + adentro.correlativo_ticket.ToString());
 
             }

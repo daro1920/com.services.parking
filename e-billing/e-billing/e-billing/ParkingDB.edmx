@@ -284,8 +284,6 @@
           <Property Name="importe_prepago" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="correlativo_ticket" Type="Int32" />
           <Property Name="es_nocturno" Type="Boolean" />
-          <NavigationProperty Name="TipoVehiculo" Relationship="Self.FK_Adentro_TipoVehiculo" FromRole="Adentro" ToRole="TipoVehiculo" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Adentro_Usuarios" FromRole="Adentro" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="EstadoLlavero">
           <Key>
@@ -483,7 +481,6 @@
           <Property Name="importe_calculado" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="valor_comision" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="com_cobrada" Type="Boolean" />
-          <NavigationProperty Name="Usuario" Relationship="ParkingModel.FK_MovimientosCaja_Usuarios" FromRole="MovimientosCaja" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK_MovimientosCaja_Usuarios">
           <End Type="ParkingModel.Usuario" Role="Usuario" Multiplicity="1" />

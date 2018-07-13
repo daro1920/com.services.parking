@@ -23,12 +23,14 @@ namespace e_billing.parking.dao
             }
         }
 
-        public void deleteAdentro(ref Adentro adentro)
+        public void deleteAdentro(int id)
         {
             try
             {
                 using (var context = new ParkingEntities2())
                 {
+                    var adentro = (from ade in context.Adentroes where ade.id == id select ade).FirstOrDefault();
+
                     context.Adentroes.Remove(adentro);
                     context.SaveChanges();
                 }

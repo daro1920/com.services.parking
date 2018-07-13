@@ -120,6 +120,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "x Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Entrence
             // 
@@ -133,6 +134,7 @@
             this.Controls.Add(this.matriculaLabel);
             this.Controls.Add(this.plate);
             this.Name = "Entrence";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrada";
             this.Load += new System.EventHandler(this.Entrence_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource)).EndInit();
