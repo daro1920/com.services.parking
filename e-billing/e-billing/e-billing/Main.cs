@@ -60,16 +60,18 @@ namespace e_billing
 
                 Adentro aden = adeDAO.getAdentro(adentroId);
 
+                Boolean isPrep = aden.prepago.Equals("SI");
+
                 int ticketId = Int32.Parse(row.Cells[0].Value.ToString());
                 string plate = row.Cells[1].Value.ToString();
 
                 string dateIn = Program.getFormatDate(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
-                string dateInPrep = Program.getFormatDate(row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString());
+                string dateInPrep = isPrep ? Program.getFormatDate(row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString()) : "";
 
                 string vehicleType = row.Cells[4].Value.ToString();
                 int vehicleId = tvDAO.getVehicleID(vehicleType);
                 
-                Boolean isPrep = aden.prepago.Equals("SI");
+                
 
                 DateTime dateInTime = isPrep ? DateTime.ParseExact(dateInPrep, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture): DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
                 //DateTime dateInTime = DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
@@ -106,7 +108,8 @@ namespace e_billing
                 ticket.rowIndex.Text = rowIndex.ToString();
                 ticket.idAdent.Text = adentroId.ToString();
                 ticket.ticketId.Text = ticketId.ToString();
-                ticket.isPrep.Text = isPrep.ToString();
+                // isPrep could be SI, but the time could be expired
+                ticket.isPrep.Text = minutes <= 0 ? isPrep.ToString() : "false";
 
                 ticket.Show();
             }
