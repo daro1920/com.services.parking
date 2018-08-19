@@ -13,24 +13,26 @@ namespace e_billing.parking.dao
         public Tarifa getRate(int vehicleId,int minutes)
         {
             Tarifa rate = new Tarifa();
-            Program.log.Info("entra TarifaDAO");
-            try
+            if (minutes > 0)
             {
-                using (var context = new ParkingEntities2())
+                Program.log.Info("entra TarifaDAO");
+                try
                 {
-                    rate = (from rt in context.Tarifas where rt.id_tipo_vehiculo == vehicleId 
-                            && (rt.minutos+rt.minutos_tolerancia) >= minutes
-                            select rt).FirstOrDefault();
+                    using (var context = new ParkingEntities2())
+                    {
+                        rate = (from rt in context.Tarifas where rt.id_tipo_vehiculo == vehicleId && (rt.minutos + rt.minutos_tolerancia) >= minutes select rt).FirstOrDefault();
+                    }
+                }
+                catch (EntityException ex)
+                {
+                    Program.log.Error("EntityException" + ex);
+                }
+                catch (Exception ex)
+                {
+                    Program.log.Error("Exception" + ex);
                 }
             }
-            catch (EntityException ex)
-            {
-                Program.log.Error("EntityException" + ex);
-            }
-            catch (Exception ex)
-            {
-                Program.log.Error("Exception" + ex);
-            }
+            
             return rate;
         }
     }

@@ -56,18 +56,27 @@ namespace e_billing
 
                 DataGridViewRow row = adentroModDataGridView.Rows[rowIndex];
 
+                int adentroId = Int32.Parse(row.Cells[9].Value.ToString());
+
+                Adentro aden = adeDAO.getAdentro(adentroId);
+
                 int ticketId = Int32.Parse(row.Cells[0].Value.ToString());
                 string plate = row.Cells[1].Value.ToString();
+
                 string dateIn = Program.getFormatDate(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
+                string dateInPrep = Program.getFormatDate(row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString());
 
                 string vehicleType = row.Cells[4].Value.ToString();
                 int vehicleId = tvDAO.getVehicleID(vehicleType);
+                
+                Boolean isPrep = aden.prepago.Equals("SI");
 
+                DateTime dateInTime = isPrep ? DateTime.ParseExact(dateInPrep, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture): DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
+                //DateTime dateInTime = DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
 
-                DateTime dateInTime = DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
                 DateTime today = DateTime.Now;
-
                 int minutes = Convert.ToInt32((today - dateInTime).TotalMinutes);
+
 
                 Tarifa rate = rateDao.getRate(vehicleId, minutes);
                 EstadoLlavero estLl = elDAO.getKeyState(plate,ticketId);
@@ -76,8 +85,8 @@ namespace e_billing
 
                 int importe = Convert.ToInt32(rate.importe);
                 ticket.plate.Text = plate;
-                ticket.minutes.Text = minutes.ToString();
-                ticket.rate.Text = rate.str_tarifa.ToString();
+                ticket.minutes.Text = minutes <= 0 ? "0" : minutes.ToString();
+                ticket.rate.Text = rate.str_tarifa == null ? "Prepago" : rate.str_tarifa.ToString();
                 ticket.charge.Text = importe.ToString();
                 ticket.received.Text = "";
                 ticket.change.Text = "0";
@@ -95,8 +104,9 @@ namespace e_billing
                 ticket.inHour.Text = row.Cells[3].Value.ToString();
                 ticket.impTotal.Text = importe.ToString();
                 ticket.rowIndex.Text = rowIndex.ToString();
-                ticket.idAdent.Text = row.Cells[9].Value.ToString();
+                ticket.idAdent.Text = adentroId.ToString();
                 ticket.ticketId.Text = ticketId.ToString();
+                ticket.isPrep.Text = isPrep.ToString();
 
                 ticket.Show();
             }
@@ -149,6 +159,11 @@ namespace e_billing
         {
             TicketFinder  ticketf = new TicketFinder(adentroModDataGridView,this);
             ticketf.Show();
+        }
+
+        private void addPrep_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -60,13 +60,14 @@ namespace e_billing
             double impNoIva = Math.Round((chargeS / 1.22));
             double impIva = (impNoIva * 0.22);
             int ticketIdS = Int32.Parse(ticketId.Text);
+            bool isPreps = Boolean.Parse(isPrep.Text);
             
             int rowInd = Int32.Parse(rowIndex.Text);
             int idAd = Int32.Parse(idAdent.Text);
            
             
 
-            generateMovCaja(chargeS, rutS, rsocialS, minutesS, vehicleTS, totalCS);
+            if(!isPreps) generateMovCaja(chargeS, rutS, rsocialS, minutesS, vehicleTS, totalCS, ticketIdS);
             generateMovParking(inDateS,inHourS, vehicleTS, plateS, impTotalS);
 
             int hours = Int32.Parse(minutesS)/60;
@@ -95,7 +96,7 @@ namespace e_billing
         }
 
         private void generateMovCaja(int chargeS, String rutS, string rsocialS,
-           string minutesS, string vehicleTS, string totalCS)
+           string minutesS, string vehicleTS, string totalCS,int ticketIdS)
         {
 
             movCaja.str_fecha = Program.getFormatedDate();
@@ -113,7 +114,7 @@ namespace e_billing
             movCaja.rut = rutS;
             movCaja.razon_social = rsocialS;
             movCaja.str_observaciones = "";
-            movCaja.correlativo_ticket = Program.getCorrelativo("TICKE");
+            movCaja.correlativo_ticket = ticketIdS;
             movCaja.str_tipo_vehiculo = vehicleTS;
             movCaja.str_convenio = "";
             movCaja.minutos = Int32.Parse(minutesS);

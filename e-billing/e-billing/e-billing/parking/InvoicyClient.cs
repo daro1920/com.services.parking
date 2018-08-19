@@ -27,7 +27,7 @@ namespace e_billing.parking
 				            <CFENro>" + CFEnro + @"</CFENro>
 				            <CFEImpresora>citizen</CFEImpresora>
 				            <CFEImp>S</CFEImp>
-				            <CFEImpCantidad>2</CFEImpCantidad>
+				            <CFEImpCantidad>1</CFEImpCantidad>
 				            <CFEFchEmis>" + DateTime.Now.ToString("yyyy-MM-dd") + @"</CFEFchEmis>
 				            <CFEFmaPago>1</CFEFmaPago>
 				            <CFEAdenda>Prueba</CFEAdenda>
@@ -145,7 +145,7 @@ namespace e_billing.parking
 				            <CFENro>" + CFEnro + @"</CFENro>
 				            <CFEImpresora>citizen</CFEImpresora>
 				            <CFEImp>S</CFEImp>
-				            <CFEImpCantidad>2</CFEImpCantidad>
+				            <CFEImpCantidad>1</CFEImpCantidad>
 				            <CFEFchEmis>"+ DateTime.Now.ToString("yyyy-MM-dd")+ @"</CFEFchEmis>
 				            <CFEFmaPago>1</CFEFmaPago>
 				            <CFEAdenda>Prueba</CFEAdenda>

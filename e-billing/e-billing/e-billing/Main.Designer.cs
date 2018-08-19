@@ -53,6 +53,7 @@
             this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
             this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
             this.button1 = new System.Windows.Forms.Button();
+            this.addPrep = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
@@ -274,11 +275,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // addPrep
+            // 
+            this.addPrep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrep.Location = new System.Drawing.Point(294, 523);
+            this.addPrep.Margin = new System.Windows.Forms.Padding(2);
+            this.addPrep.Name = "addPrep";
+            this.addPrep.Size = new System.Drawing.Size(92, 42);
+            this.addPrep.TabIndex = 6;
+            this.addPrep.Text = "Pasar a Prepago";
+            this.addPrep.UseVisualStyleBackColor = true;
+            this.addPrep.Visible = false;
+            this.addPrep.Click += new System.EventHandler(this.addPrep_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 576);
+            this.Controls.Add(this.addPrep);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.fillBy6ToolStrip);
@@ -337,5 +352,6 @@
         public ParkingDataSet parkingDataSet;
         public System.Windows.Forms.ToolStrip fillBy6ToolStrip;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addPrep;
     }
 }

@@ -60,6 +60,7 @@
             this.rowIndex = new System.Windows.Forms.TextBox();
             this.idAdent = new System.Windows.Forms.TextBox();
             this.ticketId = new System.Windows.Forms.TextBox();
+            this.isPrep = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,7 @@
             this.rate.Multiline = true;
             this.rate.Name = "rate";
             this.rate.ReadOnly = true;
-            this.rate.Size = new System.Drawing.Size(184, 25);
+            this.rate.Size = new System.Drawing.Size(184, 26);
             this.rate.TabIndex = 2;
             // 
             // key
@@ -419,11 +420,22 @@
             this.ticketId.TabIndex = 36;
             this.ticketId.Visible = false;
             // 
+            // isPrep
+            // 
+            this.isPrep.Enabled = false;
+            this.isPrep.Location = new System.Drawing.Point(269, 11);
+            this.isPrep.Margin = new System.Windows.Forms.Padding(2);
+            this.isPrep.Name = "isPrep";
+            this.isPrep.Size = new System.Drawing.Size(32, 20);
+            this.isPrep.TabIndex = 37;
+            this.isPrep.Visible = false;
+            // 
             // Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 392);
+            this.Controls.Add(this.isPrep);
             this.Controls.Add(this.ticketId);
             this.Controls.Add(this.idAdent);
             this.Controls.Add(this.rowIndex);
@@ -500,5 +512,6 @@
         public System.Windows.Forms.TextBox rowIndex;
         public System.Windows.Forms.TextBox idAdent;
         public System.Windows.Forms.TextBox ticketId;
+        public System.Windows.Forms.TextBox isPrep;
     }
 }
