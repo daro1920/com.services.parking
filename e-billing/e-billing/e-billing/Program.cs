@@ -1,6 +1,5 @@
 ﻿using e_billing.parking.dao;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
@@ -35,8 +34,7 @@ namespace e_billing
         private static Adentro adentro = new Adentro();
         private static EstadoLlavero key = new EstadoLlavero();
         private static TipoDocumentoEmision_Correlativos tdec = new TipoDocumentoEmision_Correlativos();
-
-        private static SoundPlayer simpleSound = null;
+        
 
         public static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -74,6 +72,22 @@ namespace e_billing
 
         }
 
+        public static string getFormatedDate(DateTime date)
+        {
+            //generate date
+
+            string str_mes = date.Month < 10 ? "0" + date.Month.ToString().Trim() : date.Month.ToString().Trim();
+            string str_dia = date.Day < 10 ? "0" + date.Day.ToString().Trim() : date.Day.ToString().Trim();
+
+            return date.Year.ToString() + str_mes + str_dia;
+        }
+
+        public static string getFormatedHour(DateTime date)
+        {
+            return date.TimeOfDay.ToString().Trim().Substring(0, 5);
+
+        }
+
         public static int getCorrelativo(string type)
         {
             tdec = tdecDAO.SelectByStr_codigo(type);
@@ -85,7 +99,7 @@ namespace e_billing
 
             return nro_ticket;
         }
-        public static void generateEntrence(string plate, int vehType)
+        public static void generateEntrence(string plate, int vehType,int conv)
         {
             try
             {
@@ -100,16 +114,14 @@ namespace e_billing
 
                 string str_fecha_entrada = getFormatedDate(); ;
                 string str_hora_entrada = getFormatedHour();
-
-
-
+                
                 //Registro vehiculo en adentro
                 int nro_ticket = getCorrelativo("TICKE");
                 adentro.correlativo_ticket = nro_ticket;
                 adentro.es_nocturno = false;
                 adentro.fecha_venc_prepago = "";
                 adentro.hora_venc_prepago = "";
-                adentro.id_convenio = 1;
+                adentro.id_convenio = conv;
                 adentro.id_tipo_vehiculo = vehType;
                 adentro.id_usuario = Login.logUser.ID;
                 adentro.importe_prepago = 0;
@@ -124,7 +136,27 @@ namespace e_billing
 
                 keyDao.assignFreeEstadoLlavero(plate, nro_ticket);
                 log.Error(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " Entrada generada, ticket " + adentro.correlativo_ticket.ToString());
+                //TODO imprimir ticket Notifee
 
+
+
+                //Imprimo ticket
+                //Codigo_Barras = "*BAR" + matricula + "Z*";
+                Codigo_Barras = "*BAR" + adentro.correlativo_ticket.ToString().Trim() + "Z*";
+                xrLabel_Fecha = "Fecha: " + str_fecha_entrada.Substring(6, 2) + "/" + str_fecha_entrada.Substring(4, 2) + "/" + str_fecha_entrada.Substring(0, 4);
+                xrLabel_Hora = "Hora: " + str_hora_entrada;
+                xrLabel_Ticket = "Ticket: " + adentro.correlativo_ticket.ToString().Trim();
+                xrLabel_Matricula = "Matricula: " + plate;
+                xrLabel_Entrada = "Entrada: B" + ConfigurationManager.AppSettings["NRO_BARRERA"].ToString();
+                xrLabel_Llave = "Llave: " + keyDao.getKeyState(plate, nro_ticket).nro_llave;
+                veh_type = vehType == 3 ? "Auto grande" : "Vehiculo";
+                xrLabel_Veh = "Tipo veh: " + veh_type;
+
+                printFont = new Font("Arial", 13);
+                ticket.PrintPage += new PrintPageEventHandler(ticket_PrintPage);
+                ticket2.PrintPage += new PrintPageEventHandler(ticket_PrintPage2);
+                ticket2.Print();
+                ticket.Print();
             }
             catch (Exception ex)
             {

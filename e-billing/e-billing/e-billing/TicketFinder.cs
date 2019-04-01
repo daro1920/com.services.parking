@@ -27,9 +27,15 @@ namespace e_billing
             this.mainForm = main;
             InitializeComponent();
         }
-        
 
-        private async void textBoxCB_TextChanged(object sender, EventArgs e)
+        private void TicketFinder_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'parkingDataSet1.Convenios' table. You can move, or remove it, as needed.
+            this.conveniosTableAdapter.Fill(this.parkingDataSet1.Convenios);
+
+        }
+        
+        private async void textBoxCB_TextChangedAsync(object sender, EventArgs e)
         {
             if (this.textBoxCB.Text.Trim().Length > 4)
             {
@@ -41,7 +47,7 @@ namespace e_billing
                     int rowIndex = -1;
                     foreach (DataGridViewRow row in adentroModDataGridView.Rows)
                     {
-                        var ticketId = row.Cells[0].Value != null ? row.Cells[0].Value.ToString(): "";
+                        var ticketId = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
                         if (ticketId.Equals(ticket))
                         {
                             rowIndex = row.Index;
@@ -50,18 +56,19 @@ namespace e_billing
                     }
                     if (rowIndex >= 0)
                     {
+                        int conv = Int32.Parse(vehConv.SelectedValue.ToString());
                         await Task.Delay(1000);
-                        mainForm.salida(rowIndex);
+                        mainForm.salida(rowIndex, conv);
                         this.Close();
-                    } else
+                    }
+                    else
                     {
                         //ticket not found message
                         this.errorMessage.Visible = true;
                     }
-                    
+
                 }
             }
         }
-        
     }
 }

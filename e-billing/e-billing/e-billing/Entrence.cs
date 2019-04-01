@@ -28,6 +28,8 @@ namespace e_billing
 
         private void Entrence_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'parkingDataSet1.Convenios' table. You can move, or remove it, as needed.
+            this.conveniosTableAdapter.Fill(this.parkingDataSet1.Convenios);
             // TODO: This line of code loads data into the 'parkingDataSet1.TipoVehiculo' table. You can move, or remove it, as needed.
             this.tipoVehiculoTableAdapter.Fill(this.parkingDataSet1.TipoVehiculo);
 
@@ -36,8 +38,9 @@ namespace e_billing
         private void button2_Click(object sender, EventArgs e)
         {
             string plateS = plate.Text;;
-            int vehTypeS = ((e_billing.ParkingDataSet1.TipoVehiculoRow)((DataRowView)vehType.SelectedValue).Row).id;
-            Program.generateEntrence(plateS, vehTypeS);
+            int vehTypeS = Int32.Parse(vehType.SelectedValue.ToString());
+            int vehConvS = Int32.Parse(vehConv.SelectedValue.ToString());
+            Program.generateEntrence(plateS, vehTypeS, vehConvS);
             mainForm.refreshGrid();
             this.Close();
         }

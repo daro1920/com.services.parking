@@ -26,6 +26,85 @@
           <Property Name="correlativo_ticket" Type="int" />
           <Property Name="es_nocturno" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Configu">
+          <Key>
+            <PropertyRef Name="modificar_importe" />
+            <PropertyRef Name="rollo_actual" />
+          </Key>
+          <Property Name="impresora_ticket" Type="varchar" MaxLength="100" />
+          <Property Name="impresora_factura" Type="varchar" MaxLength="100" />
+          <Property Name="impresora_factura_pension" Type="varchar" MaxLength="100" />
+          <Property Name="impresora_reportes" Type="varchar" MaxLength="100" />
+          <Property Name="modificar_importe" Type="bit" Nullable="false" />
+          <Property Name="rollo_actual" Type="int" Nullable="false" />
+          <Property Name="path_reader" Type="varchar" MaxLength="200" />
+          <Property Name="permitir_modificar_importe" Type="bit" />
+          <Property Name="nombre_parking" Type="varchar" MaxLength="30" />
+          <Property Name="mostrar_columnas_full_adentro" Type="bit" />
+          <Property Name="mantenimiento_usuarios" Type="bit" />
+          <Property Name="tamano_letra_adentro" Type="int" />
+          <Property Name="comision_general" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="comision_diurnos" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="comision_nocturnos" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="comision_pensiones" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="hora_comienzo_diurno" Type="varchar" MaxLength="5" />
+          <Property Name="hora_fin_diurno" Type="varchar" MaxLength="5" />
+          <Property Name="val_maximo_com_comun" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="no_mostrar_principa" Type="bit" />
+          <Property Name="usar_cc_para_pensionistas" Type="bit" />
+          <Property Name="tipo_letra_standard" Type="varchar" MaxLength="100" />
+          <Property Name="tipo_letra_matriculas" Type="varchar" MaxLength="100" />
+          <Property Name="tipo_letra_nro_ticket" Type="varchar" MaxLength="100" />
+          <Property Name="resaltar_prepagos_vencidos" Type="bit" />
+          <Property Name="mostrar_pensionistas_adentro" Type="bit" />
+          <Property Name="imprimir_cod_barras" Type="bit" />
+          <Property Name="imprimir_nro_ticket" Type="bit" />
+          <Property Name="permitir_acceso_barras_pensionistas" Type="bit" />
+          <Property Name="levantar_barreras_pensionistas" Type="bit" />
+          <Property Name="acumular_creditos_frecuente" Type="bit" />
+          <Property Name="frecuente_cant_creditos" Type="int" />
+          <Property Name="frecuente_cada_cant_min" Type="int" />
+          <Property Name="activar_grabacion_remota" Type="bit" />
+          <Property Name="backup_automatico" Type="bit" />
+          <Property Name="backup_cada_dias" Type="int" />
+          <Property Name="generar_pdf_facturas" Type="bit" />
+          <Property Name="generar_pdf_recibos" Type="bit" />
+          <Property Name="path_respaldos" Type="varchar" MaxLength="100" />
+          <Property Name="path_recibos" Type="varchar" MaxLength="100" />
+          <Property Name="path_facturas" Type="varchar" MaxLength="100" />
+          <Property Name="path_exportacion_caja" Type="varchar" MaxLength="100" />
+          <Property Name="path_exportacion_pensionistas" Type="varchar" MaxLength="100" />
+          <Property Name="path_reportes_pdf" Type="varchar" MaxLength="100" />
+          <Property Name="calcular_comisiones" Type="bit" />
+          <Property Name="generar_retiro_comision_cierre" Type="bit" />
+          <Property Name="login_al_cerrar_caja" Type="bit" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="100" />
+          <Property Name="mensaje_cabezal_ticket" Type="varchar" MaxLength="100" />
+          <Property Name="mensaje_pie_ticket" Type="varchar" MaxLength="100" />
+          <Property Name="plazas_totales" Type="int" />
+          <Property Name="plazas_pensionistas" Type="int" />
+          <Property Name="orden_inicial_adentro" Type="varchar" MaxLength="20" />
+          <Property Name="rut" Type="varchar" MaxLength="30" />
+          <Property Name="bps" Type="varchar" MaxLength="30" />
+          <Property Name="bse" Type="varchar" MaxLength="30" />
+          <Property Name="mtss" Type="varchar" MaxLength="30" />
+          <Property Name="planilla_mtss" Type="varchar" MaxLength="30" />
+          <Property Name="grupo_actividad" Type="varchar" MaxLength="10" />
+          <Property Name="subgrupo_actividad" Type="varchar" MaxLength="10" />
+          <Property Name="serie_estadisticas" Type="varchar" MaxLength="20" />
+          <Property Name="serie_sueldos" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Convenios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_codigo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_descrip" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="EstadoLlavero">
           <Key>
             <PropertyRef Name="id" />
@@ -89,6 +168,15 @@
           <Property Name="importe_calculado" Type="numeric" Precision="18" Scale="0" />
           <Property Name="valor_comision" Type="numeric" Precision="18" Scale="2" />
           <Property Name="com_cobrada" Type="bit" />
+        </EntityType>
+        <EntityType Name="Referencia_Cierre_Caja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_fecha" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="str_hora" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="observaciones" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Tarifas">
           <Key>
@@ -185,6 +273,18 @@
           <Property Name="autorizado2_apellidos" Type="varchar" MaxLength="50" />
           <Property Name="autorizado3_apellidos" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Adentro_Convenios">
+          <End Role="Convenios" Type="Self.Convenios" Multiplicity="1" />
+          <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convenios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_convenio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Adentro_TipoVehiculo">
           <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
           <End Role="Adentro" Type="Self.Adentro" Multiplicity="*" />
@@ -221,6 +321,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tarifas_Convenios">
+          <End Role="Convenios" Type="Self.Convenios" Multiplicity="1" />
+          <End Role="Tarifas" Type="Self.Tarifas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convenios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tarifas">
+              <PropertyRef Name="id_convenio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tarifas_TipoVehiculo">
           <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
           <End Role="Tarifas" Type="Self.Tarifas" Multiplicity="*" />
@@ -235,14 +347,87 @@
         </Association>
         <EntityContainer Name="ParkingModelStoreContainer">
           <EntitySet Name="Adentro" EntityType="Self.Adentro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Convenios" EntityType="Self.Convenios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadoLlavero" EntityType="Self.EstadoLlavero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovimientoParking" EntityType="Self.MovimientoParking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovimientosCaja" EntityType="Self.MovimientosCaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referencia_Cierre_Caja" EntityType="Self.Referencia_Cierre_Caja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="Self.TipoDocumentoEmision_Correlativos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehiculosRegistrados" EntityType="Self.VehiculosRegistrados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configu" EntityType="Self.Configu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Configu].[impresora_ticket] AS [impresora_ticket], 
+    [Configu].[impresora_factura] AS [impresora_factura], 
+    [Configu].[impresora_factura_pension] AS [impresora_factura_pension], 
+    [Configu].[impresora_reportes] AS [impresora_reportes], 
+    [Configu].[modificar_importe] AS [modificar_importe], 
+    [Configu].[rollo_actual] AS [rollo_actual], 
+    [Configu].[path_reader] AS [path_reader], 
+    [Configu].[permitir_modificar_importe] AS [permitir_modificar_importe], 
+    [Configu].[nombre_parking] AS [nombre_parking], 
+    [Configu].[mostrar_columnas_full_adentro] AS [mostrar_columnas_full_adentro], 
+    [Configu].[mantenimiento_usuarios] AS [mantenimiento_usuarios], 
+    [Configu].[tamano_letra_adentro] AS [tamano_letra_adentro], 
+    [Configu].[comision_general] AS [comision_general], 
+    [Configu].[comision_diurnos] AS [comision_diurnos], 
+    [Configu].[comision_nocturnos] AS [comision_nocturnos], 
+    [Configu].[comision_pensiones] AS [comision_pensiones], 
+    [Configu].[hora_comienzo_diurno] AS [hora_comienzo_diurno], 
+    [Configu].[hora_fin_diurno] AS [hora_fin_diurno], 
+    [Configu].[val_maximo_com_comun] AS [val_maximo_com_comun], 
+    [Configu].[no_mostrar_principa] AS [no_mostrar_principa], 
+    [Configu].[usar_cc_para_pensionistas] AS [usar_cc_para_pensionistas], 
+    [Configu].[tipo_letra_standard] AS [tipo_letra_standard], 
+    [Configu].[tipo_letra_matriculas] AS [tipo_letra_matriculas], 
+    [Configu].[tipo_letra_nro_ticket] AS [tipo_letra_nro_ticket], 
+    [Configu].[resaltar_prepagos_vencidos] AS [resaltar_prepagos_vencidos], 
+    [Configu].[mostrar_pensionistas_adentro] AS [mostrar_pensionistas_adentro], 
+    [Configu].[imprimir_cod_barras] AS [imprimir_cod_barras], 
+    [Configu].[imprimir_nro_ticket] AS [imprimir_nro_ticket], 
+    [Configu].[permitir_acceso_barras_pensionistas] AS [permitir_acceso_barras_pensionistas], 
+    [Configu].[levantar_barreras_pensionistas] AS [levantar_barreras_pensionistas], 
+    [Configu].[acumular_creditos_frecuente] AS [acumular_creditos_frecuente], 
+    [Configu].[frecuente_cant_creditos] AS [frecuente_cant_creditos], 
+    [Configu].[frecuente_cada_cant_min] AS [frecuente_cada_cant_min], 
+    [Configu].[activar_grabacion_remota] AS [activar_grabacion_remota], 
+    [Configu].[backup_automatico] AS [backup_automatico], 
+    [Configu].[backup_cada_dias] AS [backup_cada_dias], 
+    [Configu].[generar_pdf_facturas] AS [generar_pdf_facturas], 
+    [Configu].[generar_pdf_recibos] AS [generar_pdf_recibos], 
+    [Configu].[path_respaldos] AS [path_respaldos], 
+    [Configu].[path_recibos] AS [path_recibos], 
+    [Configu].[path_facturas] AS [path_facturas], 
+    [Configu].[path_exportacion_caja] AS [path_exportacion_caja], 
+    [Configu].[path_exportacion_pensionistas] AS [path_exportacion_pensionistas], 
+    [Configu].[path_reportes_pdf] AS [path_reportes_pdf], 
+    [Configu].[calcular_comisiones] AS [calcular_comisiones], 
+    [Configu].[generar_retiro_comision_cierre] AS [generar_retiro_comision_cierre], 
+    [Configu].[login_al_cerrar_caja] AS [login_al_cerrar_caja], 
+    [Configu].[direccion] AS [direccion], 
+    [Configu].[telefono] AS [telefono], 
+    [Configu].[mensaje_cabezal_ticket] AS [mensaje_cabezal_ticket], 
+    [Configu].[mensaje_pie_ticket] AS [mensaje_pie_ticket], 
+    [Configu].[plazas_totales] AS [plazas_totales], 
+    [Configu].[plazas_pensionistas] AS [plazas_pensionistas], 
+    [Configu].[orden_inicial_adentro] AS [orden_inicial_adentro], 
+    [Configu].[rut] AS [rut], 
+    [Configu].[bps] AS [bps], 
+    [Configu].[bse] AS [bse], 
+    [Configu].[mtss] AS [mtss], 
+    [Configu].[planilla_mtss] AS [planilla_mtss], 
+    [Configu].[grupo_actividad] AS [grupo_actividad], 
+    [Configu].[subgrupo_actividad] AS [subgrupo_actividad], 
+    [Configu].[serie_estadisticas] AS [serie_estadisticas], 
+    [Configu].[serie_sueldos] AS [serie_sueldos]
+    FROM [dbo].[Configu] AS [Configu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Adentro_Convenios" Association="Self.FK_Adentro_Convenios">
+            <End Role="Convenios" EntitySet="Convenios" />
+            <End Role="Adentro" EntitySet="Adentro" />
+          </AssociationSet>
           <AssociationSet Name="FK_Adentro_TipoVehiculo" Association="Self.FK_Adentro_TipoVehiculo">
             <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
             <End Role="Adentro" EntitySet="Adentro" />
@@ -254,6 +439,10 @@
           <AssociationSet Name="FK_MovimientosCaja_Usuarios" Association="Self.FK_MovimientosCaja_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="MovimientosCaja" EntitySet="MovimientosCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifas_Convenios" Association="Self.FK_Tarifas_Convenios">
+            <End Role="Convenios" EntitySet="Convenios" />
+            <End Role="Tarifas" EntitySet="Tarifas" />
           </AssociationSet>
           <AssociationSet Name="FK_Tarifas_TipoVehiculo" Association="Self.FK_Tarifas_TipoVehiculo">
             <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
@@ -284,6 +473,7 @@
           <Property Name="importe_prepago" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="correlativo_ticket" Type="Int32" />
           <Property Name="es_nocturno" Type="Boolean" />
+          <NavigationProperty Name="Convenio" Relationship="ParkingModel.FK_Adentro_Convenios" FromRole="Adentro" ToRole="Convenio" />
         </EntityType>
         <EntityType Name="EstadoLlavero">
           <Key>
@@ -392,6 +582,17 @@
             <End Role="MovimientosCaja" EntitySet="MovimientosCajas" />
           </AssociationSet>
           <EntitySet Name="VehiculosRegistrados" EntityType="ParkingModel.VehiculosRegistrado" />
+          <EntitySet Name="Configus" EntityType="ParkingModel.Configu" />
+          <EntitySet Name="Convenios" EntityType="ParkingModel.Convenio" />
+          <AssociationSet Name="FK_Adentro_Convenios" Association="ParkingModel.FK_Adentro_Convenios">
+            <End Role="Convenio" EntitySet="Convenios" />
+            <End Role="Adentro" EntitySet="Adentroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarifas_Convenios" Association="ParkingModel.FK_Tarifas_Convenios">
+            <End Role="Convenio" EntitySet="Convenios" />
+            <End Role="Tarifa" EntitySet="Tarifas" />
+          </AssociationSet>
+          <EntitySet Name="Referencia_Cierre_Caja" EntityType="ParkingModel.Referencia_Cierre_Caja" />
         </EntityContainer>
         <EntityType Name="Tarifa">
           <Key>
@@ -406,6 +607,7 @@
           <Property Name="techo" Type="Boolean" Nullable="false" />
           <Property Name="id_convenio" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoVehiculo" Relationship="ParkingModel.FK_Tarifas_TipoVehiculo" FromRole="Tarifa" ToRole="TipoVehiculo" />
+          <NavigationProperty Name="Convenio" Relationship="ParkingModel.FK_Tarifas_Convenios" FromRole="Tarifa" ToRole="Convenio" />
         </EntityType>
         <Association Name="FK_Tarifas_TipoVehiculo">
           <End Type="ParkingModel.TipoVehiculo" Role="TipoVehiculo" Multiplicity="1" />
@@ -523,6 +725,118 @@
           <Property Name="autorizado1_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="autorizado2_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="autorizado3_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Configu">
+          <Key>
+            <PropertyRef Name="modificar_importe" />
+            <PropertyRef Name="rollo_actual" />
+          </Key>
+          <Property Name="impresora_ticket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="impresora_factura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="impresora_factura_pension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="impresora_reportes" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="modificar_importe" Type="Boolean" Nullable="false" />
+          <Property Name="rollo_actual" Type="Int32" Nullable="false" />
+          <Property Name="path_reader" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="permitir_modificar_importe" Type="Boolean" />
+          <Property Name="nombre_parking" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mostrar_columnas_full_adentro" Type="Boolean" />
+          <Property Name="mantenimiento_usuarios" Type="Boolean" />
+          <Property Name="tamano_letra_adentro" Type="Int32" />
+          <Property Name="comision_general" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="comision_diurnos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="comision_nocturnos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="comision_pensiones" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="hora_comienzo_diurno" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="hora_fin_diurno" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="val_maximo_com_comun" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="no_mostrar_principa" Type="Boolean" />
+          <Property Name="usar_cc_para_pensionistas" Type="Boolean" />
+          <Property Name="tipo_letra_standard" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_letra_matriculas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_letra_nro_ticket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="resaltar_prepagos_vencidos" Type="Boolean" />
+          <Property Name="mostrar_pensionistas_adentro" Type="Boolean" />
+          <Property Name="imprimir_cod_barras" Type="Boolean" />
+          <Property Name="imprimir_nro_ticket" Type="Boolean" />
+          <Property Name="permitir_acceso_barras_pensionistas" Type="Boolean" />
+          <Property Name="levantar_barreras_pensionistas" Type="Boolean" />
+          <Property Name="acumular_creditos_frecuente" Type="Boolean" />
+          <Property Name="frecuente_cant_creditos" Type="Int32" />
+          <Property Name="frecuente_cada_cant_min" Type="Int32" />
+          <Property Name="activar_grabacion_remota" Type="Boolean" />
+          <Property Name="backup_automatico" Type="Boolean" />
+          <Property Name="backup_cada_dias" Type="Int32" />
+          <Property Name="generar_pdf_facturas" Type="Boolean" />
+          <Property Name="generar_pdf_recibos" Type="Boolean" />
+          <Property Name="path_respaldos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="path_recibos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="path_facturas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="path_exportacion_caja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="path_exportacion_pensionistas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="path_reportes_pdf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="calcular_comisiones" Type="Boolean" />
+          <Property Name="generar_retiro_comision_cierre" Type="Boolean" />
+          <Property Name="login_al_cerrar_caja" Type="Boolean" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mensaje_cabezal_ticket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mensaje_pie_ticket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="plazas_totales" Type="Int32" />
+          <Property Name="plazas_pensionistas" Type="Int32" />
+          <Property Name="orden_inicial_adentro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="bps" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="bse" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mtss" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="planilla_mtss" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="grupo_actividad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="subgrupo_actividad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="serie_estadisticas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="serie_sueldos" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Convenio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_codigo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="str_descrip" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Adentroes" Relationship="ParkingModel.FK_Adentro_Convenios" FromRole="Convenio" ToRole="Adentro" />
+          <NavigationProperty Name="Tarifas" Relationship="ParkingModel.FK_Tarifas_Convenios" FromRole="Convenio" ToRole="Tarifa" />
+        </EntityType>
+        <Association Name="FK_Adentro_Convenios">
+          <End Type="ParkingModel.Convenio" Role="Convenio" Multiplicity="1" />
+          <End Type="ParkingModel.Adentro" Role="Adentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convenio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adentro">
+              <PropertyRef Name="id_convenio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarifas_Convenios">
+          <End Type="ParkingModel.Convenio" Role="Convenio" Multiplicity="1" />
+          <End Type="ParkingModel.Tarifa" Role="Tarifa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convenio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tarifa">
+              <PropertyRef Name="id_convenio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Referencia_Cierre_Caja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_fecha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="str_hora" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -719,6 +1033,94 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Configus">
+            <EntityTypeMapping TypeName="ParkingModel.Configu">
+              <MappingFragment StoreEntitySet="Configu">
+                <ScalarProperty Name="serie_sueldos" ColumnName="serie_sueldos" />
+                <ScalarProperty Name="serie_estadisticas" ColumnName="serie_estadisticas" />
+                <ScalarProperty Name="subgrupo_actividad" ColumnName="subgrupo_actividad" />
+                <ScalarProperty Name="grupo_actividad" ColumnName="grupo_actividad" />
+                <ScalarProperty Name="planilla_mtss" ColumnName="planilla_mtss" />
+                <ScalarProperty Name="mtss" ColumnName="mtss" />
+                <ScalarProperty Name="bse" ColumnName="bse" />
+                <ScalarProperty Name="bps" ColumnName="bps" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="orden_inicial_adentro" ColumnName="orden_inicial_adentro" />
+                <ScalarProperty Name="plazas_pensionistas" ColumnName="plazas_pensionistas" />
+                <ScalarProperty Name="plazas_totales" ColumnName="plazas_totales" />
+                <ScalarProperty Name="mensaje_pie_ticket" ColumnName="mensaje_pie_ticket" />
+                <ScalarProperty Name="mensaje_cabezal_ticket" ColumnName="mensaje_cabezal_ticket" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="login_al_cerrar_caja" ColumnName="login_al_cerrar_caja" />
+                <ScalarProperty Name="generar_retiro_comision_cierre" ColumnName="generar_retiro_comision_cierre" />
+                <ScalarProperty Name="calcular_comisiones" ColumnName="calcular_comisiones" />
+                <ScalarProperty Name="path_reportes_pdf" ColumnName="path_reportes_pdf" />
+                <ScalarProperty Name="path_exportacion_pensionistas" ColumnName="path_exportacion_pensionistas" />
+                <ScalarProperty Name="path_exportacion_caja" ColumnName="path_exportacion_caja" />
+                <ScalarProperty Name="path_facturas" ColumnName="path_facturas" />
+                <ScalarProperty Name="path_recibos" ColumnName="path_recibos" />
+                <ScalarProperty Name="path_respaldos" ColumnName="path_respaldos" />
+                <ScalarProperty Name="generar_pdf_recibos" ColumnName="generar_pdf_recibos" />
+                <ScalarProperty Name="generar_pdf_facturas" ColumnName="generar_pdf_facturas" />
+                <ScalarProperty Name="backup_cada_dias" ColumnName="backup_cada_dias" />
+                <ScalarProperty Name="backup_automatico" ColumnName="backup_automatico" />
+                <ScalarProperty Name="activar_grabacion_remota" ColumnName="activar_grabacion_remota" />
+                <ScalarProperty Name="frecuente_cada_cant_min" ColumnName="frecuente_cada_cant_min" />
+                <ScalarProperty Name="frecuente_cant_creditos" ColumnName="frecuente_cant_creditos" />
+                <ScalarProperty Name="acumular_creditos_frecuente" ColumnName="acumular_creditos_frecuente" />
+                <ScalarProperty Name="levantar_barreras_pensionistas" ColumnName="levantar_barreras_pensionistas" />
+                <ScalarProperty Name="permitir_acceso_barras_pensionistas" ColumnName="permitir_acceso_barras_pensionistas" />
+                <ScalarProperty Name="imprimir_nro_ticket" ColumnName="imprimir_nro_ticket" />
+                <ScalarProperty Name="imprimir_cod_barras" ColumnName="imprimir_cod_barras" />
+                <ScalarProperty Name="mostrar_pensionistas_adentro" ColumnName="mostrar_pensionistas_adentro" />
+                <ScalarProperty Name="resaltar_prepagos_vencidos" ColumnName="resaltar_prepagos_vencidos" />
+                <ScalarProperty Name="tipo_letra_nro_ticket" ColumnName="tipo_letra_nro_ticket" />
+                <ScalarProperty Name="tipo_letra_matriculas" ColumnName="tipo_letra_matriculas" />
+                <ScalarProperty Name="tipo_letra_standard" ColumnName="tipo_letra_standard" />
+                <ScalarProperty Name="usar_cc_para_pensionistas" ColumnName="usar_cc_para_pensionistas" />
+                <ScalarProperty Name="no_mostrar_principa" ColumnName="no_mostrar_principa" />
+                <ScalarProperty Name="val_maximo_com_comun" ColumnName="val_maximo_com_comun" />
+                <ScalarProperty Name="hora_fin_diurno" ColumnName="hora_fin_diurno" />
+                <ScalarProperty Name="hora_comienzo_diurno" ColumnName="hora_comienzo_diurno" />
+                <ScalarProperty Name="comision_pensiones" ColumnName="comision_pensiones" />
+                <ScalarProperty Name="comision_nocturnos" ColumnName="comision_nocturnos" />
+                <ScalarProperty Name="comision_diurnos" ColumnName="comision_diurnos" />
+                <ScalarProperty Name="comision_general" ColumnName="comision_general" />
+                <ScalarProperty Name="tamano_letra_adentro" ColumnName="tamano_letra_adentro" />
+                <ScalarProperty Name="mantenimiento_usuarios" ColumnName="mantenimiento_usuarios" />
+                <ScalarProperty Name="mostrar_columnas_full_adentro" ColumnName="mostrar_columnas_full_adentro" />
+                <ScalarProperty Name="nombre_parking" ColumnName="nombre_parking" />
+                <ScalarProperty Name="permitir_modificar_importe" ColumnName="permitir_modificar_importe" />
+                <ScalarProperty Name="path_reader" ColumnName="path_reader" />
+                <ScalarProperty Name="rollo_actual" ColumnName="rollo_actual" />
+                <ScalarProperty Name="modificar_importe" ColumnName="modificar_importe" />
+                <ScalarProperty Name="impresora_reportes" ColumnName="impresora_reportes" />
+                <ScalarProperty Name="impresora_factura_pension" ColumnName="impresora_factura_pension" />
+                <ScalarProperty Name="impresora_factura" ColumnName="impresora_factura" />
+                <ScalarProperty Name="impresora_ticket" ColumnName="impresora_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Convenios">
+            <EntityTypeMapping TypeName="ParkingModel.Convenio">
+              <MappingFragment StoreEntitySet="Convenios">
+                <ScalarProperty Name="str_descrip" ColumnName="str_descrip" />
+                <ScalarProperty Name="str_codigo" ColumnName="str_codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referencia_Cierre_Caja">
+            <EntityTypeMapping TypeName="ParkingModel.Referencia_Cierre_Caja">
+              <MappingFragment StoreEntitySet="Referencia_Cierre_Caja">
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="str_hora" ColumnName="str_hora" />
+                <ScalarProperty Name="str_fecha" ColumnName="str_fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -733,7 +1135,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -1,4 +1,5 @@
 ﻿using e_billing.parking.dao;
+using e_billing.parking.model;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -11,6 +12,10 @@ namespace e_billing
         private TipoVehiculoDAO tvDAO = new TipoVehiculoDAO();
         private EstadoLlaveroDAO elDAO = new EstadoLlaveroDAO();
         private AdentroDAO adeDAO = new AdentroDAO();
+        private ConfigDAO conDAO = new ConfigDAO();
+        private VehiculosRegistradosDAO vehRegDao = new VehiculosRegistradosDAO();
+        private RefCierreCajaDAO refCCDAO = new RefCierreCajaDAO();
+        private MovimientosCajaDAO movCajaDAO = new MovimientosCajaDAO();
 
         public Main()
         {
@@ -28,11 +33,15 @@ namespace e_billing
         {
             int rowIndex = e.RowIndex;
 
-            salida(rowIndex);
+            salida(rowIndex,-1);
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'parkingDataSet.MovimientosCaja' table. You can move, or remove it, as needed.
+            this.movimientosCajaTableAdapter1.Fill(this.parkingDataSet.MovimientosCaja);
+            // TODO: This line of code loads data into the 'movimientoCajaDataSet.MovimientosCaja' table. You can move, or remove it, as needed.
+            this.movimientosCajaTableAdapter.Fill(this.movimientoCajaDataSet.MovimientosCaja);
             // TODO: This line of code loads data into the 'parkingDataSet.AdentroMod' table. You can move, or remove it, as needed.
             this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
         }
@@ -43,13 +52,24 @@ namespace e_billing
             entrence.Show();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F10)
+            {
+                TicketFinder ticketf = new TicketFinder(adentroModDataGridView, this);
+                ticketf.Show();
+                return true;
+            }
+            return false;
+        }
+
         private void outButton_Click(object sender, EventArgs e)
         {
             int rowIndex = adentroModDataGridView.CurrentCell.RowIndex;
-            salida(rowIndex);
+            salida(rowIndex,-1);
             
         }
-        public void salida(int rowIndex)
+        public void salida(int rowIndex,int conv)
         {
             if (rowIndex >= 0)
             {
@@ -61,58 +81,98 @@ namespace e_billing
                 Adentro aden = adeDAO.getAdentro(adentroId);
 
                 Boolean isPrep = aden.prepago.Equals("SI");
+                int convId = conv == -1 ? aden.id_convenio: conv;
 
                 int ticketId = Int32.Parse(row.Cells[0].Value.ToString());
                 string plate = row.Cells[1].Value.ToString();
 
-                string dateIn = Program.getFormatDate(row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
+                string dateS = row.Cells[2].Value.ToString();
+                string hourS = row.Cells[3].Value.ToString();
+
+                string dateIn = Program.getFormatDate(dateS, hourS);
                 string dateInPrep = isPrep ? Program.getFormatDate(row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString()) : "";
 
                 string vehicleType = row.Cells[4].Value.ToString();
                 int vehicleId = tvDAO.getVehicleID(vehicleType);
-                
-                
 
                 DateTime dateInTime = isPrep ? DateTime.ParseExact(dateInPrep, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture): DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
-                //DateTime dateInTime = DateTime.ParseExact(dateIn, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
 
                 DateTime today = DateTime.Now;
                 int minutes = Convert.ToInt32((today - dateInTime).TotalMinutes);
-
-
-                Tarifa rate = rateDao.getRate(vehicleId, minutes);
+                int days = Convert.ToInt32((today - dateInTime).TotalDays);
+                
+                Tarifa rate = getRate(vehicleId, minutes, convId, dateInTime); 
                 EstadoLlavero estLl = elDAO.getKeyState(plate,ticketId);
 
-                Ticket ticket = new Ticket(this);
-
-                int importe = Convert.ToInt32(rate.importe);
-                ticket.plate.Text = plate;
-                ticket.minutes.Text = minutes <= 0 ? "0" : minutes.ToString();
-                ticket.rate.Text = rate.str_tarifa == null ? "Prepago" : rate.str_tarifa.ToString();
-                ticket.charge.Text = importe.ToString();
-                ticket.received.Text = "";
-                ticket.change.Text = "0";
+                showTicketForm(Convert.ToInt32(rate.importe), plate,minutes, rate.str_tarifa,estLl,ticketId, vehicleId,row, adentroId, ticketId, isPrep,false, convId);
                 
-                ticket.key.Text = estLl!=null ? estLl.nro_llave : "";
-
-                ticket.toPayLabel.Text = "A Pagar: $" + importe;
-                ticket.ticketLabel.Text = "Ticket: " + ticketId;
-                ticket.toPayLabel.Visible = true;
-                ticket.ticketLabel.Visible = true;
-
-                ticket.vehicleType.Text = vehicleId.ToString();
-                ticket.totalCharge.Text = importe.ToString();
-                ticket.inDate.Text = row.Cells[2].Value.ToString();
-                ticket.inHour.Text = row.Cells[3].Value.ToString();
-                ticket.impTotal.Text = importe.ToString();
-                ticket.rowIndex.Text = rowIndex.ToString();
-                ticket.idAdent.Text = adentroId.ToString();
-                ticket.ticketId.Text = ticketId.ToString();
-                // isPrep could be SI, but the time could be expired
-                ticket.isPrep.Text = minutes <= 0 ? isPrep.ToString() : "false";
-
-                ticket.Show();
             }
+        }
+
+        public void showTicketForm(int importe, string plate, int minutes, string str_tarifa, 
+            EstadoLlavero estLl, int ticketId, int vehicleId, DataGridViewRow row, 
+            int adentroId, int ticketId2, bool isPrep, bool isPrepDays,int convId)
+        {
+            Ticket ticket = new Ticket(this);
+
+            VehiculosRegistrado vehReg = vehRegDao.getRegVehicle(plate);
+            ticket.rut.Text = vehReg != null && !"".Equals(vehReg.rut) ? vehReg.rut : "";
+
+            ticket.plate.Text = plate;
+
+            ticket.minutes.Text = minutes <= 0 ? "0" : minutes.ToString();
+            ticket.rate.Text = str_tarifa == null ? "Prepago" : str_tarifa;
+            ticket.charge.Text = importe.ToString();
+            ticket.received.Text = "";
+            ticket.change.Text = "0";
+
+            ticket.key.Text = estLl != null ? estLl.nro_llave : "";
+
+            ticket.toPayLabel.Text = "A Pagar: $" + importe;
+            ticket.ticketLabel.Text = "Ticket: " + ticketId;
+            ticket.toPayLabel.Visible = true;
+            ticket.ticketLabel.Visible = true;
+
+            ticket.vehicleType.Text = vehicleId.ToString();
+            ticket.totalCharge.Text = importe.ToString();
+            ticket.inDate.Text = row.Cells[2].Value.ToString();
+            ticket.inHour.Text = row.Cells[3].Value.ToString();
+            ticket.impTotal.Text = importe.ToString();
+            ticket.rowIndex.Text = row.Index.ToString();
+            ticket.idAdent.Text = adentroId.ToString();
+            ticket.ticketId.Text = ticketId.ToString();
+            // isPrep could be SI, but the time could be expired
+            ticket.isPrep.Text = minutes <= 0 ? isPrep.ToString() : "false";
+            ticket.isPrepDays.Text = isPrepDays.ToString();
+            ticket.conv.Text = convId.ToString();
+
+            ticket.Show();
+        }
+
+        private Tarifa getRate(int vehicleId, int minutes, int conv , DateTime dateInTime)
+        {
+            Tarifa rate = rateDao.getRate(vehicleId, minutes, conv);
+            Configu config = conDAO.getConfig();
+
+            DateTime now = DateTime.Now;
+            DateTime nightHourBegins = DateTime.ParseExact(config.hora_fin_diurno, "HH:mm", CultureInfo.InvariantCulture);
+            DateTime nightHourEnds = DateTime.ParseExact(config.hora_comienzo_diurno, "HH:mm", CultureInfo.InvariantCulture).AddDays(1);
+            
+            Boolean sameDay = Convert.ToInt32((dateInTime - nightHourBegins).TotalDays) == 0;
+            Boolean yestearday = Convert.ToInt32((nightHourBegins - dateInTime).TotalDays) == 1;
+
+            Boolean afterNightStart = dateInTime.Hour >= nightHourBegins.Hour;
+            Boolean beforeNightEnds = (now.Hour < nightHourEnds.Hour);
+
+            if ( (sameDay || yestearday) &&
+                (afterNightStart && beforeNightEnds) )
+            {
+                Tarifa nightRate = rateDao.getRateByStr_Tarifa(vehicleId, "Nocturna");
+                rate = rate.importe >= nightRate.importe ? nightRate : rate;
+            }
+            
+
+            return rate;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -135,14 +195,11 @@ namespace e_billing
                 Program.log.Error(DateTime.Now.ToString() + "timer1_Tick" + ex);
             }
 
-            
-
-
         }
         public void refreshGrid()
         {
             this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
-             
+
         }
 
         private void fillBy6ToolStripButton_Click(object sender, EventArgs e)
@@ -166,7 +223,262 @@ namespace e_billing
 
         private void addPrep_Click(object sender, EventArgs e)
         {
+            int rowIndex = adentroModDataGridView.CurrentCell.RowIndex;
+            if (rowIndex >= 0)
+            {
+                DataGridViewRow row = adentroModDataGridView.Rows[rowIndex];
+                PrepDays prepDays = new PrepDays(this, row);
+                prepDays.Show();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            refreshGrid();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Services services = new Services(adentroModDataGridView, this);
+            services.Show();
+        }
+
+        private void adentroModDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillByToolStripButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillByToolStripButton_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy1(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void cerrado0ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.movimientosCajaTableAdapter.Fill(this.movimientoCajaDataSet.MovimientosCaja);
+        }
+
+        private void fillBy2ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy2ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void cerrado0ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Referencia_Cierre_Caja refCC = new Referencia_Cierre_Caja();
+
+            refCC.str_fecha = Program.getFormatedDate();
+            refCC.str_hora = Program.getFormatedHour();
+            User user = Login.logUser;
+            refCC.observaciones ="ID del usuario:"+ user.ID.ToString()+". Nombre Usuario: "+user.NOMBRE+" "+user.APELLIDO;
+
+            refCCDAO.addRefCC(ref refCC);
+
+            movCajaDAO.updateMovCaja(refCC.id);
+        }
+
+        private void fillBy2ToolStripButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy3ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy3(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy3ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.FillBy3(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy6ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void cerrado0ToolStripButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy6ToolStripButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillBy6ToolStripButton1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void cerrado0ToolStripButton_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.movimientosCajaTableAdapter1.Fill(this.parkingDataSet.MovimientosCaja);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }
 }
+    

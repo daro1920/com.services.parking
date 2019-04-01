@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.plate = new System.Windows.Forms.TextBox();
             this.minutes = new System.Windows.Forms.TextBox();
             this.charge = new System.Windows.Forms.TextBox();
@@ -50,7 +51,7 @@
             this.ticketLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.toPayLabel = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AcceptB = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.totalCharge = new System.Windows.Forms.TextBox();
             this.vehicleType = new System.Windows.Forms.TextBox();
@@ -61,8 +62,17 @@
             this.idAdent = new System.Windows.Forms.TextBox();
             this.ticketId = new System.Windows.Forms.TextBox();
             this.isPrep = new System.Windows.Forms.TextBox();
+            this.isPrepDays = new System.Windows.Forms.TextBox();
+            this.parkingDataSet1 = new e_billing.ParkingDataSet1();
+            this.conveniosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.conveniosTableAdapter = new e_billing.ParkingDataSet1TableAdapters.ConveniosTableAdapter();
+            this.obsT = new System.Windows.Forms.Label();
+            this.obsInput = new System.Windows.Forms.TextBox();
+            this.conv = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conveniosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // plate
@@ -70,7 +80,7 @@
             this.plate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.plate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.plate.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.plate.Location = new System.Drawing.Point(125, 83);
+            this.plate.Location = new System.Drawing.Point(125, 62);
             this.plate.Margin = new System.Windows.Forms.Padding(2);
             this.plate.Multiline = true;
             this.plate.Name = "plate";
@@ -83,7 +93,7 @@
             this.minutes.BackColor = System.Drawing.Color.WhiteSmoke;
             this.minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.minutes.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.minutes.Location = new System.Drawing.Point(125, 111);
+            this.minutes.Location = new System.Drawing.Point(125, 90);
             this.minutes.Margin = new System.Windows.Forms.Padding(2);
             this.minutes.Multiline = true;
             this.minutes.Name = "minutes";
@@ -94,7 +104,7 @@
             // charge
             // 
             this.charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.charge.Location = new System.Drawing.Point(125, 171);
+            this.charge.Location = new System.Drawing.Point(125, 150);
             this.charge.Margin = new System.Windows.Forms.Padding(2);
             this.charge.Multiline = true;
             this.charge.Name = "charge";
@@ -107,7 +117,7 @@
             this.rate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.rate.ForeColor = System.Drawing.Color.Black;
-            this.rate.Location = new System.Drawing.Point(125, 141);
+            this.rate.Location = new System.Drawing.Point(125, 120);
             this.rate.Margin = new System.Windows.Forms.Padding(2);
             this.rate.Multiline = true;
             this.rate.Name = "rate";
@@ -120,7 +130,7 @@
             this.key.BackColor = System.Drawing.Color.WhiteSmoke;
             this.key.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.key.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.key.Location = new System.Drawing.Point(125, 258);
+            this.key.Location = new System.Drawing.Point(125, 237);
             this.key.Margin = new System.Windows.Forms.Padding(2);
             this.key.Multiline = true;
             this.key.Name = "key";
@@ -133,7 +143,7 @@
             this.change.BackColor = System.Drawing.Color.WhiteSmoke;
             this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.change.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.change.Location = new System.Drawing.Point(125, 228);
+            this.change.Location = new System.Drawing.Point(125, 207);
             this.change.Margin = new System.Windows.Forms.Padding(2);
             this.change.Multiline = true;
             this.change.Name = "change";
@@ -145,7 +155,7 @@
             // 
             this.received.BackColor = System.Drawing.Color.White;
             this.received.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.received.Location = new System.Drawing.Point(125, 199);
+            this.received.Location = new System.Drawing.Point(125, 178);
             this.received.Margin = new System.Windows.Forms.Padding(2);
             this.received.Multiline = true;
             this.received.Name = "received";
@@ -177,7 +187,7 @@
             // 
             this.matricula.AutoSize = true;
             this.matricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matricula.Location = new System.Drawing.Point(9, 83);
+            this.matricula.Location = new System.Drawing.Point(9, 62);
             this.matricula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.matricula.Name = "matricula";
             this.matricula.Size = new System.Drawing.Size(100, 24);
@@ -188,7 +198,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 112);
+            this.label2.Location = new System.Drawing.Point(9, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 24);
@@ -199,7 +209,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 141);
+            this.label3.Location = new System.Drawing.Point(9, 120);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 24);
@@ -210,7 +220,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 171);
+            this.label1.Location = new System.Drawing.Point(9, 150);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 24);
@@ -221,7 +231,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 200);
+            this.label5.Location = new System.Drawing.Point(9, 179);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 24);
@@ -232,7 +242,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 229);
+            this.label6.Location = new System.Drawing.Point(9, 208);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 24);
@@ -243,7 +253,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 258);
+            this.label7.Location = new System.Drawing.Point(9, 237);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 24);
@@ -314,18 +324,18 @@
             this.toPayLabel.Text = "A Pagar:";
             this.toPayLabel.Visible = false;
             // 
-            // button2
+            // AcceptB
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button2.Location = new System.Drawing.Point(494, 316);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 54);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "✓ Aceptar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AcceptB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AcceptB.ForeColor = System.Drawing.Color.DarkGreen;
+            this.AcceptB.Location = new System.Drawing.Point(494, 316);
+            this.AcceptB.Margin = new System.Windows.Forms.Padding(2);
+            this.AcceptB.Name = "AcceptB";
+            this.AcceptB.Size = new System.Drawing.Size(95, 54);
+            this.AcceptB.TabIndex = 24;
+            this.AcceptB.Text = "✓ Aceptar";
+            this.AcceptB.UseVisualStyleBackColor = true;
+            this.AcceptB.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -343,7 +353,7 @@
             // totalCharge
             // 
             this.totalCharge.Enabled = false;
-            this.totalCharge.Location = new System.Drawing.Point(125, 35);
+            this.totalCharge.Location = new System.Drawing.Point(303, 11);
             this.totalCharge.Margin = new System.Windows.Forms.Padding(2);
             this.totalCharge.Name = "totalCharge";
             this.totalCharge.Size = new System.Drawing.Size(32, 20);
@@ -363,7 +373,7 @@
             // inHour
             // 
             this.inHour.Enabled = false;
-            this.inHour.Location = new System.Drawing.Point(161, 35);
+            this.inHour.Location = new System.Drawing.Point(339, 11);
             this.inHour.Margin = new System.Windows.Forms.Padding(2);
             this.inHour.Name = "inHour";
             this.inHour.Size = new System.Drawing.Size(32, 20);
@@ -393,7 +403,7 @@
             // rowIndex
             // 
             this.rowIndex.Enabled = false;
-            this.rowIndex.Location = new System.Drawing.Point(197, 35);
+            this.rowIndex.Location = new System.Drawing.Point(375, 11);
             this.rowIndex.Margin = new System.Windows.Forms.Padding(2);
             this.rowIndex.Name = "rowIndex";
             this.rowIndex.Size = new System.Drawing.Size(32, 20);
@@ -403,7 +413,7 @@
             // idAdent
             // 
             this.idAdent.Enabled = false;
-            this.idAdent.Location = new System.Drawing.Point(233, 35);
+            this.idAdent.Location = new System.Drawing.Point(411, 11);
             this.idAdent.Margin = new System.Windows.Forms.Padding(2);
             this.idAdent.Name = "idAdent";
             this.idAdent.Size = new System.Drawing.Size(32, 20);
@@ -430,11 +440,74 @@
             this.isPrep.TabIndex = 37;
             this.isPrep.Visible = false;
             // 
+            // isPrepDays
+            // 
+            this.isPrepDays.Enabled = false;
+            this.isPrepDays.Location = new System.Drawing.Point(447, 11);
+            this.isPrepDays.Margin = new System.Windows.Forms.Padding(2);
+            this.isPrepDays.Name = "isPrepDays";
+            this.isPrepDays.Size = new System.Drawing.Size(32, 20);
+            this.isPrepDays.TabIndex = 38;
+            this.isPrepDays.Visible = false;
+            // 
+            // parkingDataSet1
+            // 
+            this.parkingDataSet1.DataSetName = "ParkingDataSet1";
+            this.parkingDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // conveniosBindingSource
+            // 
+            this.conveniosBindingSource.DataMember = "Convenios";
+            this.conveniosBindingSource.DataSource = this.parkingDataSet1;
+            // 
+            // conveniosTableAdapter
+            // 
+            this.conveniosTableAdapter.ClearBeforeFill = true;
+            // 
+            // obsT
+            // 
+            this.obsT.AutoSize = true;
+            this.obsT.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.obsT.Location = new System.Drawing.Point(9, 275);
+            this.obsT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.obsT.Name = "obsT";
+            this.obsT.Size = new System.Drawing.Size(156, 24);
+            this.obsT.TabIndex = 40;
+            this.obsT.Text = "Observaciones:";
+            this.obsT.Visible = false;
+            // 
+            // obsInput
+            // 
+            this.obsInput.BackColor = System.Drawing.Color.White;
+            this.obsInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.obsInput.Location = new System.Drawing.Point(169, 275);
+            this.obsInput.Margin = new System.Windows.Forms.Padding(2);
+            this.obsInput.Multiline = true;
+            this.obsInput.Name = "obsInput";
+            this.obsInput.Size = new System.Drawing.Size(519, 25);
+            this.obsInput.TabIndex = 41;
+            this.obsInput.Visible = false;
+            this.obsInput.TextChanged += new System.EventHandler(this.obsInput_TextChanged);
+            // 
+            // conv
+            // 
+            this.conv.Enabled = false;
+            this.conv.Location = new System.Drawing.Point(483, 11);
+            this.conv.Margin = new System.Windows.Forms.Padding(2);
+            this.conv.Name = "conv";
+            this.conv.Size = new System.Drawing.Size(32, 20);
+            this.conv.TabIndex = 42;
+            this.conv.Visible = false;
+            // 
             // Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 392);
+            this.Controls.Add(this.conv);
+            this.Controls.Add(this.obsInput);
+            this.Controls.Add(this.obsT);
+            this.Controls.Add(this.isPrepDays);
             this.Controls.Add(this.isPrep);
             this.Controls.Add(this.ticketId);
             this.Controls.Add(this.idAdent);
@@ -445,7 +518,7 @@
             this.Controls.Add(this.totalCharge);
             this.Controls.Add(this.vehicleType);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.AcceptB);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
@@ -470,10 +543,13 @@
             this.Name = "Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ticket";
+            this.Load += new System.EventHandler(this.Ticket_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conveniosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,7 +567,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AcceptB;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.TextBox plate;
         public System.Windows.Forms.TextBox minutes;
@@ -513,5 +589,12 @@
         public System.Windows.Forms.TextBox idAdent;
         public System.Windows.Forms.TextBox ticketId;
         public System.Windows.Forms.TextBox isPrep;
+        public System.Windows.Forms.TextBox isPrepDays;
+        private ParkingDataSet1 parkingDataSet1;
+        private System.Windows.Forms.BindingSource conveniosBindingSource;
+        private ParkingDataSet1TableAdapters.ConveniosTableAdapter conveniosTableAdapter;
+        private System.Windows.Forms.Label obsT;
+        public System.Windows.Forms.TextBox obsInput;
+        public System.Windows.Forms.TextBox conv;
     }
 }

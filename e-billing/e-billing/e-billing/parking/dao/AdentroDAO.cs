@@ -40,6 +40,27 @@ namespace e_billing.parking.dao
                 Program.log.Error(DateTime.Now.ToString() + " AdentroDao remove" + ex);
             }
         }
+        public void updateAdentro(int id,string datePrep, string hourPrep, int prepPay)
+        {
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    var adentro = (from ade in context.Adentroes where ade.id == id select ade).FirstOrDefault();
+
+                    adentro.prepago = "SI";
+                    adentro.fecha_venc_prepago = datePrep;
+                    adentro.hora_venc_prepago = hourPrep;
+                    adentro.importe_prepago = prepPay;
+
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + " AdentroDao remove" + ex);
+            }
+        }
 
         public List<string> getAll()
         {

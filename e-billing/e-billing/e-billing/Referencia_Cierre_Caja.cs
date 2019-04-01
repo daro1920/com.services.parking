@@ -12,18 +12,11 @@ namespace e_billing
     using System;
     using System.Collections.Generic;
     
-    public partial class Tarifa
+    public partial class Referencia_Cierre_Caja
     {
         public int id { get; set; }
-        public int id_tipo_vehiculo { get; set; }
-        public string str_tarifa { get; set; }
-        public int minutos { get; set; }
-        public int minutos_tolerancia { get; set; }
-        public decimal importe { get; set; }
-        public bool techo { get; set; }
-        public int id_convenio { get; set; }
-    
-        public virtual TipoVehiculo TipoVehiculo { get; set; }
-        public virtual Convenio Convenio { get; set; }
+        public string str_fecha { get; set; }
+        public string str_hora { get; set; }
+        public string observaciones { get; set; }
     }
 }

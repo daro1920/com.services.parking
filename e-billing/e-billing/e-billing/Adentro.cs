@@ -30,5 +30,7 @@ namespace e_billing
         public Nullable<decimal> importe_prepago { get; set; }
         public Nullable<int> correlativo_ticket { get; set; }
         public Nullable<bool> es_nocturno { get; set; }
+    
+        public virtual Convenio Convenio { get; set; }
     }
 }

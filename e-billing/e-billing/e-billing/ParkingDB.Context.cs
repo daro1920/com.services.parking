@@ -34,5 +34,8 @@ namespace e_billing
         public virtual DbSet<MovimientoParking> MovimientoParkings { get; set; }
         public virtual DbSet<MovimientosCaja> MovimientosCajas { get; set; }
         public virtual DbSet<VehiculosRegistrado> VehiculosRegistrados { get; set; }
+        public virtual DbSet<Configu> Configus { get; set; }
+        public virtual DbSet<Convenio> Convenios { get; set; }
+        public virtual DbSet<Referencia_Cierre_Caja> Referencia_Cierre_Caja { get; set; }
     }
 }

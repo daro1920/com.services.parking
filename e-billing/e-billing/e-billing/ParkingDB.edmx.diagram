@@ -18,6 +18,11 @@
         <EntityTypeShape EntityType="ParkingModel.MovimientosCaja" Width="1.5" PointX="3" PointY="11.75" />
         <AssociationConnector Association="ParkingModel.FK_MovimientosCaja_Usuarios" />
         <EntityTypeShape EntityType="ParkingModel.VehiculosRegistrado" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ParkingModel.Configu" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ParkingModel.Convenio" Width="1.5" PointX="0.75" PointY="5.5" />
+        <AssociationConnector Association="ParkingModel.FK_Adentro_Convenios" />
+        <AssociationConnector Association="ParkingModel.FK_Tarifas_Convenios" />
+        <EntityTypeShape EntityType="ParkingModel.Referencia_Cierre_Caja" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
