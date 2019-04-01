@@ -202,16 +202,9 @@ namespace e_billing
 
         }
 
-        private void fillBy6ToolStripButton_Click(object sender, EventArgs e)
+        public void refreshGridCaja()
         {
-            try
-            {
-                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            this.movimientosCajaTableAdapter1.Fill(this.parkingDataSet.MovimientosCaja);
 
         }
 
@@ -242,124 +235,17 @@ namespace e_billing
             Services services = new Services(adentroModDataGridView, this);
             services.Show();
         }
-
-        private void adentroModDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByToolStripButton_Click_2(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy1(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void cerrado0ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
-            this.movimientosCajaTableAdapter.Fill(this.movimientoCajaDataSet.MovimientosCaja);
+            refreshGridCaja();
         }
-
-        private void fillBy2ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy2ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void cerrado0ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
             Referencia_Cierre_Caja refCC = new Referencia_Cierre_Caja();
+            decimal importeCierre = movCajaDAO.getSumImporteMovCaja();
 
             refCC.str_fecha = Program.getFormatedDate();
             refCC.str_hora = Program.getFormatedHour();
@@ -369,116 +255,20 @@ namespace e_billing
             refCCDAO.addRefCC(ref refCC);
 
             movCajaDAO.updateMovCaja(refCC.id);
+
+            MovimientosCaja movCaja = new MovimientosCaja();
+
+            movCaja.str_fecha = Program.getFormatedDate();
+            movCaja.str_hora = Program.getFormatedHour();
+            movCaja.importe = importeCierre;
+            movCaja.id_tipo_movimiento = 9;
+
+            movCajaDAO.addMovCaja(ref movCaja);
+
+            refreshGridCaja();
         }
-
-        private void fillBy2ToolStripButton2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy2(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy3ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy3(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy3ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.FillBy3(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy6ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void cerrado0ToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy6ToolStripButton1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillBy6ToolStripButton1_Click_2(object sender, EventArgs e)
-        {
-            try
-            {
-                this.adentroModTableAdapter.FillBy6(this.parkingDataSet.AdentroMod);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void cerrado0ToolStripButton_Click_2(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter.cerrado0(this.movimientoCajaDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.movimientosCajaTableAdapter1.Fill(this.parkingDataSet.MovimientosCaja);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
+        
+        
     }
 }
     

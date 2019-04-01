@@ -14,18 +14,39 @@ namespace e_billing.parking.dao
             {
                 using (var context = new ParkingEntities2())
                 {
-                    var movCaja = (from movC in context.MovimientosCajas where movC.cerrado == false select movC).FirstOrDefault();
+                    List<MovimientosCaja> movsCaja = (from movC in context.MovimientosCajas where movC.cerrado == false select movC).ToList();
 
-                    movCaja.cerrado = true;
-                    movCaja.id_referencia_cierre = idRef;
+                    foreach (MovimientosCaja movCaja in movsCaja)
+                    {
+                        movCaja.cerrado = true;
+                        movCaja.id_referencia_cierre = idRef;
 
-                    context.SaveChanges();
+                        context.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Program.log.Error(DateTime.Now.ToString() + "MovimientosCajaDAO updateMovimientoCaja" + ex);
             }
+        }
+
+        public decimal getSumImporteMovCaja()
+        {
+            decimal movCaja = 0;
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    movCaja = (from movC in context.MovimientosCajas where movC.cerrado == false select movC.importe).Sum();
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + "MovimientosCajaDAO getSumImporteMovCaja" + ex);
+            }
+            return movCaja;
         }
 
         public void addMovCaja(ref MovimientosCaja movCaja)

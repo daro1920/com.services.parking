@@ -31,6 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
+            this.adentroModDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.str_descrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet = new e_billing.ParkingDataSet();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.addPrep = new System.Windows.Forms.Button();
@@ -56,45 +69,32 @@
             this.str_tipo_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.str_convenio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minutos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movimientosCajaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.movimientosCajaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.movimientoCajaDataSet = new e_billing.MovimientoCajaDataSet();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.fillBy6ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy6ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.movimientosCajaTableAdapter = new e_billing.MovimientoCajaDataSetTableAdapters.MovimientosCajaTableAdapter();
-            this.adentroModDataGridView = new System.Windows.Forms.DataGridView();
-            this.str_descrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cerrado0ToolStrip = new System.Windows.Forms.ToolStrip();
             this.cerrado0ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adentroModBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parkingDataSet = new e_billing.ParkingDataSet();
             this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
             this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
-            this.movimientosCajaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.movimientosCajaTableAdapter1 = new e_billing.ParkingDataSetTableAdapters.MovimientosCajaTableAdapter();
             this.fillToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
             this.tabCaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientoCajaDataSet)).BeginInit();
             this.fillBy6ToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
             this.cerrado0ToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).BeginInit();
             this.fillToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +128,110 @@
             this.tab1.Size = new System.Drawing.Size(934, 587);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Adentro";
+            // 
+            // adentroModDataGridView
+            // 
+            this.adentroModDataGridView.AutoGenerateColumns = false;
+            this.adentroModDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adentroModDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.str_descrip,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn15,
+            this.id});
+            this.adentroModDataGridView.DataSource = this.adentroModBindingSource;
+            this.adentroModDataGridView.Location = new System.Drawing.Point(3, 4);
+            this.adentroModDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.adentroModDataGridView.Name = "adentroModDataGridView";
+            this.adentroModDataGridView.RowTemplate.Height = 24;
+            this.adentroModDataGridView.Size = new System.Drawing.Size(927, 532);
+            this.adentroModDataGridView.TabIndex = 9;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "correlativo_ticket";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Ticket";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "str_matricula";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Matricula";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "str_fecha_entrada";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha E";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "str_hora_entrada";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Hora E";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // str_descrip
+            // 
+            this.str_descrip.DataPropertyName = "str_descrip";
+            this.str_descrip.HeaderText = "Tipo Vehiculo";
+            this.str_descrip.Name = "str_descrip";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "prepago";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Importe Prep.";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "fecha_venc_prepago";
+            this.dataGridViewTextBoxColumn17.HeaderText = "F. Venc. Prep";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "hora_venc_prepago";
+            this.dataGridViewTextBoxColumn18.HeaderText = "H. Venc. Prep";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "str_nombre_usuario";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "idAdentro";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // adentroModBindingSource
+            // 
+            this.adentroModBindingSource.DataMember = "AdentroMod";
+            this.adentroModBindingSource.DataSource = this.parkingDataSet;
+            // 
+            // parkingDataSet
+            // 
+            this.parkingDataSet.DataSetName = "ParkingDataSet";
+            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -227,7 +331,6 @@
             this.button5.TabIndex = 9;
             this.button5.Text = "Cierre";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
@@ -391,6 +494,11 @@
             this.minutos.Name = "minutos";
             this.minutos.Width = 52;
             // 
+            // movimientosCajaBindingSource1
+            // 
+            this.movimientosCajaBindingSource1.DataMember = "MovimientosCaja";
+            this.movimientosCajaBindingSource1.DataSource = this.parkingDataSet;
+            // 
             // movimientosCajaBindingSource
             // 
             this.movimientosCajaBindingSource.DataMember = "MovimientosCaja";
@@ -424,48 +532,10 @@
             this.fillBy6ToolStripButton.Name = "fillBy6ToolStripButton";
             this.fillBy6ToolStripButton.Size = new System.Drawing.Size(45, 22);
             this.fillBy6ToolStripButton.Text = "FillBy6";
-            this.fillBy6ToolStripButton.Click += new System.EventHandler(this.fillBy6ToolStripButton_Click);
             // 
             // movimientosCajaTableAdapter
             // 
             this.movimientosCajaTableAdapter.ClearBeforeFill = true;
-            // 
-            // adentroModDataGridView
-            // 
-            this.adentroModDataGridView.AutoGenerateColumns = false;
-            this.adentroModDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adentroModDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.str_descrip,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn15,
-            this.id});
-            this.adentroModDataGridView.DataSource = this.adentroModBindingSource;
-            this.adentroModDataGridView.Location = new System.Drawing.Point(3, 4);
-            this.adentroModDataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.adentroModDataGridView.Name = "adentroModDataGridView";
-            this.adentroModDataGridView.RowTemplate.Height = 24;
-            this.adentroModDataGridView.Size = new System.Drawing.Size(927, 532);
-            this.adentroModDataGridView.TabIndex = 9;
-            // 
-            // str_descrip
-            // 
-            this.str_descrip.DataPropertyName = "str_descrip";
-            this.str_descrip.HeaderText = "Tipo Vehiculo";
-            this.str_descrip.Name = "str_descrip";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "idAdentro";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
             // 
             // cerrado0ToolStrip
             // 
@@ -484,74 +554,6 @@
             this.cerrado0ToolStripButton.Name = "cerrado0ToolStripButton";
             this.cerrado0ToolStripButton.Size = new System.Drawing.Size(57, 22);
             this.cerrado0ToolStripButton.Text = "cerrado0";
-            this.cerrado0ToolStripButton.Click += new System.EventHandler(this.cerrado0ToolStripButton_Click_2);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "correlativo_ticket";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ticket";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "str_matricula";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Matricula";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "str_fecha_entrada";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha E";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "str_hora_entrada";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Hora E";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "prepago";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Importe Prep.";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "fecha_venc_prepago";
-            this.dataGridViewTextBoxColumn17.HeaderText = "F. Venc. Prep";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "hora_venc_prepago";
-            this.dataGridViewTextBoxColumn18.HeaderText = "H. Venc. Prep";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "str_nombre_usuario";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Usuario";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // adentroModBindingSource
-            // 
-            this.adentroModBindingSource.DataMember = "AdentroMod";
-            this.adentroModBindingSource.DataSource = this.parkingDataSet;
-            // 
-            // parkingDataSet
-            // 
-            this.parkingDataSet.DataSetName = "ParkingDataSet";
-            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // adentroModTableAdapter
             // 
@@ -565,11 +567,6 @@
             this.tableAdapterManager.MovimientosCajaTableAdapter = null;
             this.tableAdapterManager.ServiciosTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = e_billing.ParkingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // movimientosCajaBindingSource1
-            // 
-            this.movimientosCajaBindingSource1.DataMember = "MovimientosCaja";
-            this.movimientosCajaBindingSource1.DataSource = this.parkingDataSet;
             // 
             // movimientosCajaTableAdapter1
             // 
@@ -592,7 +589,6 @@
             this.fillToolStripButton.Name = "fillToolStripButton";
             this.fillToolStripButton.Size = new System.Drawing.Size(26, 22);
             this.fillToolStripButton.Text = "Fill";
-            this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click);
             // 
             // Main
             // 
@@ -610,18 +606,18 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
             this.tabCaja.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientoCajaDataSet)).EndInit();
             this.fillBy6ToolStrip.ResumeLayout(false);
             this.fillBy6ToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).EndInit();
             this.cerrado0ToolStrip.ResumeLayout(false);
             this.cerrado0ToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).EndInit();
             this.fillToolStrip.ResumeLayout(false);
             this.fillToolStrip.PerformLayout();
             this.ResumeLayout(false);
