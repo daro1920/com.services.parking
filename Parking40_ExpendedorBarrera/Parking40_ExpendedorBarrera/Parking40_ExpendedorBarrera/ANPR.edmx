@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ANPRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="INCIDENCE">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="computerID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LOCATIONID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="SourcePath" Type="nchar" MaxLength="255" />
+          <Property Name="ImagePath" Type="nchar" MaxLength="255" />
+          <Property Name="Recognition_Left" Type="int" />
+          <Property Name="Recognition_Top" Type="int" />
+          <Property Name="Recognition_Width" Type="int" />
+          <Property Name="Recognition_Height" Type="int" />
+          <Property Name="NumSteps" Type="int" />
+          <Property Name="MinStep" Type="int" />
+          <Property Name="MaxStep" Type="int" />
+          <Property Name="DistanceCoeff" Type="float" />
+          <Property Name="HorizontalCoeff" Type="float" />
+          <Property Name="VerticalCoeff" Type="float" />
+          <Property Name="AngleCoeff" Type="float" />
+          <Property Name="CharacterSize" Type="int" />
+          <Property Name="OperatorID" Type="int" />
+          <Property Name="GpsLatitude" Type="float" />
+          <Property Name="GpsLongitude" Type="float" />
+          <Property Name="ApplyCorrection" Type="int" />
+          <Property Name="STATUSID" Type="int" />
+          <Property Name="TYPEINCIDENCEID" Type="int" />
+          <Property Name="Sent" Type="int" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cause_N_Notification" Type="nvarchar" MaxLength="50" />
+          <Property Name="NName" Type="int" />
+          <Property Name="Agent" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precept" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMP_REDUCED" Type="float" />
+          <Property Name="IMP_NOT_REDUCED" Type="float" />
+          <Property Name="Export" Type="int" Nullable="false" />
+          <Property Name="ExportImages" Type="int" Nullable="false" />
+          <Property Name="IDGestPol" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateValidation" Type="datetime" />
+          <Property Name="camera_id" Type="int" Nullable="false" />
+          <Property Name="computerID" Type="int" Nullable="false" />
+          <Property Name="Result_Send" Type="nchar" MaxLength="1" />
+          <Property Name="Send_Server" Type="int" Nullable="false" />
+          <Property Name="Date_Send_Server" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESULTS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="computerID" />
+          </Key>
+          <Property Name="NumberPlate" Type="nvarchar" MaxLength="250" />
+          <Property Name="GlobalConfidence" Type="float" />
+          <Property Name="AverageCharacterHeigth" Type="float" />
+          <Property Name="ProcessingTime" Type="int" />
+          <Property Name="PlateFormat" Type="int" />
+          <Property Name="Result_Left" Type="int" />
+          <Property Name="Result_Top" Type="int" />
+          <Property Name="Result_Right" Type="int" />
+          <Property Name="Result_Bottom" Type="int" />
+          <Property Name="INCIDENCEID" Type="int" Nullable="false" />
+          <Property Name="OriginalNumberPlate" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="computerID" Type="int" Nullable="false" />
+          <Property Name="DIRECTION_VECTOR" Type="int" />
+          <Property Name="Send_Server" Type="int" Nullable="false" />
+          <Property Name="Date_Send_Server" Type="datetime" Nullable="false" />
+          <Property Name="nFrame" Type="int" Nullable="false" />
+          <Property Name="aviFileName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Speed" Type="float" />
+          <Property Name="SpeedConfidence" Type="float" />
+          <Property Name="IdLane" Type="int" />
+          <Property Name="VehicleClass" Type="int" />
+          <Property Name="VehicleClassConfidence" Type="float" />
+          <Property Name="VehicleMake" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleMakeConfidence" Type="float" />
+          <Property Name="VehicleType" Type="int" />
+          <Property Name="VehicleColor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleColorConfidence" Type="float" />
+        </EntityType>
+        <EntityContainer Name="ANPRModelStoreContainer">
+          <EntitySet Name="INCIDENCE" EntityType="Self.INCIDENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESULTS" EntityType="Self.RESULTS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ANPRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="INCIDENCE">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="computerID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATIONID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="SourcePath" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Recognition_Left" Type="Int32" />
+          <Property Name="Recognition_Top" Type="Int32" />
+          <Property Name="Recognition_Width" Type="Int32" />
+          <Property Name="Recognition_Height" Type="Int32" />
+          <Property Name="NumSteps" Type="Int32" />
+          <Property Name="MinStep" Type="Int32" />
+          <Property Name="MaxStep" Type="Int32" />
+          <Property Name="DistanceCoeff" Type="Double" />
+          <Property Name="HorizontalCoeff" Type="Double" />
+          <Property Name="VerticalCoeff" Type="Double" />
+          <Property Name="AngleCoeff" Type="Double" />
+          <Property Name="CharacterSize" Type="Int32" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="GpsLatitude" Type="Double" />
+          <Property Name="GpsLongitude" Type="Double" />
+          <Property Name="ApplyCorrection" Type="Int32" />
+          <Property Name="STATUSID" Type="Int32" />
+          <Property Name="TYPEINCIDENCEID" Type="Int32" />
+          <Property Name="Sent" Type="Int32" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cause_N_Notification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NName" Type="Int32" />
+          <Property Name="Agent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMP_REDUCED" Type="Double" />
+          <Property Name="IMP_NOT_REDUCED" Type="Double" />
+          <Property Name="Export" Type="Int32" Nullable="false" />
+          <Property Name="ExportImages" Type="Int32" Nullable="false" />
+          <Property Name="IDGestPol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateValidation" Type="DateTime" Precision="3" />
+          <Property Name="camera_id" Type="Int32" Nullable="false" />
+          <Property Name="computerID" Type="Int32" Nullable="false" />
+          <Property Name="Result_Send" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Send_Server" Type="Int32" Nullable="false" />
+          <Property Name="Date_Send_Server" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RESULTS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="computerID" />
+          </Key>
+          <Property Name="NumberPlate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GlobalConfidence" Type="Double" />
+          <Property Name="AverageCharacterHeigth" Type="Double" />
+          <Property Name="ProcessingTime" Type="Int32" />
+          <Property Name="PlateFormat" Type="Int32" />
+          <Property Name="Result_Left" Type="Int32" />
+          <Property Name="Result_Top" Type="Int32" />
+          <Property Name="Result_Right" Type="Int32" />
+          <Property Name="Result_Bottom" Type="Int32" />
+          <Property Name="INCIDENCEID" Type="Int32" Nullable="false" />
+          <Property Name="OriginalNumberPlate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="computerID" Type="Int32" Nullable="false" />
+          <Property Name="DIRECTION_VECTOR" Type="Int32" />
+          <Property Name="Send_Server" Type="Int32" Nullable="false" />
+          <Property Name="Date_Send_Server" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nFrame" Type="Int32" Nullable="false" />
+          <Property Name="aviFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Speed" Type="Double" />
+          <Property Name="SpeedConfidence" Type="Double" />
+          <Property Name="IdLane" Type="Int32" />
+          <Property Name="VehicleClass" Type="Int32" />
+          <Property Name="VehicleClassConfidence" Type="Double" />
+          <Property Name="VehicleMake" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VehicleMakeConfidence" Type="Double" />
+          <Property Name="VehicleType" Type="Int32" />
+          <Property Name="VehicleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VehicleColorConfidence" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="ANPR" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="INCIDENCE" EntityType="Self.INCIDENCE" />
+          <EntitySet Name="RESULTS" EntityType="Self.RESULTS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ANPRModelStoreContainer" CdmEntityContainer="ANPR">
+          <EntitySetMapping Name="INCIDENCE">
+            <EntityTypeMapping TypeName="ANPRModel.INCIDENCE">
+              <MappingFragment StoreEntitySet="INCIDENCE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SourcePath" ColumnName="SourcePath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Recognition_Left" ColumnName="Recognition_Left" />
+                <ScalarProperty Name="Recognition_Top" ColumnName="Recognition_Top" />
+                <ScalarProperty Name="Recognition_Width" ColumnName="Recognition_Width" />
+                <ScalarProperty Name="Recognition_Height" ColumnName="Recognition_Height" />
+                <ScalarProperty Name="NumSteps" ColumnName="NumSteps" />
+                <ScalarProperty Name="MinStep" ColumnName="MinStep" />
+                <ScalarProperty Name="MaxStep" ColumnName="MaxStep" />
+                <ScalarProperty Name="DistanceCoeff" ColumnName="DistanceCoeff" />
+                <ScalarProperty Name="HorizontalCoeff" ColumnName="HorizontalCoeff" />
+                <ScalarProperty Name="VerticalCoeff" ColumnName="VerticalCoeff" />
+                <ScalarProperty Name="AngleCoeff" ColumnName="AngleCoeff" />
+                <ScalarProperty Name="CharacterSize" ColumnName="CharacterSize" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="GpsLatitude" ColumnName="GpsLatitude" />
+                <ScalarProperty Name="GpsLongitude" ColumnName="GpsLongitude" />
+                <ScalarProperty Name="ApplyCorrection" ColumnName="ApplyCorrection" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+                <ScalarProperty Name="TYPEINCIDENCEID" ColumnName="TYPEINCIDENCEID" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Cause_N_Notification" ColumnName="Cause_N_Notification" />
+                <ScalarProperty Name="NName" ColumnName="NName" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Precept" ColumnName="Precept" />
+                <ScalarProperty Name="IMP_REDUCED" ColumnName="IMP_REDUCED" />
+                <ScalarProperty Name="IMP_NOT_REDUCED" ColumnName="IMP_NOT_REDUCED" />
+                <ScalarProperty Name="Export" ColumnName="Export" />
+                <ScalarProperty Name="ExportImages" ColumnName="ExportImages" />
+                <ScalarProperty Name="IDGestPol" ColumnName="IDGestPol" />
+                <ScalarProperty Name="DateValidation" ColumnName="DateValidation" />
+                <ScalarProperty Name="camera_id" ColumnName="camera_id" />
+                <ScalarProperty Name="computerID" ColumnName="computerID" />
+                <ScalarProperty Name="Result_Send" ColumnName="Result_Send" />
+                <ScalarProperty Name="Send_Server" ColumnName="Send_Server" />
+                <ScalarProperty Name="Date_Send_Server" ColumnName="Date_Send_Server" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESULTS">
+            <EntityTypeMapping TypeName="ANPRModel.RESULTS">
+              <MappingFragment StoreEntitySet="RESULTS">
+                <ScalarProperty Name="NumberPlate" ColumnName="NumberPlate" />
+                <ScalarProperty Name="GlobalConfidence" ColumnName="GlobalConfidence" />
+                <ScalarProperty Name="AverageCharacterHeigth" ColumnName="AverageCharacterHeigth" />
+                <ScalarProperty Name="ProcessingTime" ColumnName="ProcessingTime" />
+                <ScalarProperty Name="PlateFormat" ColumnName="PlateFormat" />
+                <ScalarProperty Name="Result_Left" ColumnName="Result_Left" />
+                <ScalarProperty Name="Result_Top" ColumnName="Result_Top" />
+                <ScalarProperty Name="Result_Right" ColumnName="Result_Right" />
+                <ScalarProperty Name="Result_Bottom" ColumnName="Result_Bottom" />
+                <ScalarProperty Name="INCIDENCEID" ColumnName="INCIDENCEID" />
+                <ScalarProperty Name="OriginalNumberPlate" ColumnName="OriginalNumberPlate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="computerID" ColumnName="computerID" />
+                <ScalarProperty Name="DIRECTION_VECTOR" ColumnName="DIRECTION_VECTOR" />
+                <ScalarProperty Name="Send_Server" ColumnName="Send_Server" />
+                <ScalarProperty Name="Date_Send_Server" ColumnName="Date_Send_Server" />
+                <ScalarProperty Name="nFrame" ColumnName="nFrame" />
+                <ScalarProperty Name="aviFileName" ColumnName="aviFileName" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="SpeedConfidence" ColumnName="SpeedConfidence" />
+                <ScalarProperty Name="IdLane" ColumnName="IdLane" />
+                <ScalarProperty Name="VehicleClass" ColumnName="VehicleClass" />
+                <ScalarProperty Name="VehicleClassConfidence" ColumnName="VehicleClassConfidence" />
+                <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+                <ScalarProperty Name="VehicleMakeConfidence" ColumnName="VehicleMakeConfidence" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="VehicleColor" ColumnName="VehicleColor" />
+                <ScalarProperty Name="VehicleColorConfidence" ColumnName="VehicleColorConfidence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

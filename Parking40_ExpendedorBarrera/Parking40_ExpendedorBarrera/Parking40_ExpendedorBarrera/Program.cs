@@ -11,10 +11,11 @@ using System.Drawing;
 
 using GEN_BE;
 using GEN_BE.DAO;
+using System.Linq;
 
 using System.Media;
-
-
+using Parking40_ExpendedorBarrera.anpr_Source.DAO;
+using System.Data.Objects;
 
 namespace Parking40_ExpendedorBarrera
 {
@@ -39,9 +40,13 @@ namespace Parking40_ExpendedorBarrera
         private static string xrLabel_Fecha;
         private static string xrLabel_Hora;
         private static string xrLabel_Ticket;
+        private static string xrLabel_Matricula;
         private static string xrLabel_Entrada;
 
         private static SoundPlayer simpleSound = null;
+
+        public static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -156,7 +161,8 @@ namespace Parking40_ExpendedorBarrera
             ev.Graphics.DrawString(xrLabel_Fecha, printFont, Brushes.Black, margen_der, 13 * printFont.GetHeight(ev.Graphics), new StringFormat());
             ev.Graphics.DrawString(xrLabel_Entrada, printFont, Brushes.Black, margen_der, 14 * printFont.GetHeight(ev.Graphics), new StringFormat());
             ev.Graphics.DrawString(xrLabel_Ticket, printFont, Brushes.Black, margen_der, 15 * printFont.GetHeight(ev.Graphics), new StringFormat());
-             
+            ev.Graphics.DrawString(xrLabel_Matricula, printFont, Brushes.Black, margen_der, 16 * printFont.GetHeight(ev.Graphics), new StringFormat());
+
         }
 
         internal static List<string> getPossiblesPlates(List<string> lstPlacas)
@@ -245,7 +251,8 @@ namespace Parking40_ExpendedorBarrera
 
 
                 Random random = new Random();
-                int matricula = random.Next(100000000, 999999999);
+                string plate = checkPlateCondition();
+                string matricula = plate != "" ? plate : "NR-" + random.Next(100000000, 999999999).ToString();
 
                 //Obtengo usuario automatico de la barrera
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -290,7 +297,7 @@ namespace Parking40_ExpendedorBarrera
                 adentro.Str_hora_entrada = str_hora_entrada;
                 adentro.Str_llave = "";
                 adentro.Str_lugar = "";
-                adentro.Str_matricula = "NR-" + matricula;
+                adentro.Str_matricula =  matricula;
                 adentro.Str_observaciones = "Ingreso " + usr_barrera.ToString().Trim() + " " + str_fecha_entrada + " " + str_hora_entrada;
                 adentroDAO.Insert(ref adentro);
 
@@ -302,6 +309,7 @@ namespace Parking40_ExpendedorBarrera
                 xrLabel_Fecha = str_fecha_entrada + " " + str_hora_entrada;
                 xrLabel_Hora = str_hora_entrada;
                 xrLabel_Ticket = "Ticket: " + adentro.Correlativo_ticket.ToString().Trim();
+                xrLabel_Matricula = "Matricula: " + matricula;
                 //xrLabel_Ticket = "Ticket: " + 99985566;
                 xrLabel_Entrada = "Entrada: B" + ConfigurationManager.AppSettings["NRO_BARRERA"].ToString();
 
@@ -335,7 +343,7 @@ namespace Parking40_ExpendedorBarrera
                 simpleSound = new SoundPlayer(ConfigurationManager.AppSettings["BEEP_SOUND_NOT_ALLOW"].ToString().Trim());
                 simpleSound.Play();
 
-                Escribir_Log(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), "Error al generar ticket de entrada");
+                Escribir_Log(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), "Error al generar ticket de entrada "+e);
 
                 return (1);
             }
@@ -422,5 +430,51 @@ namespace Parking40_ExpendedorBarrera
             }
             return inTime;
         }
+
+        public static String checkPlateCondition()
+        {
+            String plate = "";
+            int camID = Int32.Parse(ConfigurationManager.AppSettings["CAM_ID"].ToString());
+            ResultDAO resDAO = new ResultDAO();
+            ProcesadoDao proCam = new ProcesadoDao();
+            int lastProcess = proCam.getLastProcess(camID);
+            Program.log.Debug("Ultimo Procesado antes de condicion " + lastProcess);
+
+           
+            //EntityFunctions.DiffMinutes(results.TimeStamp, DateTime.Now) <= 5 &&
+            try
+            {
+                
+                using (var context = new ANPR())
+                {
+                    var id =
+                        (from inc in context.INCIDENCE
+                         join res in context.RESULTS on inc.ID equals res.INCIDENCEID into joinResult
+                         from results in joinResult
+                         where results.INCIDENCEID > lastProcess
+                     && inc.camera_id == camID
+                         orderby results.TimeStamp descending
+                         select results.INCIDENCEID).FirstOrDefault();
+
+                    Program.log.Debug("Results  INCIDENCEID obtenido" + id);
+                    if (id != 0)
+                    {
+                        plate = resDAO.getPlateByID(id);
+                        Program.log.Debug("Numero camara " + camID);
+                        proCam.updateProcess(camID, id);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error("Error obteniendo la ultima matricula" + ex);
+            }
+            
+            return plate;
+            
+        }
+
     }
 }

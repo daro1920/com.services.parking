@@ -110,15 +110,19 @@ namespace Parking40_ExpendedorBarrera
         {
             if (e.KeyCode == Keys.F12)
             {
+                Program.log.Debug("Boton precionado ");
                 this.KeyUp -= new System.Windows.Forms.KeyEventHandler(KeyEvent);
                 timer2.Start();
 
+                Program.log.Debug("Generando entrada");
                 if (Program.Generar_Entrada() != 1)
                 {
+                    Program.log.Debug("Entrada generada");
                     //Playing beep
                     simpleSound = new SoundPlayer(ConfigurationManager.AppSettings["BEEP_SOUND_SUCCES"].ToString().Trim());
                     simpleSound.Play();
 
+                    Program.log.Debug("Abriendo Barrera");
                     Program.Abrir_Barrera();
                 }
                 
@@ -264,7 +268,7 @@ namespace Parking40_ExpendedorBarrera
 
         }
 
-        
+                        
         
     }
 }
