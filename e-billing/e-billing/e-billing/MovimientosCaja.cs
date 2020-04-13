@@ -37,5 +37,7 @@ namespace e_billing
         public Nullable<decimal> importe_calculado { get; set; }
         public Nullable<decimal> valor_comision { get; set; }
         public Nullable<bool> com_cobrada { get; set; }
+    
+        public virtual TipoMovimientoCaja TipoMovimientoCaja { get; set; }
     }
 }

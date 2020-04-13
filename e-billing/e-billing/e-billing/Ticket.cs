@@ -81,12 +81,12 @@ namespace e_billing
             if ("".Equals(rutS))
             {
                 int CFEnro = Program.getCorrelativo("CFE");
-                client.CreateXml(changeS, impNoIva, impIva, CFEnro, hours, empCod, empCA, empPK, movCaja, movParking);
+                client.CreateXml(changeS, impNoIva, impIva, CFEnro, hours, hours+" Horas", empCod, empCA, empPK, movCaja, movParking);
             }
             else
             {
                 int CFEnro = Program.getCorrelativo("CTE");
-                client.CreateXmlRUT(changeS, impNoIva, impIva, CFEnro, rutS, rsocialS, hours, empCod, empCA, empPK, movCaja, movParking);
+                client.CreateXmlRUT(changeS, impNoIva, impIva, CFEnro, rutS, rsocialS, hours, hours + " Horas", empCod, empCA, empPK, movCaja, movParking);
             }
 
             if (!isPrepDayss)
@@ -98,8 +98,7 @@ namespace e_billing
                 main.adentroModDataGridView.Rows.RemoveAt(rowInd);
                 main.refreshGrid();
 
-            } else
-            {
+            } else {
                 string dateInS  = Program.getFormatDate(inDateS, inHourS);
                 DateTime dateIn = DateTime.ParseExact(dateInS, "yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
 
@@ -109,7 +108,7 @@ namespace e_billing
                 string prepHour = Program.getFormatedHour(prepOut);
 
                 adenDao.updateAdentro(idAd, prepDate,prepHour, Int32.Parse(totalCS));
-            }
+            } 
             
             this.Close();
         }

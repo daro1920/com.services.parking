@@ -449,6 +449,34 @@ WHERE        (cerrado = 0)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MensualesTableAdapter" GeneratorDataComponentClassName="MensualesTableAdapter" Name="Mensuales" UserDataComponentName="MensualesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ParkingConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mensuales" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="mensuales" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="mensuales">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT vr.[str_matricula]
+      ,vr.[str_marca_modelo]
+      ,vr.[nombre_cliente]
+      ,vp.[importe_convenido]  as importe
+      ,vp.[ultimo_mes_pago] ,vp.[id_vehiculo_registrado]
+  FROM VehiculosPension vp, VehiculosRegistrados vr where vp.inactivo = 0
+  and vp.[id_vehiculo_registrado] = vr.id
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="str_matricula" DataSetColumn="str_matricula" />
+              <Mapping SourceColumn="str_marca_modelo" DataSetColumn="str_marca_modelo" />
+              <Mapping SourceColumn="nombre_cliente" DataSetColumn="nombre_cliente" />
+              <Mapping SourceColumn="importe" DataSetColumn="importe" />
+              <Mapping SourceColumn="ultimo_mes_pago" DataSetColumn="ultimo_mes_pago" />
+              <Mapping SourceColumn="id_vehiculo_registrado" DataSetColumn="id_vehiculo_registrado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -457,7 +485,7 @@ WHERE        (cerrado = 0)</CommandText>
   <xs:element name="ParkingDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ParkingDataSet" msprop:Generator_UserDSName="ParkingDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Adentro" msprop:Generator_TableClassName="AdentroDataTable" msprop:Generator_TableVarName="tableAdentro" msprop:Generator_TablePropName="Adentro" msprop:Generator_RowDeletingName="AdentroRowDeleting" msprop:Generator_RowChangingName="AdentroRowChanging" msprop:Generator_RowEvHandlerName="AdentroRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroRowDeleted" msprop:Generator_UserTableName="Adentro" msprop:Generator_RowChangedName="AdentroRowChanged" msprop:Generator_RowEvArgName="AdentroRowChangeEvent" msprop:Generator_RowClassName="AdentroRow">
+        <xs:element name="Adentro" msprop:Generator_TableClassName="AdentroDataTable" msprop:Generator_TableVarName="tableAdentro" msprop:Generator_RowChangedName="AdentroRowChanged" msprop:Generator_TablePropName="Adentro" msprop:Generator_RowDeletingName="AdentroRowDeleting" msprop:Generator_RowChangingName="AdentroRowChanging" msprop:Generator_RowEvHandlerName="AdentroRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroRowDeleted" msprop:Generator_RowClassName="AdentroRow" msprop:Generator_UserTableName="Adentro" msprop:Generator_RowEvArgName="AdentroRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -508,7 +536,7 @@ WHERE        (cerrado = 0)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AdentroMod" msprop:Generator_TableClassName="AdentroModDataTable" msprop:Generator_TableVarName="tableAdentroMod" msprop:Generator_RowChangedName="AdentroModRowChanged" msprop:Generator_TablePropName="AdentroMod" msprop:Generator_RowDeletingName="AdentroModRowDeleting" msprop:Generator_RowChangingName="AdentroModRowChanging" msprop:Generator_RowEvHandlerName="AdentroModRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroModRowDeleted" msprop:Generator_RowClassName="AdentroModRow" msprop:Generator_UserTableName="AdentroMod" msprop:Generator_RowEvArgName="AdentroModRowChangeEvent">
+        <xs:element name="AdentroMod" msprop:Generator_TableClassName="AdentroModDataTable" msprop:Generator_TableVarName="tableAdentroMod" msprop:Generator_TablePropName="AdentroMod" msprop:Generator_RowDeletingName="AdentroModRowDeleting" msprop:Generator_RowChangingName="AdentroModRowChanging" msprop:Generator_RowEvHandlerName="AdentroModRowChangeEventHandler" msprop:Generator_RowDeletedName="AdentroModRowDeleted" msprop:Generator_UserTableName="AdentroMod" msprop:Generator_RowChangedName="AdentroModRowChanged" msprop:Generator_RowEvArgName="AdentroModRowChangeEvent" msprop:Generator_RowClassName="AdentroModRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -573,7 +601,7 @@ WHERE        (cerrado = 0)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Servicios" msprop:Generator_TableClassName="ServiciosDataTable" msprop:Generator_TableVarName="tableServicios" msprop:Generator_TablePropName="Servicios" msprop:Generator_RowDeletingName="ServiciosRowDeleting" msprop:Generator_RowChangingName="ServiciosRowChanging" msprop:Generator_RowEvHandlerName="ServiciosRowChangeEventHandler" msprop:Generator_RowDeletedName="ServiciosRowDeleted" msprop:Generator_UserTableName="Servicios" msprop:Generator_RowChangedName="ServiciosRowChanged" msprop:Generator_RowEvArgName="ServiciosRowChangeEvent" msprop:Generator_RowClassName="ServiciosRow">
+        <xs:element name="Servicios" msprop:Generator_TableClassName="ServiciosDataTable" msprop:Generator_TableVarName="tableServicios" msprop:Generator_RowChangedName="ServiciosRowChanged" msprop:Generator_TablePropName="Servicios" msprop:Generator_RowDeletingName="ServiciosRowDeleting" msprop:Generator_RowChangingName="ServiciosRowChanging" msprop:Generator_RowEvHandlerName="ServiciosRowChangeEventHandler" msprop:Generator_RowDeletedName="ServiciosRowDeleted" msprop:Generator_RowClassName="ServiciosRow" msprop:Generator_UserTableName="Servicios" msprop:Generator_RowEvArgName="ServiciosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -588,7 +616,7 @@ WHERE        (cerrado = 0)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MovimientosCaja" msprop:Generator_TableClassName="MovimientosCajaDataTable" msprop:Generator_TableVarName="tableMovimientosCaja" msprop:Generator_RowChangedName="MovimientosCajaRowChanged" msprop:Generator_TablePropName="MovimientosCaja" msprop:Generator_RowDeletingName="MovimientosCajaRowDeleting" msprop:Generator_RowChangingName="MovimientosCajaRowChanging" msprop:Generator_RowEvHandlerName="MovimientosCajaRowChangeEventHandler" msprop:Generator_RowDeletedName="MovimientosCajaRowDeleted" msprop:Generator_RowClassName="MovimientosCajaRow" msprop:Generator_UserTableName="MovimientosCaja" msprop:Generator_RowEvArgName="MovimientosCajaRowChangeEvent">
+        <xs:element name="MovimientosCaja" msprop:Generator_TableClassName="MovimientosCajaDataTable" msprop:Generator_TableVarName="tableMovimientosCaja" msprop:Generator_TablePropName="MovimientosCaja" msprop:Generator_RowDeletingName="MovimientosCajaRowDeleting" msprop:Generator_RowChangingName="MovimientosCajaRowChanging" msprop:Generator_RowEvHandlerName="MovimientosCajaRowChangeEventHandler" msprop:Generator_RowDeletedName="MovimientosCajaRowDeleted" msprop:Generator_UserTableName="MovimientosCaja" msprop:Generator_RowChangedName="MovimientosCajaRowChanged" msprop:Generator_RowEvArgName="MovimientosCajaRowChangeEvent" msprop:Generator_RowClassName="MovimientosCajaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -668,6 +696,42 @@ WHERE        (cerrado = 0)</CommandText>
               <xs:element name="importe_calculado" msprop:Generator_ColumnVarNameInTable="columnimporte_calculado" msprop:Generator_ColumnPropNameInRow="importe_calculado" msprop:Generator_ColumnPropNameInTable="importe_calculadoColumn" msprop:Generator_UserColumnName="importe_calculado" type="xs:decimal" minOccurs="0" />
               <xs:element name="valor_comision" msprop:Generator_ColumnVarNameInTable="columnvalor_comision" msprop:Generator_ColumnPropNameInRow="valor_comision" msprop:Generator_ColumnPropNameInTable="valor_comisionColumn" msprop:Generator_UserColumnName="valor_comision" type="xs:decimal" minOccurs="0" />
               <xs:element name="com_cobrada" msprop:Generator_ColumnVarNameInTable="columncom_cobrada" msprop:Generator_ColumnPropNameInRow="com_cobrada" msprop:Generator_ColumnPropNameInTable="com_cobradaColumn" msprop:Generator_UserColumnName="com_cobrada" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mensuales" msprop:Generator_TableClassName="MensualesDataTable" msprop:Generator_TableVarName="tableMensuales" msprop:Generator_TablePropName="Mensuales" msprop:Generator_RowDeletingName="MensualesRowDeleting" msprop:Generator_RowChangingName="MensualesRowChanging" msprop:Generator_RowEvHandlerName="MensualesRowChangeEventHandler" msprop:Generator_RowDeletedName="MensualesRowDeleted" msprop:Generator_UserTableName="Mensuales" msprop:Generator_RowChangedName="MensualesRowChanged" msprop:Generator_RowEvArgName="MensualesRowChangeEvent" msprop:Generator_RowClassName="MensualesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="str_matricula" msprop:Generator_ColumnVarNameInTable="columnstr_matricula" msprop:Generator_ColumnPropNameInRow="str_matricula" msprop:Generator_ColumnPropNameInTable="str_matriculaColumn" msprop:Generator_UserColumnName="str_matricula">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="str_marca_modelo" msprop:Generator_ColumnVarNameInTable="columnstr_marca_modelo" msprop:Generator_ColumnPropNameInRow="str_marca_modelo" msprop:Generator_ColumnPropNameInTable="str_marca_modeloColumn" msprop:Generator_UserColumnName="str_marca_modelo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre_cliente" msprop:Generator_ColumnVarNameInTable="columnnombre_cliente" msprop:Generator_ColumnPropNameInRow="nombre_cliente" msprop:Generator_ColumnPropNameInTable="nombre_clienteColumn" msprop:Generator_UserColumnName="nombre_cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:decimal" />
+              <xs:element name="ultimo_mes_pago" msprop:Generator_ColumnVarNameInTable="columnultimo_mes_pago" msprop:Generator_ColumnPropNameInRow="ultimo_mes_pago" msprop:Generator_ColumnPropNameInTable="ultimo_mes_pagoColumn" msprop:Generator_UserColumnName="ultimo_mes_pago" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_vehiculo_registrado" msprop:Generator_ColumnVarNameInTable="columnid_vehiculo_registrado" msprop:Generator_ColumnPropNameInRow="id_vehiculo_registrado" msprop:Generator_ColumnPropNameInTable="id_vehiculo_registradoColumn" msprop:Generator_UserColumnName="id_vehiculo_registrado" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

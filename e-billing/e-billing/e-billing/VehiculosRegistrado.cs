@@ -14,6 +14,12 @@ namespace e_billing
     
     public partial class VehiculosRegistrado
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VehiculosRegistrado()
+        {
+            this.VehiculosPensions = new HashSet<VehiculosPension>();
+        }
+    
         public int id { get; set; }
         public int id_modelo { get; set; }
         public Nullable<int> id_cliente { get; set; }
@@ -39,5 +45,8 @@ namespace e_billing
         public string autorizado1_apellidos { get; set; }
         public string autorizado2_apellidos { get; set; }
         public string autorizado3_apellidos { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VehiculosPension> VehiculosPensions { get; set; }
     }
 }

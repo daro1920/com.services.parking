@@ -62,6 +62,25 @@ namespace e_billing.parking.dao
             }
         }
 
+        public void updateAdentroByPlate(int id, string plate)
+        {
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    var adentro = (from ade in context.Adentroes where ade.id == id select ade).FirstOrDefault();
+
+                    adentro.str_matricula = plate;
+
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + " AdentroDao remove" + ex);
+            }
+        }
+
         public List<string> getAll()
         {
 

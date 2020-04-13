@@ -1,6 +1,9 @@
-﻿using e_billing.parking.dao;
+﻿using e_billing.parking;
+using e_billing.parking.dao;
 using e_billing.parking.model;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -16,6 +19,11 @@ namespace e_billing
         private VehiculosRegistradosDAO vehRegDao = new VehiculosRegistradosDAO();
         private RefCierreCajaDAO refCCDAO = new RefCierreCajaDAO();
         private MovimientosCajaDAO movCajaDAO = new MovimientosCajaDAO();
+        private MovimientosCaja movCaja = new MovimientosCaja();
+        private InvoicyClient client = new InvoicyClient();
+        private MovimientoParking movParking = new MovimientoParking();
+        private VehiculosPensionDAO vehPenDao = new VehiculosPensionDAO();
+
 
         public Main()
         {
@@ -38,13 +46,19 @@ namespace e_billing
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'parkingDataSet.Mensuales' table. You can move, or remove it, as needed.
+            this.MensualesTableAdapter.mensuales(this.parkingDataSet.Mensuales);
             // TODO: This line of code loads data into the 'parkingDataSet.MovimientosCaja' table. You can move, or remove it, as needed.
             this.movimientosCajaTableAdapter1.Fill(this.parkingDataSet.MovimientosCaja);
             // TODO: This line of code loads data into the 'movimientoCajaDataSet.MovimientosCaja' table. You can move, or remove it, as needed.
             this.movimientosCajaTableAdapter.Fill(this.movimientoCajaDataSet.MovimientosCaja);
             // TODO: This line of code loads data into the 'parkingDataSet.AdentroMod' table. You can move, or remove it, as needed.
             this.adentroModTableAdapter.Fill(this.parkingDataSet.AdentroMod);
+
+            refreshTotals();
         }
+
+        
 
         private void inButton_Click(object sender, EventArgs e)
         {
@@ -113,6 +127,7 @@ namespace e_billing
             EstadoLlavero estLl, int ticketId, int vehicleId, DataGridViewRow row, 
             int adentroId, int ticketId2, bool isPrep, bool isPrepDays,int convId)
         {
+
             Ticket ticket = new Ticket(this);
 
             VehiculosRegistrado vehReg = vehRegDao.getRegVehicle(plate);
@@ -239,13 +254,32 @@ namespace e_billing
         private void button4_Click(object sender, EventArgs e)
         {
             refreshGridCaja();
+            refreshTotals();
         }
-        
+
+        private void refreshTotals()
+        {
+            int i = 0;
+            decimal totalCaja = 0;
+            List<MovimientosCaja> movsCaja = movCajaDAO.getListMovCaja();
+            foreach (MovimientosCaja movCaja in movsCaja)
+            {
+                totalCaja = movCaja.importe + totalCaja;
+                i++;
+            }
+
+            this.cantMovLabel.Text = "CANTIDAD DE MOVIMIENTOS: "+i;
+            this.totCajLabel.Text = "TOTAL CAJA: " + totalCaja;
+        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
             Referencia_Cierre_Caja refCC = new Referencia_Cierre_Caja();
             decimal importeCierre = movCajaDAO.getSumImporteMovCaja();
+
+            List<MovimientosCaja> movsCaja = movCajaDAO.getListMovCaja();
+
 
             refCC.str_fecha = Program.getFormatedDate();
             refCC.str_hora = Program.getFormatedHour();
@@ -262,13 +296,137 @@ namespace e_billing
             movCaja.str_hora = Program.getFormatedHour();
             movCaja.importe = importeCierre;
             movCaja.id_tipo_movimiento = 9;
+            movCaja.str_eliminado = "NO";
+            movCaja.id_usuario = user.ID;
 
             movCajaDAO.addMovCaja(ref movCaja);
 
+            Program.generateClose(movsCaja);
+
             refreshGridCaja();
         }
-        
-        
+
+        private void addMov_Click(object sender, EventArgs e)
+        {
+            AddMove addMoveWin = new AddMove();
+            addMoveWin.Show();
+        }
+
+        private void mensualesToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.MensualesTableAdapter.mensuales(this.parkingDataSet.Mensuales);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            int rowIndex = mensualesGridView.CurrentCell.RowIndex;
+            if (rowIndex >= 0)
+            {
+
+                DataGridViewRow row = mensualesGridView.Rows[rowIndex];
+
+                string plate = row.Cells[0].Value.ToString();
+                string str_marca_modelo = row.Cells[1].Value.ToString();
+                string nombre_cliente = row.Cells[2].Value.ToString();
+                int amount = Convert.ToInt32(row.Cells[3].Value.ToString());
+                string ultimo_mes_pago = row.Cells[4].Value.ToString();
+                int vehicleID = Convert.ToInt32(row.Cells[5].Value.ToString());
+                string month = Program.sumMonthDate(ultimo_mes_pago).Substring(4, 2);
+                string concepto = "Estacionamiento mensual: (Mes" + month + ") - (Mat. " + plate + ")" + nombre_cliente + " ";
+
+                VehiculosRegistrado vehReg = vehRegDao.getRegVehicle(plate);
+
+                string rut = vehReg != null && !"".Equals(vehReg.rut) ? vehReg.rut : "";
+                string rsocialS = vehReg.razon_social;
+
+                double impNoIva = Math.Round((amount / 1.22));
+                double impIva = (impNoIva * 0.22);
+
+                string empCod = ConfigurationManager.AppSettings["EMP_CODE"].ToString();
+                string empPK = ConfigurationManager.AppSettings["EMP_PK"].ToString();
+                string empCA = ConfigurationManager.AppSettings["EMP_CA"].ToString();
+
+
+                generateMovCaja(amount, rut, rsocialS, "0", "-", amount.ToString(), 0, rsocialS, "-");
+                vehPenDao.updateVehiculoPension(vehicleID,Program.sumMonthDate(ultimo_mes_pago));
+
+                if ("".Equals(rut))
+                {
+                    int CFEnro = Program.getCorrelativo("CFE");
+                    client.CreateXml(amount.ToString(), impNoIva, impIva, CFEnro, 0, concepto,empCod, empCA, empPK, movCaja, movParking);
+                }
+                else
+                {
+                    int CFEnro = Program.getCorrelativo("CTE");
+                    client.CreateXmlRUT(amount.ToString(), impNoIva, impIva, CFEnro, rut, rsocialS, 0, concepto, empCod, empCA, empPK, movCaja, movParking);
+                }
+
+                this.MensualesTableAdapter.mensuales(parkingDataSet.Mensuales);
+            }
+        }
+
+        private void generateMovCaja(int chargeS, String rutS, string rsocialS,
+           string minutesS, string vehicleTS, string totalCS, int ticketIdS, string obs, string conS)
+        {
+
+            movCaja.str_fecha = Program.getFormatedDate();
+            movCaja.str_hora = Program.getFormatedHour();
+            movCaja.importe = chargeS;
+            movCaja.cerrado = false;
+            movCaja.id_referencia_cierre = 0;
+            movCaja.id_tipo_movimiento = 1;
+            movCaja.str_eliminado = "NO";
+            movCaja.id_usuario = Login.logUser.ID;
+            movCaja.id_tipo_documento_emision = 1;
+            movCaja.correlativo_documento_emision = Program.getCorrelativo("CONTA");
+            movCaja.serie_documento_emision = "A";
+            movCaja.rollo = 1;
+            movCaja.rut = rutS;
+            movCaja.razon_social = rsocialS;
+            movCaja.str_observaciones = obs;
+            movCaja.correlativo_ticket = ticketIdS;
+            movCaja.str_tipo_vehiculo = vehicleTS;
+            movCaja.str_convenio = conS;
+            movCaja.minutos = Int32.Parse(minutesS);
+            movCaja.importe_calculado = Int32.Parse(totalCS);
+            movCaja.valor_comision = 0;
+            movCaja.com_cobrada = false;
+
+
+            movCajaDAO.addMovCaja(ref movCaja);
+
+        }
+
+        private void adentroModDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            if (rowIndex >= 0)
+            {
+
+                DataGridViewRow row = adentroModDataGridView.Rows[rowIndex];
+
+                int adentroId = Int32.Parse(row.Cells[9].Value.ToString());
+                string plate = row.Cells[1].Value.ToString();
+
+                Adentro ade =  adeDAO.getAdentro(adentroId);
+                if (ade.str_matricula.StartsWith("NR"))
+                {
+                    adeDAO.updateAdentroByPlate(adentroId, plate);
+                }
+                
+
+            }
+        }
     }
+
 }
     

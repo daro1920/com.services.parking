@@ -23,6 +23,10 @@
         <AssociationConnector Association="ParkingModel.FK_Adentro_Convenios" />
         <AssociationConnector Association="ParkingModel.FK_Tarifas_Convenios" />
         <EntityTypeShape EntityType="ParkingModel.Referencia_Cierre_Caja" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ParkingModel.TipoMovimientoCaja" Width="1.5" PointX="11.375" PointY="3.875" />
+        <AssociationConnector Association="ParkingModel.FK_MovimientosCaja_TipoMovimientoCaja" />
+        <EntityTypeShape EntityType="ParkingModel.VehiculosPension" Width="1.5" PointX="9.625" PointY="15.5" />
+        <AssociationConnector Association="ParkingModel.FK_VehiculosPension_VehiculosRegistrados" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

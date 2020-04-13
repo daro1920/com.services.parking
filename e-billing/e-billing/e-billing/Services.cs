@@ -93,12 +93,12 @@ namespace e_billing
             if ("".Equals(rutS))
             {
                 int CFEnro = Program.getCorrelativo("CFE");
-                client.CreateXml(totalPay.ToString(), impNoIva, impIva, CFEnro, 0, empCod, empCA, empPK, movCaja, movParking);
+                client.CreateXml(totalPay.ToString(), impNoIva, impIva, CFEnro, 0, "0 Horas",empCod, empCA, empPK, movCaja, movParking);
             }
             else
             {
                 int CFEnro = Program.getCorrelativo("CTE");
-                client.CreateXmlRUT(totalPay.ToString(), impNoIva, impIva, CFEnro, rutS, rsocialS, 0, empCod, empCA, empPK, movCaja, movParking);
+                client.CreateXmlRUT(totalPay.ToString(), impNoIva, impIva, CFEnro, rutS, rsocialS, 0, "0 Horas", empCod, empCA, empPK, movCaja, movParking);
             }
         }
 

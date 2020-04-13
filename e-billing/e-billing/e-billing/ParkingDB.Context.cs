@@ -37,5 +37,7 @@ namespace e_billing
         public virtual DbSet<Configu> Configus { get; set; }
         public virtual DbSet<Convenio> Convenios { get; set; }
         public virtual DbSet<Referencia_Cierre_Caja> Referencia_Cierre_Caja { get; set; }
+        public virtual DbSet<TipoMovimientoCaja> TipoMovimientoCajas { get; set; }
+        public virtual DbSet<VehiculosPension> VehiculosPensions { get; set; }
     }
 }

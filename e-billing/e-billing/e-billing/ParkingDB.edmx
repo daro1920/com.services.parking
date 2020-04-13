@@ -200,6 +200,15 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <Property Name="str_descrip" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="int_correlativo_prox" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="TipoMovimientoCaja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_codigo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="str_descrip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="str_tipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TipoVehiculo">
           <Key>
             <PropertyRef Name="id" />
@@ -242,6 +251,18 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <Property Name="permiso_reportes" Type="bit" />
           <Property Name="permiso_estadisticas" Type="bit" />
           <Property Name="permiso_obligar_login_cierre_caja" Type="bit" />
+        </EntityType>
+        <EntityType Name="VehiculosPension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_vehiculo_registrado" Type="int" />
+          <Property Name="str_lugar" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="importe_convenido" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ultimo_mes_pago" Type="varchar" MaxLength="6" />
+          <Property Name="inactivo" Type="bit" />
         </EntityType>
         <EntityType Name="VehiculosRegistrados">
           <Key>
@@ -309,6 +330,18 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MovimientosCaja_TipoMovimientoCaja">
+          <End Role="TipoMovimientoCaja" Type="Self.TipoMovimientoCaja" Multiplicity="0..1" />
+          <End Role="MovimientosCaja" Type="Self.MovimientosCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMovimientoCaja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovimientosCaja">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MovimientosCaja_Usuarios">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="MovimientosCaja" Type="Self.MovimientosCaja" Multiplicity="*" />
@@ -345,6 +378,18 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_VehiculosPension_VehiculosRegistrados">
+          <End Role="VehiculosRegistrados" Type="Self.VehiculosRegistrados" Multiplicity="0..1" />
+          <End Role="VehiculosPension" Type="Self.VehiculosPension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehiculosRegistrados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VehiculosPension">
+              <PropertyRef Name="id_vehiculo_registrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ParkingModelStoreContainer">
           <EntitySet Name="Adentro" EntityType="Self.Adentro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Convenios" EntityType="Self.Convenios" Schema="dbo" store:Type="Tables" />
@@ -354,8 +399,10 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <EntitySet Name="Referencia_Cierre_Caja" EntityType="Self.Referencia_Cierre_Caja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoDocumentoEmision_Correlativos" EntityType="Self.TipoDocumentoEmision_Correlativos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoMovimientoCaja" EntityType="Self.TipoMovimientoCaja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehiculosPension" EntityType="Self.VehiculosPension" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehiculosRegistrados" EntityType="Self.VehiculosRegistrados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configu" EntityType="Self.Configu" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -436,6 +483,10 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Adentro" EntitySet="Adentro" />
           </AssociationSet>
+          <AssociationSet Name="FK_MovimientosCaja_TipoMovimientoCaja" Association="Self.FK_MovimientosCaja_TipoMovimientoCaja">
+            <End Role="TipoMovimientoCaja" EntitySet="TipoMovimientoCaja" />
+            <End Role="MovimientosCaja" EntitySet="MovimientosCaja" />
+          </AssociationSet>
           <AssociationSet Name="FK_MovimientosCaja_Usuarios" Association="Self.FK_MovimientosCaja_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="MovimientosCaja" EntitySet="MovimientosCaja" />
@@ -447,6 +498,10 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <AssociationSet Name="FK_Tarifas_TipoVehiculo" Association="Self.FK_Tarifas_TipoVehiculo">
             <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
             <End Role="Tarifas" EntitySet="Tarifas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculosPension_VehiculosRegistrados" Association="Self.FK_VehiculosPension_VehiculosRegistrados">
+            <End Role="VehiculosRegistrados" EntitySet="VehiculosRegistrados" />
+            <End Role="VehiculosPension" EntitySet="VehiculosPension" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -593,6 +648,16 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
             <End Role="Tarifa" EntitySet="Tarifas" />
           </AssociationSet>
           <EntitySet Name="Referencia_Cierre_Caja" EntityType="ParkingModel.Referencia_Cierre_Caja" />
+          <EntitySet Name="TipoMovimientoCajas" EntityType="ParkingModel.TipoMovimientoCaja" />
+          <AssociationSet Name="FK_MovimientosCaja_TipoMovimientoCaja" Association="ParkingModel.FK_MovimientosCaja_TipoMovimientoCaja">
+            <End Role="TipoMovimientoCaja" EntitySet="TipoMovimientoCajas" />
+            <End Role="MovimientosCaja" EntitySet="MovimientosCajas" />
+          </AssociationSet>
+          <EntitySet Name="VehiculosPensions" EntityType="ParkingModel.VehiculosPension" />
+          <AssociationSet Name="FK_VehiculosPension_VehiculosRegistrados" Association="ParkingModel.FK_VehiculosPension_VehiculosRegistrados">
+            <End Role="VehiculosRegistrado" EntitySet="VehiculosRegistrados" />
+            <End Role="VehiculosPension" EntitySet="VehiculosPensions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Tarifa">
           <Key>
@@ -683,6 +748,7 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <Property Name="importe_calculado" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="valor_comision" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="com_cobrada" Type="Boolean" />
+          <NavigationProperty Name="TipoMovimientoCaja" Relationship="ParkingModel.FK_MovimientosCaja_TipoMovimientoCaja" FromRole="MovimientosCaja" ToRole="TipoMovimientoCaja" />
         </EntityType>
         <Association Name="FK_MovimientosCaja_Usuarios">
           <End Type="ParkingModel.Usuario" Role="Usuario" Multiplicity="1" />
@@ -725,6 +791,7 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <Property Name="autorizado1_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="autorizado2_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="autorizado3_apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VehiculosPensions" Relationship="ParkingModel.FK_VehiculosPension_VehiculosRegistrados" FromRole="VehiculosRegistrado" ToRole="VehiculosPension" />
         </EntityType>
         <EntityType Name="Configu">
           <Key>
@@ -838,6 +905,53 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
           <Property Name="str_hora" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="TipoMovimientoCaja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_codigo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="str_descrip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MovimientosCajas" Relationship="ParkingModel.FK_MovimientosCaja_TipoMovimientoCaja" FromRole="TipoMovimientoCaja" ToRole="MovimientosCaja" />
+        </EntityType>
+        <Association Name="FK_MovimientosCaja_TipoMovimientoCaja">
+          <End Type="ParkingModel.TipoMovimientoCaja" Role="TipoMovimientoCaja" Multiplicity="0..1" />
+          <End Type="ParkingModel.MovimientosCaja" Role="MovimientosCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMovimientoCaja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovimientosCaja">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VehiculosPension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_vehiculo_registrado" Type="Int32" />
+          <Property Name="str_lugar" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_ingreso" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="importe_convenido" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ultimo_mes_pago" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="inactivo" Type="Boolean" />
+          <NavigationProperty Name="VehiculosRegistrado" Relationship="ParkingModel.FK_VehiculosPension_VehiculosRegistrados" FromRole="VehiculosPension" ToRole="VehiculosRegistrado" />
+        </EntityType>
+        <Association Name="FK_VehiculosPension_VehiculosRegistrados">
+          <End Type="ParkingModel.VehiculosRegistrado" Role="VehiculosRegistrado" Multiplicity="0..1" />
+          <End Type="ParkingModel.VehiculosPension" Role="VehiculosPension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehiculosRegistrado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VehiculosPension">
+              <PropertyRef Name="id_vehiculo_registrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1117,6 +1231,29 @@ warning 6002: The table/view 'Parking.dbo.Configu' does not have a primary key d
                 <ScalarProperty Name="observaciones" ColumnName="observaciones" />
                 <ScalarProperty Name="str_hora" ColumnName="str_hora" />
                 <ScalarProperty Name="str_fecha" ColumnName="str_fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoMovimientoCajas">
+            <EntityTypeMapping TypeName="ParkingModel.TipoMovimientoCaja">
+              <MappingFragment StoreEntitySet="TipoMovimientoCaja">
+                <ScalarProperty Name="str_tipo" ColumnName="str_tipo" />
+                <ScalarProperty Name="str_descrip" ColumnName="str_descrip" />
+                <ScalarProperty Name="str_codigo" ColumnName="str_codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehiculosPensions">
+            <EntityTypeMapping TypeName="ParkingModel.VehiculosPension">
+              <MappingFragment StoreEntitySet="VehiculosPension">
+                <ScalarProperty Name="inactivo" ColumnName="inactivo" />
+                <ScalarProperty Name="ultimo_mes_pago" ColumnName="ultimo_mes_pago" />
+                <ScalarProperty Name="importe_convenido" ColumnName="importe_convenido" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="str_lugar" ColumnName="str_lugar" />
+                <ScalarProperty Name="id_vehiculo_registrado" ColumnName="id_vehiculo_registrado" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

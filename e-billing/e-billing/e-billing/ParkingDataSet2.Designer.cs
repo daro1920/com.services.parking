@@ -20,19 +20,17 @@ namespace e_billing {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ParkingDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ParkingDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ParkingDataSet : global::System.Data.DataSet {
+    public partial class ParkingDataSet2 : global::System.Data.DataSet {
         
-        private AdentroDataTable tableAdentro;
-        
-        private AdentroModDataTable tableAdentroMod;
+        private TipoMovimientoCajaDataTable tableTipoMovimientoCaja;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public ParkingDataSet() {
+        public ParkingDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -43,7 +41,7 @@ namespace e_billing {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected ParkingDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ParkingDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -56,11 +54,8 @@ namespace e_billing {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Adentro"] != null)) {
-                    base.Tables.Add(new AdentroDataTable(ds.Tables["Adentro"]));
-                }
-                if ((ds.Tables["AdentroMod"] != null)) {
-                    base.Tables.Add(new AdentroModDataTable(ds.Tables["AdentroMod"]));
+                if ((ds.Tables["TipoMovimientoCaja"] != null)) {
+                    base.Tables.Add(new TipoMovimientoCajaDataTable(ds.Tables["TipoMovimientoCaja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,19 +79,9 @@ namespace e_billing {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AdentroDataTable Adentro {
+        public TipoMovimientoCajaDataTable TipoMovimientoCaja {
             get {
-                return this.tableAdentro;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AdentroModDataTable AdentroMod {
-            get {
-                return this.tableAdentroMod;
+                return this.tableTipoMovimientoCaja;
             }
         }
         
@@ -142,7 +127,7 @@ namespace e_billing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ParkingDataSet cln = ((ParkingDataSet)(base.Clone()));
+            ParkingDataSet2 cln = ((ParkingDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -167,11 +152,8 @@ namespace e_billing {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Adentro"] != null)) {
-                    base.Tables.Add(new AdentroDataTable(ds.Tables["Adentro"]));
-                }
-                if ((ds.Tables["AdentroMod"] != null)) {
-                    base.Tables.Add(new AdentroModDataTable(ds.Tables["AdentroMod"]));
+                if ((ds.Tables["TipoMovimientoCaja"] != null)) {
+                    base.Tables.Add(new TipoMovimientoCajaDataTable(ds.Tables["TipoMovimientoCaja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +188,10 @@ namespace e_billing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableAdentro = ((AdentroDataTable)(base.Tables["Adentro"]));
+            this.tableTipoMovimientoCaja = ((TipoMovimientoCajaDataTable)(base.Tables["TipoMovimientoCaja"]));
             if ((initTable == true)) {
-                if ((this.tableAdentro != null)) {
-                    this.tableAdentro.InitVars();
-                }
-            }
-            this.tableAdentroMod = ((AdentroModDataTable)(base.Tables["AdentroMod"]));
-            if ((initTable == true)) {
-                if ((this.tableAdentroMod != null)) {
-                    this.tableAdentroMod.InitVars();
+                if ((this.tableTipoMovimientoCaja != null)) {
+                    this.tableTipoMovimientoCaja.InitVars();
                 }
             }
         }
@@ -223,26 +199,18 @@ namespace e_billing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ParkingDataSet";
+            this.DataSetName = "ParkingDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ParkingDataSet.xsd";
+            this.Namespace = "http://tempuri.org/ParkingDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableAdentro = new AdentroDataTable();
-            base.Tables.Add(this.tableAdentro);
-            this.tableAdentroMod = new AdentroModDataTable();
-            base.Tables.Add(this.tableAdentroMod);
+            this.tableTipoMovimientoCaja = new TipoMovimientoCajaDataTable();
+            base.Tables.Add(this.tableTipoMovimientoCaja);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeAdentro() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeAdentroMod() {
+        private bool ShouldSerializeTipoMovimientoCaja() {
             return false;
         }
         
@@ -257,7 +225,7 @@ namespace e_billing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ParkingDataSet ds = new ParkingDataSet();
+            ParkingDataSet2 ds = new ParkingDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -302,429 +270,27 @@ namespace e_billing {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void AdentroRowChangeEventHandler(object sender, AdentroRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void AdentroModRowChangeEventHandler(object sender, AdentroModRowChangeEvent e);
+        public delegate void TipoMovimientoCajaRowChangeEventHandler(object sender, TipoMovimientoCajaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AdentroDataTable : global::System.Data.TypedTableBase<AdentroRow> {
+        public partial class TipoMovimientoCajaDataTable : global::System.Data.TypedTableBase<TipoMovimientoCajaRow> {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnstr_fecha_entrada;
-            
-            private global::System.Data.DataColumn columnstr_hora_entrada;
-            
-            private global::System.Data.DataColumn columnstr_matricula;
-            
-            private global::System.Data.DataColumn columnid_tipo_vehiculo;
-            
-            private global::System.Data.DataColumn columnid_usuario;
-            
-            private global::System.Data.DataColumn columnprepago;
-            
-            private global::System.Data.DataColumn columnfecha_venc_prepago;
-            
-            private global::System.Data.DataColumn columnhora_venc_prepago;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroDataTable() {
-                this.TableName = "Adentro";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal AdentroDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected AdentroDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_fecha_entradaColumn {
-                get {
-                    return this.columnstr_fecha_entrada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_hora_entradaColumn {
-                get {
-                    return this.columnstr_hora_entrada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_matriculaColumn {
-                get {
-                    return this.columnstr_matricula;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn id_tipo_vehiculoColumn {
-                get {
-                    return this.columnid_tipo_vehiculo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn id_usuarioColumn {
-                get {
-                    return this.columnid_usuario;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn prepagoColumn {
-                get {
-                    return this.columnprepago;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn fecha_venc_prepagoColumn {
-                get {
-                    return this.columnfecha_venc_prepago;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn hora_venc_prepagoColumn {
-                get {
-                    return this.columnhora_venc_prepago;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRow this[int index] {
-                get {
-                    return ((AdentroRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroRowChangeEventHandler AdentroRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroRowChangeEventHandler AdentroRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroRowChangeEventHandler AdentroRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroRowChangeEventHandler AdentroRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddAdentroRow(AdentroRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRow AddAdentroRow(string str_fecha_entrada, string str_hora_entrada, string str_matricula, int id_tipo_vehiculo, int id_usuario, string prepago, string fecha_venc_prepago, string hora_venc_prepago) {
-                AdentroRow rowAdentroRow = ((AdentroRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        str_fecha_entrada,
-                        str_hora_entrada,
-                        str_matricula,
-                        id_tipo_vehiculo,
-                        id_usuario,
-                        prepago,
-                        fecha_venc_prepago,
-                        hora_venc_prepago};
-                rowAdentroRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAdentroRow);
-                return rowAdentroRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRow FindByid(int id) {
-                return ((AdentroRow)(this.Rows.Find(new object[] {
-                            id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                AdentroDataTable cln = ((AdentroDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new AdentroDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnid = base.Columns["id"];
-                this.columnstr_fecha_entrada = base.Columns["str_fecha_entrada"];
-                this.columnstr_hora_entrada = base.Columns["str_hora_entrada"];
-                this.columnstr_matricula = base.Columns["str_matricula"];
-                this.columnid_tipo_vehiculo = base.Columns["id_tipo_vehiculo"];
-                this.columnid_usuario = base.Columns["id_usuario"];
-                this.columnprepago = base.Columns["prepago"];
-                this.columnfecha_venc_prepago = base.Columns["fecha_venc_prepago"];
-                this.columnhora_venc_prepago = base.Columns["hora_venc_prepago"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
-                this.columnstr_fecha_entrada = new global::System.Data.DataColumn("str_fecha_entrada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_fecha_entrada);
-                this.columnstr_hora_entrada = new global::System.Data.DataColumn("str_hora_entrada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_hora_entrada);
-                this.columnstr_matricula = new global::System.Data.DataColumn("str_matricula", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_matricula);
-                this.columnid_tipo_vehiculo = new global::System.Data.DataColumn("id_tipo_vehiculo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_tipo_vehiculo);
-                this.columnid_usuario = new global::System.Data.DataColumn("id_usuario", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_usuario);
-                this.columnprepago = new global::System.Data.DataColumn("prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprepago);
-                this.columnfecha_venc_prepago = new global::System.Data.DataColumn("fecha_venc_prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha_venc_prepago);
-                this.columnhora_venc_prepago = new global::System.Data.DataColumn("hora_venc_prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhora_venc_prepago);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.ReadOnly = true;
-                this.columnid.Unique = true;
-                this.columnstr_fecha_entrada.AllowDBNull = false;
-                this.columnstr_fecha_entrada.MaxLength = 8;
-                this.columnstr_hora_entrada.AllowDBNull = false;
-                this.columnstr_hora_entrada.MaxLength = 5;
-                this.columnstr_matricula.AllowDBNull = false;
-                this.columnstr_matricula.MaxLength = 20;
-                this.columnid_usuario.AllowDBNull = false;
-                this.columnprepago.AllowDBNull = false;
-                this.columnprepago.MaxLength = 2;
-                this.columnfecha_venc_prepago.MaxLength = 8;
-                this.columnhora_venc_prepago.MaxLength = 5;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRow NewAdentroRow() {
-                return ((AdentroRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AdentroRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(AdentroRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.AdentroRowChanged != null)) {
-                    this.AdentroRowChanged(this, new AdentroRowChangeEvent(((AdentroRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.AdentroRowChanging != null)) {
-                    this.AdentroRowChanging(this, new AdentroRowChangeEvent(((AdentroRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.AdentroRowDeleted != null)) {
-                    this.AdentroRowDeleted(this, new AdentroRowChangeEvent(((AdentroRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.AdentroRowDeleting != null)) {
-                    this.AdentroRowDeleting(this, new AdentroRowChangeEvent(((AdentroRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveAdentroRow(AdentroRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ParkingDataSet ds = new ParkingDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AdentroDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AdentroModDataTable : global::System.Data.TypedTableBase<AdentroModRow> {
-            
-            private global::System.Data.DataColumn columnid;
-            
-            private global::System.Data.DataColumn columnstr_fecha_entrada;
-            
-            private global::System.Data.DataColumn columnstr_hora_entrada;
-            
-            private global::System.Data.DataColumn columnstr_matricula;
-            
-            private global::System.Data.DataColumn columnstr_nombre_usuario;
-            
-            private global::System.Data.DataColumn columnprepago;
-            
-            private global::System.Data.DataColumn columnfecha_venc_prepago;
-            
-            private global::System.Data.DataColumn columnhora_venc_prepago;
+            private global::System.Data.DataColumn columnstr_codigo;
             
             private global::System.Data.DataColumn columnstr_descrip;
             
-            private global::System.Data.DataColumn columnvehicleId;
-            
-            private global::System.Data.DataColumn columncorrelativo_ticket;
+            private global::System.Data.DataColumn columnstr_tipo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModDataTable() {
-                this.TableName = "AdentroMod";
+            public TipoMovimientoCajaDataTable() {
+                this.TableName = "TipoMovimientoCaja";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -732,7 +298,7 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal AdentroModDataTable(global::System.Data.DataTable table) {
+            internal TipoMovimientoCajaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -749,7 +315,7 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected AdentroModDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TipoMovimientoCajaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -764,57 +330,9 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_fecha_entradaColumn {
+            public global::System.Data.DataColumn str_codigoColumn {
                 get {
-                    return this.columnstr_fecha_entrada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_hora_entradaColumn {
-                get {
-                    return this.columnstr_hora_entrada;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_matriculaColumn {
-                get {
-                    return this.columnstr_matricula;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn str_nombre_usuarioColumn {
-                get {
-                    return this.columnstr_nombre_usuario;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn prepagoColumn {
-                get {
-                    return this.columnprepago;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn fecha_venc_prepagoColumn {
-                get {
-                    return this.columnfecha_venc_prepago;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn hora_venc_prepagoColumn {
-                get {
-                    return this.columnhora_venc_prepago;
+                    return this.columnstr_codigo;
                 }
             }
             
@@ -828,17 +346,9 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn vehicleIdColumn {
+            public global::System.Data.DataColumn str_tipoColumn {
                 get {
-                    return this.columnvehicleId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn correlativo_ticketColumn {
-                get {
-                    return this.columncorrelativo_ticket;
+                    return this.columnstr_tipo;
                 }
             }
             
@@ -853,62 +363,55 @@ namespace e_billing {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow this[int index] {
+            public TipoMovimientoCajaRow this[int index] {
                 get {
-                    return ((AdentroModRow)(this.Rows[index]));
+                    return ((TipoMovimientoCajaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroModRowChangeEventHandler AdentroModRowChanging;
+            public event TipoMovimientoCajaRowChangeEventHandler TipoMovimientoCajaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroModRowChangeEventHandler AdentroModRowChanged;
+            public event TipoMovimientoCajaRowChangeEventHandler TipoMovimientoCajaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroModRowChangeEventHandler AdentroModRowDeleting;
+            public event TipoMovimientoCajaRowChangeEventHandler TipoMovimientoCajaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event AdentroModRowChangeEventHandler AdentroModRowDeleted;
+            public event TipoMovimientoCajaRowChangeEventHandler TipoMovimientoCajaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddAdentroModRow(AdentroModRow row) {
+            public void AddTipoMovimientoCajaRow(TipoMovimientoCajaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow AddAdentroModRow(string str_fecha_entrada, string str_hora_entrada, string str_matricula, string str_nombre_usuario, string prepago, string fecha_venc_prepago, string hora_venc_prepago, string str_descrip, int correlativo_ticket) {
-                AdentroModRow rowAdentroModRow = ((AdentroModRow)(this.NewRow()));
+            public TipoMovimientoCajaRow AddTipoMovimientoCajaRow(string str_codigo, string str_descrip, string str_tipo) {
+                TipoMovimientoCajaRow rowTipoMovimientoCajaRow = ((TipoMovimientoCajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        str_fecha_entrada,
-                        str_hora_entrada,
-                        str_matricula,
-                        str_nombre_usuario,
-                        prepago,
-                        fecha_venc_prepago,
-                        hora_venc_prepago,
+                        str_codigo,
                         str_descrip,
-                        null,
-                        correlativo_ticket};
-                rowAdentroModRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAdentroModRow);
-                return rowAdentroModRow;
+                        str_tipo};
+                rowTipoMovimientoCajaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTipoMovimientoCajaRow);
+                return rowTipoMovimientoCajaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow FindByid(int id) {
-                return ((AdentroModRow)(this.Rows.Find(new object[] {
+            public TipoMovimientoCajaRow FindByid(int id) {
+                return ((TipoMovimientoCajaRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                AdentroModDataTable cln = ((AdentroModDataTable)(base.Clone()));
+                TipoMovimientoCajaDataTable cln = ((TipoMovimientoCajaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -916,23 +419,16 @@ namespace e_billing {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new AdentroModDataTable();
+                return new TipoMovimientoCajaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columnstr_fecha_entrada = base.Columns["str_fecha_entrada"];
-                this.columnstr_hora_entrada = base.Columns["str_hora_entrada"];
-                this.columnstr_matricula = base.Columns["str_matricula"];
-                this.columnstr_nombre_usuario = base.Columns["str_nombre_usuario"];
-                this.columnprepago = base.Columns["prepago"];
-                this.columnfecha_venc_prepago = base.Columns["fecha_venc_prepago"];
-                this.columnhora_venc_prepago = base.Columns["hora_venc_prepago"];
+                this.columnstr_codigo = base.Columns["str_codigo"];
                 this.columnstr_descrip = base.Columns["str_descrip"];
-                this.columnvehicleId = base.Columns["vehicleId"];
-                this.columncorrelativo_ticket = base.Columns["correlativo_ticket"];
+                this.columnstr_tipo = base.Columns["str_tipo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -940,26 +436,12 @@ namespace e_billing {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnstr_fecha_entrada = new global::System.Data.DataColumn("str_fecha_entrada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_fecha_entrada);
-                this.columnstr_hora_entrada = new global::System.Data.DataColumn("str_hora_entrada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_hora_entrada);
-                this.columnstr_matricula = new global::System.Data.DataColumn("str_matricula", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_matricula);
-                this.columnstr_nombre_usuario = new global::System.Data.DataColumn("str_nombre_usuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstr_nombre_usuario);
-                this.columnprepago = new global::System.Data.DataColumn("prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprepago);
-                this.columnfecha_venc_prepago = new global::System.Data.DataColumn("fecha_venc_prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha_venc_prepago);
-                this.columnhora_venc_prepago = new global::System.Data.DataColumn("hora_venc_prepago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhora_venc_prepago);
+                this.columnstr_codigo = new global::System.Data.DataColumn("str_codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstr_codigo);
                 this.columnstr_descrip = new global::System.Data.DataColumn("str_descrip", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstr_descrip);
-                this.columnvehicleId = new global::System.Data.DataColumn("vehicleId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicleId);
-                this.columncorrelativo_ticket = new global::System.Data.DataColumn("correlativo_ticket", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncorrelativo_ticket);
+                this.columnstr_tipo = new global::System.Data.DataColumn("str_tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstr_tipo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -968,51 +450,38 @@ namespace e_billing {
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
-                this.columnstr_fecha_entrada.AllowDBNull = false;
-                this.columnstr_fecha_entrada.MaxLength = 8;
-                this.columnstr_hora_entrada.AllowDBNull = false;
-                this.columnstr_hora_entrada.MaxLength = 5;
-                this.columnstr_matricula.AllowDBNull = false;
-                this.columnstr_matricula.MaxLength = 20;
-                this.columnstr_nombre_usuario.AllowDBNull = false;
-                this.columnstr_nombre_usuario.MaxLength = 50;
-                this.columnprepago.AllowDBNull = false;
-                this.columnprepago.MaxLength = 2;
-                this.columnfecha_venc_prepago.MaxLength = 8;
-                this.columnhora_venc_prepago.MaxLength = 5;
+                this.columnstr_codigo.AllowDBNull = false;
+                this.columnstr_codigo.MaxLength = 5;
                 this.columnstr_descrip.AllowDBNull = false;
                 this.columnstr_descrip.MaxLength = 50;
-                this.columnvehicleId.AutoIncrement = true;
-                this.columnvehicleId.AutoIncrementSeed = -1;
-                this.columnvehicleId.AutoIncrementStep = -1;
-                this.columnvehicleId.AllowDBNull = false;
-                this.columnvehicleId.ReadOnly = true;
+                this.columnstr_tipo.AllowDBNull = false;
+                this.columnstr_tipo.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow NewAdentroModRow() {
-                return ((AdentroModRow)(this.NewRow()));
+            public TipoMovimientoCajaRow NewTipoMovimientoCajaRow() {
+                return ((TipoMovimientoCajaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AdentroModRow(builder);
+                return new TipoMovimientoCajaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(AdentroModRow);
+                return typeof(TipoMovimientoCajaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.AdentroModRowChanged != null)) {
-                    this.AdentroModRowChanged(this, new AdentroModRowChangeEvent(((AdentroModRow)(e.Row)), e.Action));
+                if ((this.TipoMovimientoCajaRowChanged != null)) {
+                    this.TipoMovimientoCajaRowChanged(this, new TipoMovimientoCajaRowChangeEvent(((TipoMovimientoCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1020,8 +489,8 @@ namespace e_billing {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.AdentroModRowChanging != null)) {
-                    this.AdentroModRowChanging(this, new AdentroModRowChangeEvent(((AdentroModRow)(e.Row)), e.Action));
+                if ((this.TipoMovimientoCajaRowChanging != null)) {
+                    this.TipoMovimientoCajaRowChanging(this, new TipoMovimientoCajaRowChangeEvent(((TipoMovimientoCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1029,8 +498,8 @@ namespace e_billing {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.AdentroModRowDeleted != null)) {
-                    this.AdentroModRowDeleted(this, new AdentroModRowChangeEvent(((AdentroModRow)(e.Row)), e.Action));
+                if ((this.TipoMovimientoCajaRowDeleted != null)) {
+                    this.TipoMovimientoCajaRowDeleted(this, new TipoMovimientoCajaRowChangeEvent(((TipoMovimientoCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1038,14 +507,14 @@ namespace e_billing {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.AdentroModRowDeleting != null)) {
-                    this.AdentroModRowDeleting(this, new AdentroModRowChangeEvent(((AdentroModRow)(e.Row)), e.Action));
+                if ((this.TipoMovimientoCajaRowDeleting != null)) {
+                    this.TipoMovimientoCajaRowDeleting(this, new TipoMovimientoCajaRowChangeEvent(((TipoMovimientoCajaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveAdentroModRow(AdentroModRow row) {
+            public void RemoveTipoMovimientoCajaRow(TipoMovimientoCajaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1054,7 +523,7 @@ namespace e_billing {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ParkingDataSet ds = new ParkingDataSet();
+                ParkingDataSet2 ds = new ParkingDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1072,7 +541,7 @@ namespace e_billing {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AdentroModDataTable";
+                attribute2.FixedValue = "TipoMovimientoCajaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1116,277 +585,36 @@ namespace e_billing {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class AdentroRow : global::System.Data.DataRow {
+        public partial class TipoMovimientoCajaRow : global::System.Data.DataRow {
             
-            private AdentroDataTable tableAdentro;
+            private TipoMovimientoCajaDataTable tableTipoMovimientoCaja;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal AdentroRow(global::System.Data.DataRowBuilder rb) : 
+            internal TipoMovimientoCajaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableAdentro = ((AdentroDataTable)(this.Table));
+                this.tableTipoMovimientoCaja = ((TipoMovimientoCajaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tableAdentro.idColumn]));
+                    return ((int)(this[this.tableTipoMovimientoCaja.idColumn]));
                 }
                 set {
-                    this[this.tableAdentro.idColumn] = value;
+                    this[this.tableTipoMovimientoCaja.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_fecha_entrada {
+            public string str_codigo {
                 get {
-                    return ((string)(this[this.tableAdentro.str_fecha_entradaColumn]));
+                    return ((string)(this[this.tableTipoMovimientoCaja.str_codigoColumn]));
                 }
                 set {
-                    this[this.tableAdentro.str_fecha_entradaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_hora_entrada {
-                get {
-                    return ((string)(this[this.tableAdentro.str_hora_entradaColumn]));
-                }
-                set {
-                    this[this.tableAdentro.str_hora_entradaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_matricula {
-                get {
-                    return ((string)(this[this.tableAdentro.str_matriculaColumn]));
-                }
-                set {
-                    this[this.tableAdentro.str_matriculaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int id_tipo_vehiculo {
-                get {
-                    try {
-                        return ((int)(this[this.tableAdentro.id_tipo_vehiculoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_tipo_vehiculo\' in table \'Adentro\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentro.id_tipo_vehiculoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int id_usuario {
-                get {
-                    return ((int)(this[this.tableAdentro.id_usuarioColumn]));
-                }
-                set {
-                    this[this.tableAdentro.id_usuarioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string prepago {
-                get {
-                    return ((string)(this[this.tableAdentro.prepagoColumn]));
-                }
-                set {
-                    this[this.tableAdentro.prepagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string fecha_venc_prepago {
-                get {
-                    try {
-                        return ((string)(this[this.tableAdentro.fecha_venc_prepagoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fecha_venc_prepago\' in table \'Adentro\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentro.fecha_venc_prepagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string hora_venc_prepago {
-                get {
-                    try {
-                        return ((string)(this[this.tableAdentro.hora_venc_prepagoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'hora_venc_prepago\' in table \'Adentro\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentro.hora_venc_prepagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isid_tipo_vehiculoNull() {
-                return this.IsNull(this.tableAdentro.id_tipo_vehiculoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setid_tipo_vehiculoNull() {
-                this[this.tableAdentro.id_tipo_vehiculoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isfecha_venc_prepagoNull() {
-                return this.IsNull(this.tableAdentro.fecha_venc_prepagoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setfecha_venc_prepagoNull() {
-                this[this.tableAdentro.fecha_venc_prepagoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Ishora_venc_prepagoNull() {
-                return this.IsNull(this.tableAdentro.hora_venc_prepagoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Sethora_venc_prepagoNull() {
-                this[this.tableAdentro.hora_venc_prepagoColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class AdentroModRow : global::System.Data.DataRow {
-            
-            private AdentroModDataTable tableAdentroMod;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal AdentroModRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableAdentroMod = ((AdentroModDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int id {
-                get {
-                    return ((int)(this[this.tableAdentroMod.idColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_fecha_entrada {
-                get {
-                    return ((string)(this[this.tableAdentroMod.str_fecha_entradaColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.str_fecha_entradaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_hora_entrada {
-                get {
-                    return ((string)(this[this.tableAdentroMod.str_hora_entradaColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.str_hora_entradaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_matricula {
-                get {
-                    return ((string)(this[this.tableAdentroMod.str_matriculaColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.str_matriculaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string str_nombre_usuario {
-                get {
-                    return ((string)(this[this.tableAdentroMod.str_nombre_usuarioColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.str_nombre_usuarioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string prepago {
-                get {
-                    return ((string)(this[this.tableAdentroMod.prepagoColumn]));
-                }
-                set {
-                    this[this.tableAdentroMod.prepagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string fecha_venc_prepago {
-                get {
-                    try {
-                        return ((string)(this[this.tableAdentroMod.fecha_venc_prepagoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fecha_venc_prepago\' in table \'AdentroMod\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentroMod.fecha_venc_prepagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string hora_venc_prepago {
-                get {
-                    try {
-                        return ((string)(this[this.tableAdentroMod.hora_venc_prepagoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'hora_venc_prepago\' in table \'AdentroMod\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentroMod.hora_venc_prepagoColumn] = value;
+                    this[this.tableTipoMovimientoCaja.str_codigoColumn] = value;
                 }
             }
             
@@ -1394,107 +622,21 @@ namespace e_billing {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string str_descrip {
                 get {
-                    return ((string)(this[this.tableAdentroMod.str_descripColumn]));
+                    return ((string)(this[this.tableTipoMovimientoCaja.str_descripColumn]));
                 }
                 set {
-                    this[this.tableAdentroMod.str_descripColumn] = value;
+                    this[this.tableTipoMovimientoCaja.str_descripColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int vehicleId {
+            public string str_tipo {
                 get {
-                    return ((int)(this[this.tableAdentroMod.vehicleIdColumn]));
+                    return ((string)(this[this.tableTipoMovimientoCaja.str_tipoColumn]));
                 }
                 set {
-                    this[this.tableAdentroMod.vehicleIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int correlativo_ticket {
-                get {
-                    try {
-                        return ((int)(this[this.tableAdentroMod.correlativo_ticketColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'correlativo_ticket\' in table \'AdentroMod\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAdentroMod.correlativo_ticketColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isfecha_venc_prepagoNull() {
-                return this.IsNull(this.tableAdentroMod.fecha_venc_prepagoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setfecha_venc_prepagoNull() {
-                this[this.tableAdentroMod.fecha_venc_prepagoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Ishora_venc_prepagoNull() {
-                return this.IsNull(this.tableAdentroMod.hora_venc_prepagoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Sethora_venc_prepagoNull() {
-                this[this.tableAdentroMod.hora_venc_prepagoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Iscorrelativo_ticketNull() {
-                return this.IsNull(this.tableAdentroMod.correlativo_ticketColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setcorrelativo_ticketNull() {
-                this[this.tableAdentroMod.correlativo_ticketColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class AdentroRowChangeEvent : global::System.EventArgs {
-            
-            private AdentroRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRowChangeEvent(AdentroRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
+                    this[this.tableTipoMovimientoCaja.str_tipoColumn] = value;
                 }
             }
         }
@@ -1503,22 +645,22 @@ namespace e_billing {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class AdentroModRowChangeEvent : global::System.EventArgs {
+        public class TipoMovimientoCajaRowChangeEvent : global::System.EventArgs {
             
-            private AdentroModRow eventRow;
+            private TipoMovimientoCajaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRowChangeEvent(AdentroModRow row, global::System.Data.DataRowAction action) {
+            public TipoMovimientoCajaRowChangeEvent(TipoMovimientoCajaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AdentroModRow Row {
+            public TipoMovimientoCajaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1534,7 +676,7 @@ namespace e_billing {
         }
     }
 }
-namespace e_billing.ParkingDataSetTableAdapters {
+namespace e_billing.ParkingDataSet2TableAdapters {
     
     
     /// <summary>
@@ -1546,7 +688,7 @@ namespace e_billing.ParkingDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class AdentroTableAdapter : global::System.ComponentModel.Component {
+    public partial class TipoMovimientoCajaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1560,7 +702,7 @@ namespace e_billing.ParkingDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public AdentroTableAdapter() {
+        public TipoMovimientoCajaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1657,58 +799,43 @@ namespace e_billing.ParkingDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Adentro";
+            tableMapping.DataSetTable = "TipoMovimientoCaja";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("str_fecha_entrada", "str_fecha_entrada");
-            tableMapping.ColumnMappings.Add("str_hora_entrada", "str_hora_entrada");
-            tableMapping.ColumnMappings.Add("str_matricula", "str_matricula");
-            tableMapping.ColumnMappings.Add("id_tipo_vehiculo", "id_tipo_vehiculo");
-            tableMapping.ColumnMappings.Add("id_usuario", "id_usuario");
-            tableMapping.ColumnMappings.Add("prepago", "prepago");
-            tableMapping.ColumnMappings.Add("fecha_venc_prepago", "fecha_venc_prepago");
-            tableMapping.ColumnMappings.Add("hora_venc_prepago", "hora_venc_prepago");
+            tableMapping.ColumnMappings.Add("str_codigo", "str_codigo");
+            tableMapping.ColumnMappings.Add("str_descrip", "str_descrip");
+            tableMapping.ColumnMappings.Add("str_tipo", "str_tipo");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Adentro] WHERE (([id] = @Original_id) AND ([str_fecha_entrada] = @Original_str_fecha_entrada) AND ([str_hora_entrada] = @Original_str_hora_entrada) AND ([str_matricula] = @Original_str_matricula) AND ((@IsNull_id_tipo_vehiculo = 1 AND [id_tipo_vehiculo] IS NULL) OR ([id_tipo_vehiculo] = @Original_id_tipo_vehiculo)) AND ([id_usuario] = @Original_id_usuario) AND ([prepago] = @Original_prepago) AND ((@IsNull_fecha_venc_prepago = 1 AND [fecha_venc_prepago] IS NULL) OR ([fecha_venc_prepago] = @Original_fecha_venc_prepago)) AND ((@IsNull_hora_venc_prepago = 1 AND [hora_venc_prepago] IS NULL) OR ([hora_venc_prepago] = @Original_hora_venc_prepago)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TipoMovimientoCaja] WHERE (([id] = @Original_id) AND ([str_cod" +
+                "igo] = @Original_str_codigo) AND ([str_descrip] = @Original_str_descrip) AND ([s" +
+                "tr_tipo] = @Original_str_tipo))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_fecha_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_fecha_entrada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_hora_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_hora_entrada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_matricula", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_matricula", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_tipo_vehiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_tipo_vehiculo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_tipo_vehiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_tipo_vehiculo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_venc_prepago", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_venc_prepago", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_venc_prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hora_venc_prepago", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hora_venc_prepago", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hora_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hora_venc_prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_descrip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_descrip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TipoMovimientoCaja] ([str_codigo], [str_descrip], [str_tipo]) " +
+                "VALUES (@str_codigo, @str_descrip, @str_tipo);\r\nSELECT id, str_codigo, str_descr" +
+                "ip, str_tipo FROM TipoMovimientoCaja WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_descrip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_descrip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Adentro] SET [str_fecha_entrada] = @str_fecha_entrada, [str_hora_entrada] = @str_hora_entrada, [str_matricula] = @str_matricula, [id_tipo_vehiculo] = @id_tipo_vehiculo, [id_usuario] = @id_usuario, [prepago] = @prepago, [fecha_venc_prepago] = @fecha_venc_prepago, [hora_venc_prepago] = @hora_venc_prepago WHERE (([id] = @Original_id) AND ([str_fecha_entrada] = @Original_str_fecha_entrada) AND ([str_hora_entrada] = @Original_str_hora_entrada) AND ([str_matricula] = @Original_str_matricula) AND ((@IsNull_id_tipo_vehiculo = 1 AND [id_tipo_vehiculo] IS NULL) OR ([id_tipo_vehiculo] = @Original_id_tipo_vehiculo)) AND ([id_usuario] = @Original_id_usuario) AND ([prepago] = @Original_prepago) AND ((@IsNull_fecha_venc_prepago = 1 AND [fecha_venc_prepago] IS NULL) OR ([fecha_venc_prepago] = @Original_fecha_venc_prepago)) AND ((@IsNull_hora_venc_prepago = 1 AND [hora_venc_prepago] IS NULL) OR ([hora_venc_prepago] = @Original_hora_venc_prepago)));
-SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo, id_usuario, prepago, fecha_venc_prepago, hora_venc_prepago FROM Adentro WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TipoMovimientoCaja] SET [str_codigo] = @str_codigo, [str_descrip] = @str_descrip, [str_tipo] = @str_tipo WHERE (([id] = @Original_id) AND ([str_codigo] = @Original_str_codigo) AND ([str_descrip] = @Original_str_descrip) AND ([str_tipo] = @Original_str_tipo));
+SELECT id, str_codigo, str_descrip, str_tipo FROM TipoMovimientoCaja WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_fecha_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_fecha_entrada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_hora_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_hora_entrada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_matricula", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_matricula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_tipo_vehiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_tipo_vehiculo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prepago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_venc_prepago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hora_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hora_venc_prepago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_descrip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_descrip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@str_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_fecha_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_fecha_entrada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_hora_entrada", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_hora_entrada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_matricula", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_matricula", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_tipo_vehiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_tipo_vehiculo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_tipo_vehiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_tipo_vehiculo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_venc_prepago", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_venc_prepago", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_venc_prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hora_venc_prepago", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hora_venc_prepago", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hora_venc_prepago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hora_venc_prepago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_descrip", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_descrip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_str_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "str_tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1725,8 +852,7 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo, " +
-                "id_usuario, prepago, fecha_venc_prepago, hora_venc_prepago FROM dbo.Adentro";
+            this._commandCollection[0].CommandText = "SELECT id, str_codigo, str_descrip, str_tipo FROM dbo.TipoMovimientoCaja";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1734,7 +860,7 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ParkingDataSet.AdentroDataTable dataTable) {
+        public virtual int Fill(ParkingDataSet2.TipoMovimientoCajaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1747,9 +873,9 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ParkingDataSet.AdentroDataTable GetData() {
+        public virtual ParkingDataSet2.TipoMovimientoCajaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ParkingDataSet.AdentroDataTable dataTable = new ParkingDataSet.AdentroDataTable();
+            ParkingDataSet2.TipoMovimientoCajaDataTable dataTable = new ParkingDataSet2.TipoMovimientoCajaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1757,15 +883,15 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ParkingDataSet.AdentroDataTable dataTable) {
+        public virtual int Update(ParkingDataSet2.TipoMovimientoCajaDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ParkingDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Adentro");
+        public virtual int Update(ParkingDataSet2 dataSet) {
+            return this.Adapter.Update(dataSet, "TipoMovimientoCaja");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1787,56 +913,25 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_str_fecha_entrada, string Original_str_hora_entrada, string Original_str_matricula, global::System.Nullable<int> Original_id_tipo_vehiculo, int Original_id_usuario, string Original_prepago, string Original_fecha_venc_prepago, string Original_hora_venc_prepago) {
+        public virtual int Delete(int Original_id, string Original_str_codigo, string Original_str_descrip, string Original_str_tipo) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
-            if ((Original_str_fecha_entrada == null)) {
-                throw new global::System.ArgumentNullException("Original_str_fecha_entrada");
+            if ((Original_str_codigo == null)) {
+                throw new global::System.ArgumentNullException("Original_str_codigo");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_str_fecha_entrada));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_str_codigo));
             }
-            if ((Original_str_hora_entrada == null)) {
-                throw new global::System.ArgumentNullException("Original_str_hora_entrada");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_str_hora_entrada));
-            }
-            if ((Original_str_matricula == null)) {
-                throw new global::System.ArgumentNullException("Original_str_matricula");
+            if ((Original_str_descrip == null)) {
+                throw new global::System.ArgumentNullException("Original_str_descrip");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_str_matricula));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_str_descrip));
             }
-            if ((Original_id_tipo_vehiculo.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_id_tipo_vehiculo.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_id_usuario));
-            if ((Original_prepago == null)) {
-                throw new global::System.ArgumentNullException("Original_prepago");
+            if ((Original_str_tipo == null)) {
+                throw new global::System.ArgumentNullException("Original_str_tipo");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_prepago));
-            }
-            if ((Original_fecha_venc_prepago == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_fecha_venc_prepago));
-            }
-            if ((Original_hora_venc_prepago == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_hora_venc_prepago));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_str_tipo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1857,120 +952,85 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string str_codigo, string str_descrip, string str_tipo) {
+            if ((str_codigo == null)) {
+                throw new global::System.ArgumentNullException("str_codigo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(str_codigo));
+            }
+            if ((str_descrip == null)) {
+                throw new global::System.ArgumentNullException("str_descrip");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(str_descrip));
+            }
+            if ((str_tipo == null)) {
+                throw new global::System.ArgumentNullException("str_tipo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(str_tipo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string str_fecha_entrada, 
-                    string str_hora_entrada, 
-                    string str_matricula, 
-                    global::System.Nullable<int> id_tipo_vehiculo, 
-                    int id_usuario, 
-                    string prepago, 
-                    string fecha_venc_prepago, 
-                    string hora_venc_prepago, 
-                    int Original_id, 
-                    string Original_str_fecha_entrada, 
-                    string Original_str_hora_entrada, 
-                    string Original_str_matricula, 
-                    global::System.Nullable<int> Original_id_tipo_vehiculo, 
-                    int Original_id_usuario, 
-                    string Original_prepago, 
-                    string Original_fecha_venc_prepago, 
-                    string Original_hora_venc_prepago, 
-                    int id) {
-            if ((str_fecha_entrada == null)) {
-                throw new global::System.ArgumentNullException("str_fecha_entrada");
+        public virtual int Update(string str_codigo, string str_descrip, string str_tipo, int Original_id, string Original_str_codigo, string Original_str_descrip, string Original_str_tipo, int id) {
+            if ((str_codigo == null)) {
+                throw new global::System.ArgumentNullException("str_codigo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(str_fecha_entrada));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(str_codigo));
             }
-            if ((str_hora_entrada == null)) {
-                throw new global::System.ArgumentNullException("str_hora_entrada");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(str_hora_entrada));
-            }
-            if ((str_matricula == null)) {
-                throw new global::System.ArgumentNullException("str_matricula");
+            if ((str_descrip == null)) {
+                throw new global::System.ArgumentNullException("str_descrip");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(str_matricula));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(str_descrip));
             }
-            if ((id_tipo_vehiculo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_tipo_vehiculo.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id_usuario));
-            if ((prepago == null)) {
-                throw new global::System.ArgumentNullException("prepago");
+            if ((str_tipo == null)) {
+                throw new global::System.ArgumentNullException("str_tipo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(prepago));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(str_tipo));
             }
-            if ((fecha_venc_prepago == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(fecha_venc_prepago));
-            }
-            if ((hora_venc_prepago == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_id));
+            if ((Original_str_codigo == null)) {
+                throw new global::System.ArgumentNullException("Original_str_codigo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(hora_venc_prepago));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_str_codigo));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id));
-            if ((Original_str_fecha_entrada == null)) {
-                throw new global::System.ArgumentNullException("Original_str_fecha_entrada");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_str_fecha_entrada));
-            }
-            if ((Original_str_hora_entrada == null)) {
-                throw new global::System.ArgumentNullException("Original_str_hora_entrada");
+            if ((Original_str_descrip == null)) {
+                throw new global::System.ArgumentNullException("Original_str_descrip");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_str_hora_entrada));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_str_descrip));
             }
-            if ((Original_str_matricula == null)) {
-                throw new global::System.ArgumentNullException("Original_str_matricula");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_str_matricula));
-            }
-            if ((Original_id_tipo_vehiculo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_id_tipo_vehiculo.Value));
+            if ((Original_str_tipo == null)) {
+                throw new global::System.ArgumentNullException("Original_str_tipo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_str_tipo));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id_usuario));
-            if ((Original_prepago == null)) {
-                throw new global::System.ArgumentNullException("Original_prepago");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_prepago));
-            }
-            if ((Original_fecha_venc_prepago == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_fecha_venc_prepago));
-            }
-            if ((Original_hora_venc_prepago == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_hora_venc_prepago));
-            }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1991,345 +1051,8 @@ SELECT id, str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string str_fecha_entrada, 
-                    string str_hora_entrada, 
-                    string str_matricula, 
-                    global::System.Nullable<int> id_tipo_vehiculo, 
-                    int id_usuario, 
-                    string prepago, 
-                    string fecha_venc_prepago, 
-                    string hora_venc_prepago, 
-                    int Original_id, 
-                    string Original_str_fecha_entrada, 
-                    string Original_str_hora_entrada, 
-                    string Original_str_matricula, 
-                    global::System.Nullable<int> Original_id_tipo_vehiculo, 
-                    int Original_id_usuario, 
-                    string Original_prepago, 
-                    string Original_fecha_venc_prepago, 
-                    string Original_hora_venc_prepago) {
-            return this.Update(str_fecha_entrada, str_hora_entrada, str_matricula, id_tipo_vehiculo, id_usuario, prepago, fecha_venc_prepago, hora_venc_prepago, Original_id, Original_str_fecha_entrada, Original_str_hora_entrada, Original_str_matricula, Original_id_tipo_vehiculo, Original_id_usuario, Original_prepago, Original_fecha_venc_prepago, Original_hora_venc_prepago, Original_id);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class AdentroModTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public AdentroModTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "AdentroMod";
-            tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("str_fecha_entrada", "str_fecha_entrada");
-            tableMapping.ColumnMappings.Add("str_hora_entrada", "str_hora_entrada");
-            tableMapping.ColumnMappings.Add("str_matricula", "str_matricula");
-            tableMapping.ColumnMappings.Add("str_nombre_usuario", "str_nombre_usuario");
-            tableMapping.ColumnMappings.Add("prepago", "prepago");
-            tableMapping.ColumnMappings.Add("fecha_venc_prepago", "fecha_venc_prepago");
-            tableMapping.ColumnMappings.Add("hora_venc_prepago", "hora_venc_prepago");
-            tableMapping.ColumnMappings.Add("str_descrip", "str_descrip");
-            tableMapping.ColumnMappings.Add("vehicleId", "vehicleId");
-            tableMapping.ColumnMappings.Add("correlativo_ticket", "correlativo_ticket");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::e_billing.Properties.Settings.Default.ParkingConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
-FROM            Adentro AS a INNER JOIN
-                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT t.id, a.id AS Expr1, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT t.id, a.id AS Expr1, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"SELECT t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago
-FROM     Adentro AS a INNER JOIN
-                  Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                  TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"SELECT        t.id AS vehicleId, a.id, a.str_fecha_entrada, a.str_hora_entrada, a.str_matricula, t.str_descrip, u.str_nombre_usuario, a.prepago, a.fecha_venc_prepago, a.hora_venc_prepago, a.correlativo_ticket
-FROM            Adentro AS a INNER JOIN
-                         Usuarios AS u ON a.id_usuario = u.id INNER JOIN
-                         TipoVehiculo AS t ON a.id_tipo_vehiculo = t.id";
-            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ParkingDataSet.AdentroModDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            ParkingDataSet.AdentroModDataTable dataTable = new ParkingDataSet.AdentroModDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy2(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy3(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy4(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy5(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy6(ParkingDataSet.AdentroModDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
+        public virtual int Update(string str_codigo, string str_descrip, string str_tipo, int Original_id, string Original_str_codigo, string Original_str_descrip, string Original_str_tipo) {
+            return this.Update(str_codigo, str_descrip, str_tipo, Original_id, Original_str_codigo, Original_str_descrip, Original_str_tipo, Original_id);
         }
     }
     
@@ -2345,7 +1068,7 @@ FROM            Adentro AS a INNER JOIN
         
         private UpdateOrderOption _updateOrder;
         
-        private AdentroTableAdapter _adentroTableAdapter;
+        private TipoMovimientoCajaTableAdapter _tipoMovimientoCajaTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -2367,12 +1090,12 @@ FROM            Adentro AS a INNER JOIN
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public AdentroTableAdapter AdentroTableAdapter {
+        public TipoMovimientoCajaTableAdapter TipoMovimientoCajaTableAdapter {
             get {
-                return this._adentroTableAdapter;
+                return this._tipoMovimientoCajaTableAdapter;
             }
             set {
-                this._adentroTableAdapter = value;
+                this._tipoMovimientoCajaTableAdapter = value;
             }
         }
         
@@ -2395,9 +1118,9 @@ FROM            Adentro AS a INNER JOIN
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._adentroTableAdapter != null) 
-                            && (this._adentroTableAdapter.Connection != null))) {
-                    return this._adentroTableAdapter.Connection;
+                if (((this._tipoMovimientoCajaTableAdapter != null) 
+                            && (this._tipoMovimientoCajaTableAdapter.Connection != null))) {
+                    return this._tipoMovimientoCajaTableAdapter.Connection;
                 }
                 return null;
             }
@@ -2412,7 +1135,7 @@ FROM            Adentro AS a INNER JOIN
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._adentroTableAdapter != null)) {
+                if ((this._tipoMovimientoCajaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -2424,14 +1147,14 @@ FROM            Adentro AS a INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(ParkingDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ParkingDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._adentroTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Adentro.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tipoMovimientoCajaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TipoMovimientoCaja.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._adentroTableAdapter.Update(updatedRows));
+                    result = (result + this._tipoMovimientoCajaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -2443,13 +1166,13 @@ FROM            Adentro AS a INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(ParkingDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ParkingDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._adentroTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Adentro.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tipoMovimientoCajaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TipoMovimientoCaja.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._adentroTableAdapter.Update(addedRows));
+                    result = (result + this._tipoMovimientoCajaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -2461,13 +1184,13 @@ FROM            Adentro AS a INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(ParkingDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ParkingDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._adentroTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Adentro.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tipoMovimientoCajaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TipoMovimientoCaja.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._adentroTableAdapter.Update(deletedRows));
+                    result = (result + this._tipoMovimientoCajaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2503,15 +1226,15 @@ FROM            Adentro AS a INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(ParkingDataSet dataSet) {
+        public virtual int UpdateAll(ParkingDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._adentroTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._adentroTableAdapter.Connection) == false))) {
+            if (((this._tipoMovimientoCajaTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tipoMovimientoCajaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -2547,13 +1270,13 @@ FROM            Adentro AS a INNER JOIN
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._adentroTableAdapter != null)) {
-                    revertConnections.Add(this._adentroTableAdapter, this._adentroTableAdapter.Connection);
-                    this._adentroTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._adentroTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._adentroTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._adentroTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._adentroTableAdapter.Adapter);
+                if ((this._tipoMovimientoCajaTableAdapter != null)) {
+                    revertConnections.Add(this._tipoMovimientoCajaTableAdapter, this._tipoMovimientoCajaTableAdapter.Connection);
+                    this._tipoMovimientoCajaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tipoMovimientoCajaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tipoMovimientoCajaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tipoMovimientoCajaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tipoMovimientoCajaTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -2614,9 +1337,9 @@ FROM            Adentro AS a INNER JOIN
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._adentroTableAdapter != null)) {
-                    this._adentroTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._adentroTableAdapter]));
-                    this._adentroTableAdapter.Transaction = null;
+                if ((this._tipoMovimientoCajaTableAdapter != null)) {
+                    this._tipoMovimientoCajaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tipoMovimientoCajaTableAdapter]));
+                    this._tipoMovimientoCajaTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

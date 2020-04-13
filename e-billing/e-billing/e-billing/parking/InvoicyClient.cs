@@ -9,7 +9,7 @@ namespace e_billing.parking
     class InvoicyClient
     {
         
-        public void CreateXml(string changeS, double impNoIva, double impIva,int CFEnro,int hours,
+        public void CreateXml(string changeS, double impNoIva, double impIva,int CFEnro,int hours,string desc,
             string empCod, string empCA, string empPK, MovimientosCaja movCaja, MovimientoParking movParking) {
 
             
@@ -30,7 +30,7 @@ namespace e_billing.parking
 				            <CFEImpCantidad>1</CFEImpCantidad>
 				            <CFEFchEmis>" + DateTime.Now.ToString("yyyy-MM-dd") + @"</CFEFchEmis>
 				            <CFEFmaPago>1</CFEFmaPago>
-				            <CFEAdenda>Prueba</CFEAdenda>
+				            <CFEAdenda>"+ desc + @"</CFEAdenda>
 				            <CFEEfectivo>" + impNoIva + @"</CFEEfectivo>
 				            <CFEPesoTotal>"+ impNoIva + @"</CFEPesoTotal>
 				            <CFECambio>"+ changeS + @"</CFECambio>
@@ -74,7 +74,7 @@ namespace e_billing.parking
 						            </CodItemItem>
 					            </CodItem>
 					            <IteIndFact>3</IteIndFact>
-					            <IteNomItem>" + hours + @" Horas</IteNomItem>
+					            <IteNomItem>" + desc + @"</IteNomItem>
 					            <IteDscItem>" + hours + @" Horas</IteDscItem>
 					            <IteCantidad>1</IteCantidad>
 					            <ItePrecioUnitario>" + impNoIva+@"</ItePrecioUnitario>
@@ -127,7 +127,8 @@ namespace e_billing.parking
         }
 
         public void CreateXmlRUT(string changeS, double impNoIva, double impIva, int CFEnro,string RUT,
-            string raZoc ,int hours, string empCod, string empCA, string empPK, MovimientosCaja movCaja, MovimientoParking movParking)
+            string raZoc ,int hours,string desc, string empCod, string empCA, string empPK, 
+            MovimientosCaja movCaja, MovimientoParking movParking)
         {
 
             
@@ -148,7 +149,7 @@ namespace e_billing.parking
 				            <CFEImpCantidad>1</CFEImpCantidad>
 				            <CFEFchEmis>"+ DateTime.Now.ToString("yyyy-MM-dd")+ @"</CFEFchEmis>
 				            <CFEFmaPago>1</CFEFmaPago>
-				            <CFEAdenda>Prueba</CFEAdenda>
+				            <CFEAdenda>"+ desc + @"</CFEAdenda>
 				            <CFEEfectivo>" + impNoIva + @"</CFEEfectivo>
 				            <CFEPesoTotal>" + impNoIva + @"</CFEPesoTotal>
 				            <CFECambio>" + changeS + @"</CFECambio>
@@ -199,7 +200,7 @@ namespace e_billing.parking
 						            </CodItemItem>
 					            </CodItem>
 					            <IteIndFact>3</IteIndFact>
-					            <IteNomItem>"+hours+ @" Horas</IteNomItem>
+					            <IteNomItem>"+ desc + @"</IteNomItem>
 					            <IteDscItem>" + hours + @" Horas</IteDscItem>
 					            <IteCantidad>1</IteCantidad>
 					            <ItePrecioUnitario>" + impNoIva + @"</ItePrecioUnitario>

@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMove.Designer.cs">
+      <DependentUpon>AddMove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Adentro.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
@@ -91,6 +97,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model1.cs" />
     <Compile Include="MovimientoCajaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +125,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ParkingDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ParkingDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ParkingDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,8 +153,10 @@
     <Compile Include="parking\dao\RefCierreCajaDAO.cs" />
     <Compile Include="parking\dao\TarifaDAo.cs" />
     <Compile Include="parking\dao\TipoDocumentoEmision_CorrelativosDAO.cs" />
+    <Compile Include="parking\dao\TipoMovimientoDAO.cs" />
     <Compile Include="parking\dao\TipoVehiculoDAO.cs" />
     <Compile Include="parking\dao\UsuarioDAO.cs" />
+    <Compile Include="parking\dao\VehiculosPensionDAO.cs" />
     <Compile Include="parking\dao\VehiculosRegistradosDAO.cs" />
     <Compile Include="parking\InvoicyClient.cs" />
     <Compile Include="parking\model\BillingData.cs" />
@@ -182,15 +196,24 @@
     <Compile Include="TipoDocumentoEmision_Correlativos.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="TipoMovimientoCaja.cs">
+      <DependentUpon>ParkingDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoVehiculo.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="VehiculosPension.cs">
+      <DependentUpon>ParkingDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="VehiculosRegistrado.cs">
       <DependentUpon>ParkingDB.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddMove.resx">
+      <DependentUpon>AddMove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entrence.resx">
       <DependentUpon>Entrence.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +282,17 @@
     </None>
     <None Include="ParkingDataSet1.xss">
       <DependentUpon>ParkingDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet2.xsc">
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParkingDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ParkingDataSet2.xss">
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
     </None>
     <None Include="ParkingDB.edmx.diagram">
       <DependentUpon>ParkingDB.edmx</DependentUpon>

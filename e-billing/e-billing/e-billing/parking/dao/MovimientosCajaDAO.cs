@@ -31,6 +31,24 @@ namespace e_billing.parking.dao
             }
         }
 
+        public List<MovimientosCaja> getListMovCaja()
+        {
+
+            List<MovimientosCaja> movsCaja = new List<MovimientosCaja>();
+            try
+            {
+                using (var context = new ParkingEntities2())
+                {
+                    movsCaja = (from movC in context.MovimientosCajas where movC.cerrado == false select movC).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.log.Error(DateTime.Now.ToString() + "MovimientosCajaDAO updateMovimientoCaja" + ex);
+            }
+            return movsCaja;
+        }
+
         public decimal getSumImporteMovCaja()
         {
             decimal movCaja = 0;

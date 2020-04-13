@@ -51,10 +51,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.outButton = new System.Windows.Forms.Button();
             this.tabCaja = new System.Windows.Forms.TabPage();
+            this.addMov = new System.Windows.Forms.Button();
+            this.totCajLabel = new System.Windows.Forms.Label();
+            this.cantMovLabel = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.str_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.str_hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,20 +71,34 @@
             this.str_tipo_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.str_convenio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minutos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.movimientosCajaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabMensuales = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.mensualesGridView = new System.Windows.Forms.DataGridView();
+            this.str_matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.str_marca_modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimo_mes_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idvehiculoregistradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mensualesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.movimientosCajaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.movimientoCajaDataSet = new e_billing.MovimientoCajaDataSet();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.fillBy6ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy6ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.movimientosCajaTableAdapter = new e_billing.MovimientoCajaDataSetTableAdapters.MovimientosCajaTableAdapter();
-            this.cerrado0ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.cerrado0ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.mensualesToolStrip = new System.Windows.Forms.ToolStrip();
+            this.mensualesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.adentroModTableAdapter = new e_billing.ParkingDataSetTableAdapters.AdentroModTableAdapter();
             this.tableAdapterManager = new e_billing.ParkingDataSetTableAdapters.TableAdapterManager();
             this.movimientosCajaTableAdapter1 = new e_billing.ParkingDataSetTableAdapters.MovimientosCajaTableAdapter();
-            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
+            this.MensualesTableAdapter = new e_billing.ParkingDataSetTableAdapters.MensualesTableAdapter();
             this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
+            this.cerrado0ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cerrado0ToolStrip = new System.Windows.Forms.ToolStrip();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adentroModDataGridView)).BeginInit();
@@ -91,17 +107,22 @@
             this.tabCaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).BeginInit();
+            this.tabMensuales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mensualesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mensualesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientoCajaDataSet)).BeginInit();
             this.fillBy6ToolStrip.SuspendLayout();
-            this.cerrado0ToolStrip.SuspendLayout();
+            this.mensualesToolStrip.SuspendLayout();
             this.fillToolStrip.SuspendLayout();
+            this.cerrado0ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tabCaja);
+            this.tabControl1.Controls.Add(this.tabMensuales);
             this.tabControl1.Location = new System.Drawing.Point(5, 1);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -113,7 +134,7 @@
             // tab1
             // 
             this.tab1.AutoScroll = true;
-            this.tab1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tab1.BackColor = System.Drawing.Color.Transparent;
             this.tab1.Controls.Add(this.adentroModDataGridView);
             this.tab1.Controls.Add(this.button3);
             this.tab1.Controls.Add(this.button2);
@@ -151,6 +172,7 @@
             this.adentroModDataGridView.RowTemplate.Height = 24;
             this.adentroModDataGridView.Size = new System.Drawing.Size(927, 532);
             this.adentroModDataGridView.TabIndex = 9;
+            this.adentroModDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.adentroModDataGridView_CellEndEdit);
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -173,6 +195,7 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "str_fecha_entrada";
             this.dataGridViewTextBoxColumn7.HeaderText = "Fecha E";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -180,12 +203,14 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "str_hora_entrada";
             this.dataGridViewTextBoxColumn8.HeaderText = "Hora E";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // str_descrip
             // 
             this.str_descrip.DataPropertyName = "str_descrip";
             this.str_descrip.HeaderText = "Tipo Vehiculo";
             this.str_descrip.Name = "str_descrip";
+            this.str_descrip.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -193,6 +218,7 @@
             this.dataGridViewTextBoxColumn16.DataPropertyName = "prepago";
             this.dataGridViewTextBoxColumn16.HeaderText = "Importe Prep.";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
@@ -200,6 +226,7 @@
             this.dataGridViewTextBoxColumn17.DataPropertyName = "fecha_venc_prepago";
             this.dataGridViewTextBoxColumn17.HeaderText = "F. Venc. Prep";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -207,6 +234,7 @@
             this.dataGridViewTextBoxColumn18.DataPropertyName = "hora_venc_prepago";
             this.dataGridViewTextBoxColumn18.HeaderText = "H. Venc. Prep";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -214,6 +242,7 @@
             this.dataGridViewTextBoxColumn15.DataPropertyName = "str_nombre_usuario";
             this.dataGridViewTextBoxColumn15.HeaderText = "Usuario";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // id
             // 
@@ -310,7 +339,10 @@
             // tabCaja
             // 
             this.tabCaja.AutoScroll = true;
-            this.tabCaja.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabCaja.BackColor = System.Drawing.Color.Transparent;
+            this.tabCaja.Controls.Add(this.addMov);
+            this.tabCaja.Controls.Add(this.totCajLabel);
+            this.tabCaja.Controls.Add(this.cantMovLabel);
             this.tabCaja.Controls.Add(this.button5);
             this.tabCaja.Controls.Add(this.button4);
             this.tabCaja.Controls.Add(this.dataGridView1);
@@ -320,6 +352,40 @@
             this.tabCaja.Size = new System.Drawing.Size(934, 587);
             this.tabCaja.TabIndex = 1;
             this.tabCaja.Text = "Caja";
+            // 
+            // addMov
+            // 
+            this.addMov.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMov.Location = new System.Drawing.Point(101, 540);
+            this.addMov.Margin = new System.Windows.Forms.Padding(2);
+            this.addMov.Name = "addMov";
+            this.addMov.Size = new System.Drawing.Size(97, 42);
+            this.addMov.TabIndex = 19;
+            this.addMov.Text = "Agregar Movimiento";
+            this.addMov.UseVisualStyleBackColor = true;
+            this.addMov.Click += new System.EventHandler(this.addMov_Click);
+            // 
+            // totCajLabel
+            // 
+            this.totCajLabel.AutoSize = true;
+            this.totCajLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totCajLabel.Location = new System.Drawing.Point(362, 502);
+            this.totCajLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.totCajLabel.Name = "totCajLabel";
+            this.totCajLabel.Size = new System.Drawing.Size(126, 24);
+            this.totCajLabel.TabIndex = 18;
+            this.totCajLabel.Text = "Total Caja $:";
+            // 
+            // cantMovLabel
+            // 
+            this.cantMovLabel.AutoSize = true;
+            this.cantMovLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cantMovLabel.Location = new System.Drawing.Point(4, 502);
+            this.cantMovLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cantMovLabel.Name = "cantMovLabel";
+            this.cantMovLabel.Size = new System.Drawing.Size(268, 24);
+            this.cantMovLabel.TabIndex = 17;
+            this.cantMovLabel.Text = "Cantidad de Movimientos $:";
             // 
             // button5
             // 
@@ -350,7 +416,6 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.str_fecha,
             this.str_hora,
             this.importe,
@@ -364,22 +429,15 @@
             this.dataGridViewTextBoxColumn2,
             this.str_tipo_vehiculo,
             this.str_convenio,
-            this.minutos});
+            this.minutos,
+            this.dataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.movimientosCajaBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(927, 517);
+            this.dataGridView1.Size = new System.Drawing.Size(927, 482);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // str_fecha
             // 
@@ -494,10 +552,111 @@
             this.minutos.Name = "minutos";
             this.minutos.Width = 52;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
             // movimientosCajaBindingSource1
             // 
             this.movimientosCajaBindingSource1.DataMember = "MovimientosCaja";
             this.movimientosCajaBindingSource1.DataSource = this.parkingDataSet;
+            // 
+            // tabMensuales
+            // 
+            this.tabMensuales.AutoScroll = true;
+            this.tabMensuales.BackColor = System.Drawing.Color.Transparent;
+            this.tabMensuales.Controls.Add(this.button6);
+            this.tabMensuales.Controls.Add(this.mensualesGridView);
+            this.tabMensuales.Location = new System.Drawing.Point(4, 22);
+            this.tabMensuales.Name = "tabMensuales";
+            this.tabMensuales.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMensuales.Size = new System.Drawing.Size(934, 587);
+            this.tabMensuales.TabIndex = 2;
+            this.tabMensuales.Text = "Mensuales";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Control;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(5, 540);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 42);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Facturar Mensual";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // mensualesGridView
+            // 
+            this.mensualesGridView.AutoGenerateColumns = false;
+            this.mensualesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mensualesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.str_matricula,
+            this.str_marca_modelo,
+            this.nombre_cliente,
+            this.dataGridViewTextBoxColumn3,
+            this.ultimo_mes_pago,
+            this.idvehiculoregistradoDataGridViewTextBoxColumn});
+            this.mensualesGridView.DataSource = this.mensualesBindingSource;
+            this.mensualesGridView.Location = new System.Drawing.Point(3, 5);
+            this.mensualesGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.mensualesGridView.Name = "mensualesGridView";
+            this.mensualesGridView.RowTemplate.Height = 24;
+            this.mensualesGridView.Size = new System.Drawing.Size(927, 531);
+            this.mensualesGridView.TabIndex = 4;
+            // 
+            // str_matricula
+            // 
+            this.str_matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.str_matricula.DataPropertyName = "str_matricula";
+            this.str_matricula.HeaderText = "Matricula";
+            this.str_matricula.Name = "str_matricula";
+            // 
+            // str_marca_modelo
+            // 
+            this.str_marca_modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.str_marca_modelo.DataPropertyName = "str_marca_modelo";
+            this.str_marca_modelo.HeaderText = "Modelo";
+            this.str_marca_modelo.Name = "str_marca_modelo";
+            // 
+            // nombre_cliente
+            // 
+            this.nombre_cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombre_cliente.DataPropertyName = "nombre_cliente";
+            this.nombre_cliente.HeaderText = "Nombre Cliente";
+            this.nombre_cliente.Name = "nombre_cliente";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "importe";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Importe";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // ultimo_mes_pago
+            // 
+            this.ultimo_mes_pago.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ultimo_mes_pago.DataPropertyName = "ultimo_mes_pago";
+            this.ultimo_mes_pago.HeaderText = "Ultimo Mes Pago";
+            this.ultimo_mes_pago.Name = "ultimo_mes_pago";
+            // 
+            // idvehiculoregistradoDataGridViewTextBoxColumn
+            // 
+            this.idvehiculoregistradoDataGridViewTextBoxColumn.DataPropertyName = "id_vehiculo_registrado";
+            this.idvehiculoregistradoDataGridViewTextBoxColumn.HeaderText = "ID Vehiculo";
+            this.idvehiculoregistradoDataGridViewTextBoxColumn.Name = "idvehiculoregistradoDataGridViewTextBoxColumn";
+            // 
+            // mensualesBindingSource
+            // 
+            this.mensualesBindingSource.DataMember = "Mensuales";
+            this.mensualesBindingSource.DataSource = this.parkingDataSet;
             // 
             // movimientosCajaBindingSource
             // 
@@ -537,23 +696,24 @@
             // 
             this.movimientosCajaTableAdapter.ClearBeforeFill = true;
             // 
-            // cerrado0ToolStrip
+            // mensualesToolStrip
             // 
-            this.cerrado0ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrado0ToolStripButton});
-            this.cerrado0ToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.cerrado0ToolStrip.Name = "cerrado0ToolStrip";
-            this.cerrado0ToolStrip.Size = new System.Drawing.Size(950, 25);
-            this.cerrado0ToolStrip.TabIndex = 5;
-            this.cerrado0ToolStrip.Text = "cerrado0ToolStrip";
-            this.cerrado0ToolStrip.Visible = false;
+            this.mensualesToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mensualesToolStripButton});
+            this.mensualesToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.mensualesToolStrip.Name = "mensualesToolStrip";
+            this.mensualesToolStrip.Size = new System.Drawing.Size(950, 25);
+            this.mensualesToolStrip.TabIndex = 7;
+            this.mensualesToolStrip.Text = "mensualesToolStrip";
+            this.mensualesToolStrip.Visible = false;
             // 
-            // cerrado0ToolStripButton
+            // mensualesToolStripButton
             // 
-            this.cerrado0ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.cerrado0ToolStripButton.Name = "cerrado0ToolStripButton";
-            this.cerrado0ToolStripButton.Size = new System.Drawing.Size(57, 22);
-            this.cerrado0ToolStripButton.Text = "cerrado0";
+            this.mensualesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.mensualesToolStripButton.Name = "mensualesToolStripButton";
+            this.mensualesToolStripButton.Size = new System.Drawing.Size(67, 22);
+            this.mensualesToolStripButton.Text = "mensuales";
+            this.mensualesToolStripButton.Click += new System.EventHandler(this.mensualesToolStripButton_Click);
             // 
             // adentroModTableAdapter
             // 
@@ -572,6 +732,17 @@
             // 
             this.movimientosCajaTableAdapter1.ClearBeforeFill = true;
             // 
+            // MensualesTableAdapter
+            // 
+            this.MensualesTableAdapter.ClearBeforeFill = true;
+            // 
+            // fillToolStripButton
+            // 
+            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillToolStripButton.Name = "fillToolStripButton";
+            this.fillToolStripButton.Size = new System.Drawing.Size(26, 22);
+            this.fillToolStripButton.Text = "Fill";
+            // 
             // fillToolStrip
             // 
             this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -583,20 +754,32 @@
             this.fillToolStrip.Text = "fillToolStrip";
             this.fillToolStrip.Visible = false;
             // 
-            // fillToolStripButton
+            // cerrado0ToolStripButton
             // 
-            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillToolStripButton.Name = "fillToolStripButton";
-            this.fillToolStripButton.Size = new System.Drawing.Size(26, 22);
-            this.fillToolStripButton.Text = "Fill";
+            this.cerrado0ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.cerrado0ToolStripButton.Name = "cerrado0ToolStripButton";
+            this.cerrado0ToolStripButton.Size = new System.Drawing.Size(57, 22);
+            this.cerrado0ToolStripButton.Text = "cerrado0";
+            // 
+            // cerrado0ToolStrip
+            // 
+            this.cerrado0ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cerrado0ToolStripButton});
+            this.cerrado0ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.cerrado0ToolStrip.Name = "cerrado0ToolStrip";
+            this.cerrado0ToolStrip.Size = new System.Drawing.Size(950, 25);
+            this.cerrado0ToolStrip.TabIndex = 5;
+            this.cerrado0ToolStrip.Text = "cerrado0ToolStrip";
+            this.cerrado0ToolStrip.Visible = false;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 617);
-            this.Controls.Add(this.fillToolStrip);
             this.Controls.Add(this.cerrado0ToolStrip);
+            this.Controls.Add(this.fillToolStrip);
+            this.Controls.Add(this.mensualesToolStrip);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.fillBy6ToolStrip);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -610,16 +793,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.adentroModBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
             this.tabCaja.ResumeLayout(false);
+            this.tabCaja.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource1)).EndInit();
+            this.tabMensuales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mensualesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mensualesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosCajaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientoCajaDataSet)).EndInit();
             this.fillBy6ToolStrip.ResumeLayout(false);
             this.fillBy6ToolStrip.PerformLayout();
-            this.cerrado0ToolStrip.ResumeLayout(false);
-            this.cerrado0ToolStrip.PerformLayout();
+            this.mensualesToolStrip.ResumeLayout(false);
+            this.mensualesToolStrip.PerformLayout();
             this.fillToolStrip.ResumeLayout(false);
             this.fillToolStrip.PerformLayout();
+            this.cerrado0ToolStrip.ResumeLayout(false);
+            this.cerrado0ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -646,7 +835,13 @@
         private MovimientoCajaDataSet movimientoCajaDataSet;
         private System.Windows.Forms.BindingSource movimientosCajaBindingSource;
         private MovimientoCajaDataSetTableAdapters.MovimientosCajaTableAdapter movimientosCajaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        public System.Windows.Forms.DataGridView adentroModDataGridView;
+        private System.Windows.Forms.BindingSource movimientosCajaBindingSource1;
+        private ParkingDataSetTableAdapters.MovimientosCajaTableAdapter movimientosCajaTableAdapter1;
+        private System.Windows.Forms.Label totCajLabel;
+        private System.Windows.Forms.Label cantMovLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn str_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn str_hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn importe;
@@ -661,9 +856,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn str_tipo_vehiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn str_convenio;
         private System.Windows.Forms.DataGridViewTextBoxColumn minutos;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        public System.Windows.Forms.DataGridView adentroModDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button addMov;
+        private System.Windows.Forms.TabPage tabMensuales;
+        public System.Windows.Forms.DataGridView mensualesGridView;
+        private System.Windows.Forms.BindingSource mensualesBindingSource;
+        private System.Windows.Forms.ToolStrip mensualesToolStrip;
+        private System.Windows.Forms.ToolStripButton mensualesToolStripButton;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripButton fillToolStripButton;
+        public System.Windows.Forms.ToolStrip fillToolStrip;
+        private System.Windows.Forms.ToolStripButton cerrado0ToolStripButton;
+        public System.Windows.Forms.ToolStrip cerrado0ToolStrip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn str_matricula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn str_marca_modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ultimo_mes_pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idvehiculoregistradoDataGridViewTextBoxColumn;
+        public ParkingDataSetTableAdapters.MensualesTableAdapter MensualesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -674,11 +885,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.ToolStripButton cerrado0ToolStripButton;
-        public System.Windows.Forms.ToolStrip cerrado0ToolStrip;
-        private System.Windows.Forms.BindingSource movimientosCajaBindingSource1;
-        private ParkingDataSetTableAdapters.MovimientosCajaTableAdapter movimientosCajaTableAdapter1;
-        private System.Windows.Forms.ToolStripButton fillToolStripButton;
-        public System.Windows.Forms.ToolStrip fillToolStrip;
     }
 }
