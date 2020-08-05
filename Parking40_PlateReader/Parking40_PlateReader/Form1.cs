@@ -81,7 +81,7 @@ namespace Parking40_PlateReader
                             {
                                 Program.log.Info("La matricula " + plate + " ya esta en Notificaciones");
                                 cam = incDao.getCam(id);
-                                if ((cam == 1) && ((noti.fecha - date).TotalMinutes <= 4))
+                                if ((cam == 1) && ((date - noti.fecha).TotalMinutes <= 4))
                                 {
                                     Program.log.Info("La matricula " + plate + " esta  cruzando y se removera");
                                     notDao.removeNotificationByPlate(noti.str_matricula);

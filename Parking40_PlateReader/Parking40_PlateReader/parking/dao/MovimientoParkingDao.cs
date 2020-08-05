@@ -168,6 +168,3 @@ namespace Parking40_PlateReader.parking.dao
         }
     }
 }
-
-
-}
